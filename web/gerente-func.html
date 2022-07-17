@@ -29,16 +29,16 @@
           <ul class="navi">
 
             <li>
-              <a href="gerente-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Relatórios</span></a>
-            </li>
-            <li >
               <a href="gerente-atend.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Atendimentos</span></a>
             </li>
-            <li class="active">
+            <li>
               <a href="gerente-func.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Funcionários</span></a>
+            </li>
+            <li class="active">
+              <a href="gerente-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
+                  class="hidden-xs hidden-sm">Relatórios</span></a>
             </li>
 
           </ul>
@@ -49,7 +49,7 @@
         <div class="row">
           <header class="d-flex flex-row">
             <div class="p-2 col-9 text-left">
-              <p>Seja bem vindo(a) Usuário</p>
+              <p>Seja bem vindo(a) Gerente</p>
             </div>
             <div class="p-2 col-3 text-right">
               <p><a href="login.html">Sair</a></p>
@@ -65,12 +65,12 @@
             <!-- Botão para abrir modal  -->
 
             <li class="pt-4">
-              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Add Project</a>
+              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Novo Funcionário</a>
             </li>
 
             <!-- Texto Título -->
             <div class="w-100">
-              <h2 class="text-center">Meus Atendimentos</h2>
+              <h2 class="text-center">Lista de Funcionários</h2>
             </div>
 
             <!-- tabela -->
@@ -78,90 +78,38 @@
               <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light">
                   <tr>
-                    <th>ID</th>
-                    <th>Produto</th>
-                    <th>Abertura</th>
-                    <th>Status</th>
-                    <th>Resolver</th>
-                    <th>Editar</th>
-
+                    <th>Cargo</th>
+                    <th>Nome Completo</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>
-                      <p class="fw-normal mb-1">123</p>
+                      <p class="fw-normal mb-1">Gerente</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Creme</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">14/05/2022</p>
-                    </td>
-                    <td>
-                      <span class="badge badge-success rounded-pill d-inline">Active</span>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Resolver
-                      </button></a>                    
-                    </td>
+                      <p class="fw-normal mb-1">John Doe</p>
+                    </td>               
                     <td>
                       <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Editar
+                        Abrir
                       </button></a>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <p class="fw-normal mb-1">123</p>
+                      <p class="fw-normal mb-1">Atendente</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Creme</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">14/05/2022</p>
-                    </td>
-                    <td>
-                      <span class="badge badge-primary rounded-pill d-inline">Onboarding</span>
-                    </td>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Resolver
-                      </button></a>
-                    </td>
+                      <p class="fw-normal mb-1">John Galt</p>
+                    </td>               
                     <td>
                       <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Editar
+                        Abrir
                       </button></a>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">123</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Creme</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">14/05/2022</p>
-                    </td>
-                    <td>
-                      <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Resolver
-                      </button></a>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Editar
-                      </button></a>
-                    </td>
-                  </tr>
-
                 </tbody>
               </table>
             </div>
@@ -173,46 +121,169 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header login-header">
-                    <h4 class="modal-title">Add Project</h4>
+                    <h4 class="modal-title">Novo Funcionário</h4>
+                  </div>
+                  <div class="modal-header login-header">
+                    <h4 class="modal-title">Cadastro Funcionário</h4>
                   </div>
                   <div class="modal-body">
-                    <input type="text" placeholder="Project Title" name="name" />
-                    <input type="text" placeholder="Post of Post" name="mail" />
-                    <input type="text" placeholder="Author" name="passsword" />
-                    <textarea placeholder="Desicrption"></textarea>
+                    <div class="form d-flex flex-row w-100">
+
+                      <form action="index.html" class="col-12 p-0 m-0">
+                        <input required type="text" name="Nome" class="form-control col-10" placeholder="Nome Completo" />
+        
+                        <input required type="text" name="Cpf" class="form-control col-10" value="CPF" readonly="readonly" />
+        
+                        <input required type="text" name="Email" class="form-control col-5" value="Email" readonly="readonly" />
+        
+                        <input required type="password" name="Senha" class="form-control col-5" placeholder="Senha" />
+        
+                        <input required type="number" name="Telefone" class="form-control col-5" placeholder="Telefone" />
+        
+                        <input required type="text" name="Rua" class="form-control col-5" placeholder="Rua" />
+        
+                        <input required type="number" name="Numero" class="form-control col-5" placeholder="Numero" />
+        
+                        <input required type="text" name="Complemento" class="form-control col-5" placeholder="Complemento" />
+        
+                        <input required type="number" name="Cep" class="form-control col-5" placeholder="CEP" />
+        
+                        <input required type="text" name="Bairro" class="form-control col-5" placeholder="Bairro" />
+        
+                        <select required placeholder="Estado" class="form-control col-5 mb-3" name="Estado" >
+                          <option value="AC">Estado</option>
+                          <option value="AC">Acre</option>
+                          <option value="AL">Alagoas</option>
+                          <option value="AP">Amapá</option>
+                          <option value="AM">Amazonas</option>
+                          <option value="BA">Bahia</option>
+                          <option value="CE">Ceará</option>
+                          <option value="DF">Distrito Federal</option>
+                          <option value="ES">Espírito Santo</option>
+                          <option value="GO">Goiás</option>
+                          <option value="MA">Maranhão</option>
+                          <option value="MT">Mato Grosso</option>
+                          <option value="MS">Mato Grosso do Sul</option>
+                          <option value="MG">Minas Gerais</option>
+                          <option value="PA">Pará</option>
+                          <option value="PB">Paraíba</option>
+                          <option value="PR">Paraná</option>
+                          <option value="PE">Pernambuco</option>
+                          <option value="PI">Piauí</option>
+                          <option value="RJ">Rio de Janeiro</option>
+                          <option value="RN">Rio Grande do Norte</option>
+                          <option value="RS">Rio Grande do Sul</option>
+                          <option value="RO">Rondônia</option>
+                          <option value="RR">Roraima</option>
+                          <option value="SC">Santa Catarina</option>
+                          <option value="SP">São Paulo</option>
+                          <option value="SE">Sergipe</option>
+                          <option value="TO">Tocantins</option>
+                          <option value="EX">Estrangeiro</option>
+                        </select>        
+                        <input required type="text" name="Cidade" class="form-control col-5" placeholder="Cidade" />                        
+                        <div class="col-12 p-0  pt-2">
+                          <input type="submit" value="Cancelar" class="btn btn-secondary col-3" />
+                          <input type="submit" value="Salvar" class="btn btn-success col-3" />
+                        </div>
+                      </form>
+                    </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="cancel" data-dismiss="modal">
-                      Close
+                      Fechar
                     </button>
                     <button type="button" class="add-modal" data-dismiss="modal">
-                      Save
+                      Salvar
                     </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Modal form -->
+            <!-- Modal form  -->
             <div id="modal-form" class="modal fade" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header login-header">
-                    <h4 class="modal-title">Add Project</h4>
+                    <h4 class="modal-title">Cadastro Funcionário</h4>
+                    <button type="button" class="add-modal" data-dismiss="modal">
+                      Excluir Funcionário
+                    </button>
                   </div>
+                  
                   <div class="modal-body">
-                    <input type="text" placeholder="Project Title" name="name" />
-                    <input type="text" placeholder="Post of Post" name="mail" />
-                    <input type="text" placeholder="Author" name="passsword" />
-                    <textarea placeholder="Description"></textarea>
+                    <div class="form d-flex flex-row w-100">
+
+                      <form action="index.html" class="col-12 p-0 m-0">
+                        <input required type="text" name="Nome" class="form-control col-10" placeholder="Nome Completo" />
+        
+                        <input required type="text" name="Cpf" class="form-control col-10" value="CPF" readonly="readonly" />
+        
+                        <input required type="text" name="Email" class="form-control col-5" value="Email" readonly="readonly" />
+        
+                        <input required type="password" name="Senha" class="form-control col-5" placeholder="Senha" />
+        
+                        <input required type="number" name="Telefone" class="form-control col-5" placeholder="Telefone" />
+        
+                        <input required type="text" name="Rua" class="form-control col-5" placeholder="Rua" />
+        
+                        <input required type="number" name="Numero" class="form-control col-5" placeholder="Numero" />
+        
+                        <input required type="text" name="Complemento" class="form-control col-5" placeholder="Complemento" />
+        
+                        <input required type="number" name="Cep" class="form-control col-5" placeholder="CEP" />
+        
+                        <input required type="text" name="Bairro" class="form-control col-5" placeholder="Bairro" />
+        
+                        <select required placeholder="Estado" class="form-control col-5 mb-3" name="Estado" >
+                          <option value="AC">Estado</option>
+                          <option value="AC">Acre</option>
+                          <option value="AL">Alagoas</option>
+                          <option value="AP">Amapá</option>
+                          <option value="AM">Amazonas</option>
+                          <option value="BA">Bahia</option>
+                          <option value="CE">Ceará</option>
+                          <option value="DF">Distrito Federal</option>
+                          <option value="ES">Espírito Santo</option>
+                          <option value="GO">Goiás</option>
+                          <option value="MA">Maranhão</option>
+                          <option value="MT">Mato Grosso</option>
+                          <option value="MS">Mato Grosso do Sul</option>
+                          <option value="MG">Minas Gerais</option>
+                          <option value="PA">Pará</option>
+                          <option value="PB">Paraíba</option>
+                          <option value="PR">Paraná</option>
+                          <option value="PE">Pernambuco</option>
+                          <option value="PI">Piauí</option>
+                          <option value="RJ">Rio de Janeiro</option>
+                          <option value="RN">Rio Grande do Norte</option>
+                          <option value="RS">Rio Grande do Sul</option>
+                          <option value="RO">Rondônia</option>
+                          <option value="RR">Roraima</option>
+                          <option value="SC">Santa Catarina</option>
+                          <option value="SP">São Paulo</option>
+                          <option value="SE">Sergipe</option>
+                          <option value="TO">Tocantins</option>
+                          <option value="EX">Estrangeiro</option>
+                        </select>        
+                        <input required type="text" name="Cidade" class="form-control col-5" placeholder="Cidade" />                        
+                        <div class="col-12 p-0  pt-2">
+                          <input type="submit" value="Cancelar" class="btn btn-secondary col-3" />
+                          <input type="submit" value="Salvar" class="btn btn-success col-3" />
+                        </div>
+                      </form>
+                    </div>
                   </div>
                   <div class="modal-footer">
+                    
+
                     <button type="button" class="cancel" data-dismiss="modal">
-                      Close
+                      Fechar
                     </button>
                     <button type="button" class="add-modal" data-dismiss="modal">
-                      Save
+                      Salvar Alterações
                     </button>
                   </div>
                 </div>

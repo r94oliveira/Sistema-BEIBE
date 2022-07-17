@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Page</title>
+  <title>Home Page Gerente</title>
 
   <!-- CSS only -->
   <link rel="stylesheet" href="css/style.css" />
@@ -29,16 +29,16 @@
           <ul class="navi">
 
             <li>
-              <a href="gerente-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Relatórios</span></a>
-            </li>
-            <li class="active">
               <a href="gerente-atend.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Atendimentos</span></a>
             </li>
             <li>
               <a href="gerente-func.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Funcionários</span></a>
+            </li>
+            <li class="active">
+              <a href="gerente-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
+                  class="hidden-xs hidden-sm">Relatórios</span></a>
             </li>
 
           </ul>
@@ -49,7 +49,7 @@
         <div class="row">
           <header class="d-flex flex-row">
             <div class="p-2 col-9 text-left">
-              <p>Seja bem vindo(a) Usuário</p>
+              <p>Seja bem vindo(a) GERENTE</p>
             </div>
             <div class="p-2 col-3 text-right">
               <p><a href="login.html">Sair</a></p>
@@ -60,186 +60,121 @@
         <div class="user-dashboard">
           <div class="row">
             <!-- INICIO DE CONTEÚDO  -->
-
-
-            <!-- Botão para abrir modal  -->
-
-            <li class="pt-4">
-              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Add Project</a>
-            </li>
-
             <!-- Texto Título -->
-            <div class="w-100">
-              <h2 class="text-center">Meus Atendimentos</h2>
+            <div class="w-100 py-4">
+              <h2 class="text-center">Atendimentos</h2>
             </div>
-
-            <!-- tabela -->
-            <div class="table-responsive-sm w-100 py-2">
-              <table class="table align-middle mb-0 bg-white">
-                <thead class="bg-light">
-                  <tr>
-                    <th>ID</th>
-                    <th>Produto</th>
-                    <th>Abertura</th>
-                    <th>Status</th>
-                    <th>Resolver</th>
-                    <th>Editar</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">123</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Creme</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">14/05/2022</p>
-                    </td>
-                    <td>
-                      <span class="badge badge-success rounded-pill d-inline">Active</span>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Resolver
-                      </button></a>                    
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Editar
-                      </button></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">123</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Creme</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">14/05/2022</p>
-                    </td>
-                    <td>
-                      <span class="badge badge-primary rounded-pill d-inline">Onboarding</span>
-                    </td>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Resolver
-                      </button></a>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Editar
-                      </button></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">123</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Creme</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">14/05/2022</p>
-                    </td>
-                    <td>
-                      <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Resolver
-                      </button></a>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Editar
-                      </button></a>
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
+        <!-- tabela -->
+        <div class="table-responsive-sm w-100 py-2">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Filtro
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Todos os Atendimentos</a>
+              <a class="dropdown-item" href="#">Atendimentos em aberto</a>
             </div>
+          </div>
+          <table class="table align-middle mb-0 bg-white">
+            <thead class="bg-light">
+              <tr>
+                <th>ID</th>
+                <th>Produto</th>
+                <th>Abertura</th>
+                <th>Status</th>
+                <th></th>
 
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p class="fw-normal mb-1">123</p>
+                </td>
+                <td>
+                  <p class="fw-normal mb-1">Creme</p>
+                </td>
+                <td>
+                  <p class="fw-normal mb-1">14/05/2022</p>
+                </td>
+                <td>
+                  <span class="badge badge-success rounded-pill d-inline">Aberto</span>
+                </td>
+                
+                <td>
+                  <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                    Abrir
+                  </button></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="fw-normal mb-1">123</p>
+                </td>
+                <td>
+                  <p class="fw-normal mb-1">Creme</p>
+                </td>
+                <td>
+                  <p class="fw-normal mb-1">14/05/2022</p>
+                </td>
+                <td>
+                  <span class="badge badge-secondary rounded-pill d-inline">Encerrado</span>
+                </td>
+                </td>
+                <td>
+                  <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                    Abrir
+                  </button></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="fw-normal mb-1">123</p>
+                </td>
+                <td>
+                  <p class="fw-normal mb-1">Creme</p>
+                </td>
+                <td>
+                  <p class="fw-normal mb-1">14/05/2022</p>
+                </td>
+                <td>
+                  <span class="badge badge-success rounded-pill d-inline">Aberto</span>
+                </td>
+                <td>
+                  <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                    Abrir
+                  </button></a>
+                </td>
+              </tr>
 
-            <!-- Modal project -->
-            <div id="modal-project" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header login-header">
-                    <h4 class="modal-title">Add Project</h4>
-                  </div>
-                  <div class="modal-body">
-                    <input type="text" placeholder="Project Title" name="name" />
-                    <input type="text" placeholder="Post of Post" name="mail" />
-                    <input type="text" placeholder="Author" name="passsword" />
-                    <textarea placeholder="Desicrption"></textarea>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="cancel" data-dismiss="modal">
-                      Close
-                    </button>
-                    <button type="button" class="add-modal" data-dismiss="modal">
-                      Save
-                    </button>
-                  </div>
+            </tbody>
+          </table>
+        </div>
+
+          <!-- Modal form -->
+          <div id="modal-form" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header login-header">
+                  <h4 class="modal-title">Informações Atendimento</h4>
+                </div>
+                <div class="modal-body">
+                  <input type="text" placeholder="Tipo de Atendimento" name="tipoAtendimento" />
+                  <input type="text" placeholder="Categoria" name="categoriaAtendimento" />
+                  <input type="text" placeholder="Produto" name="produto" />
+                  <textarea placeholder="Descrição"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="cancel" data-dismiss="modal">
+                    Fechar
+                  </button>                  
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Modal form -->
-            <div id="modal-form" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header login-header">
-                    <h4 class="modal-title">Add Project</h4>
-                  </div>
-                  <div class="modal-body">
-                    <input type="text" placeholder="Project Title" name="name" />
-                    <input type="text" placeholder="Post of Post" name="mail" />
-                    <input type="text" placeholder="Author" name="passsword" />
-                    <textarea placeholder="Description"></textarea>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="cancel" data-dismiss="modal">
-                      Close
-                    </button>
-                    <button type="button" class="add-modal" data-dismiss="modal">
-                      Save
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Modal confirm -->
-            <div id="modal-confirm" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header login-header">
-                    <h4 class="modal-title">Deseja realizar essa ação?</h4>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="add-modal" data-dismiss="modal">
-                      Sim
-                    </button>
-                    <button type="button" class="cancel" data-dismiss="modal">
-                      Não
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
+          
             <!-- FIM DE CONTEÚDO  -->
           </div>
         </div>

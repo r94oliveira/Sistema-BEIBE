@@ -27,18 +27,17 @@
         </div>
         <div>
           <ul class="navi">
-
-            <li class="active">
-              <a href="gerente-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Relatórios</span></a>
-            </li>
-            <li>
+              <li>
               <a href="gerente-atend.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Atendimentos</span></a>
             </li>
             <li>
               <a href="gerente-func.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Funcionários</span></a>
+            </li>
+            <li class="active">
+              <a href="gerente-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
+                  class="hidden-xs hidden-sm">Relatórios</span></a>
             </li>
 
           </ul>
@@ -49,7 +48,7 @@
         <div class="row">
           <header class="d-flex flex-row">
             <div class="p-2 col-9 text-left">
-              <p>Seja bem vindo(a) Usuário</p>
+              <p>Seja bem vindo(a) Gerente</p>
             </div>
             <div class="p-2 col-3 text-right">
               <p><a href="login.html">Sair</a></p>
@@ -60,92 +59,121 @@
         <div class="user-dashboard">
           <div class="row">
             <!-- INICIO DE CONTEÚDO  -->
+            <div class="w-100">
+              <h2 class="text-center">Emissão de Relatório</h2>
+            </div>
+           
 
-            <!-- Botão para abrir modal  -->
+            <!-- tabela -->
+            <div class="table-responsive-sm w-100 py-2">
+              <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                  <tr>
+                    <th>Tipo do Relatório</th>
+                    <th>Especificações para Emissão</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">Cadastro de Funcionários</p>
+                    </td>
+                    <td></td>
+                    <td>
+                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Emitir
+                      </button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">Produtos Mais Reclamados</p>
+                    </td>
+                    <td></td>
+                    <td>
+                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Emitir
+                      </button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">Atendimentos em Aberto</p>
+                    </td>
+                    <td>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-sm">
+                            <div class="input-group mb-3">
+                              <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Dia</option>
+                                <option value="1">01</option>
+                                <option value="2">02</option>                      
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm">
+                            <div class="input-group mb-3">
+                              <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Mês</option>
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>                      
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm">
+                            <div class="input-group mb-3">
+                              <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Ano</option>
+                                <option value="1">2022</option>
+                                <option value="2">2021</option>                      
+                              </select>
+                            </div>
+                          </div>
+                  </td>
+                    <td>
+                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Emitir
+                      </button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">Reclamações</p>
+                    </td>
+                    <td>
+                      <div class="input-group mb-3">
+                        <select class="custom-select" id="inputGroupSelect01">
+                          <option selected>Tipo</option>
+                          <option value="1">Todas</option>
+                          <option value="2">Em Aberto</option>                      
+                        </select>
+                      </div>
+                    
+                    <td>
+                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Emitir
+                      </button></a>
+                    </td>
+                  </tr>
 
-            <li class="px-2 py-4 ml-2">
-              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Relatório</a>
-            </li>
-
-            <li class="px-2 py-4">
-              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Relatório</a>
-            </li>
-
-            <li class="px-2 py-4">
-              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Relatório</a>
-            </li>
-
-            <li class="px-2 py-4">
-              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Relatório</a>
-            </li>
-
-
-            <!-- quadros com quantidades -->
-
-            <div class="col-md-6  py-2">
-              <div class="list-group">
-                <div class="list-group-item">
-                  <h3 class="pull-right">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                  </h3>
-                  <h4 class="list-group-item-heading count">
-                    1000</h4>
-                  <p class="list-group-item-text">
-                    Atendimentos efetuados até o momento</p>
-                </div>
-              </div>
-
+                </tbody>
+              </table>
             </div>
 
-            <div class="col-md-6 py-2">
-              <div class="list-group">
-                <div class="list-group-item">
-                  <h3 class="pull-right">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                  </h3>
-                  <h4 class="list-group-item-heading count">
-                    100 | 10% </h4>
-                  <p class="list-group-item-text">
-                    Atendimentos em aberto </p>
-                </div>
-              </div>
 
-            </div>
 
-            <div class="col-md-3 p-2">
-              <div class="list-group">
-                <div class="list-group-item">
-                  <p class="list-group-item-text">
-                    Tipo de atedimento: Reclamação</p>
-                  <h4 class="list-group-item-heading count">
-                    15/100</h4>
-                </div>
-              </div>
 
-            </div>
 
-            <div class="col-md-3 p-2">
-              <div class="list-group">
-                <div class="list-group-item">
-                  <p class="list-group-item-text">
-                    Tipo de atedimento: Reclamação</p>
-                  <h4 class="list-group-item-heading count">
-                    15/100</h4>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-md-3 p-2">
-              <div class="list-group">
-                <div class="list-group-item">
-                  <p class="list-group-item-text">
-                    Tipo de atedimento: Reclamação</p>
-                  <h4 class="list-group-item-heading count">
-                    15/100</h4>
-                </div>
-              </div>
 
-            </div>
+
+
+
+
+
+
 
             <!-- Modal project -->
             <div id="modal-project" class="modal fade" role="dialog">
