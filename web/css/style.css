@@ -33,8 +33,7 @@ h3 i {
 /* Forms */
 
 .form {
-  padding: 10px;
-  height: 300px;
+  height: 500px;
   display:inline-block;
 }
 
@@ -169,6 +168,14 @@ body#login h3 {
 .add-modal:hover {
   color: #ffffff;
 }
+
+
+.modal-content {
+  width: 80%;
+  height: 80%;
+}
+
+
 
 .icon-info {
   position: relative;
@@ -387,7 +394,7 @@ header {
   border: 1px solid #d4d9e3;
   font-size: 14px;
   font-weight: 300;
-  height: 200px;
+  height: 80%;
   margin-top: 5px;
   padding: 9px 10px;
   width: 100%;
@@ -426,7 +433,12 @@ header {
   background-color:gray;
 }
 .modal {
-  top: 20%;
+  top: 10%;
+}
+
+
+.custom-select{
+  width: 60%;
 }
 
 .search input:focus {

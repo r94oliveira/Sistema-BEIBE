@@ -13,7 +13,25 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" />
-</head>
+
+   <!--script alerta--> 
+   <script type="text/javascript">
+    function conf()
+    {
+    var con=confirm("Do you want to submit for sure?");
+    }
+    </script>
+
+
+
+  </head>
+
+
+
+
+
+
+
 
 <body id="home">
 
@@ -83,11 +101,20 @@
                 <option value="categoria3">Categoria 3</option>
               </select>
 
-              <input required type="text" name="Nome" class="form-control col-10" placeholder="Nome Categoria" />
+             
 
-              <input type="submit" value="Remover Categoria" class="btn btn-secondary col-3" />
+              <input type="submit" onClick="conf()" value="Remover Categoria" class="btn btn-secondary col-3" action=/>
 
             </div>
+
+
+            <script>
+              function clickAlert() {
+                alert("Alert!");
+            }
+            </script>
+            
+            <input type="button" onclick="clickAlert()" value="Click-2-Alert">
 
 
             <!-- Modal project -->
