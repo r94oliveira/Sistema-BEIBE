@@ -441,6 +441,10 @@ header {
   width: 60%;
 }
 
+#reclamation-span{
+  width: 65%;
+}
+
 .search input:focus {
   line-height: 12px;
   transition: 0.1s all;
@@ -454,3 +458,4 @@ header {
     min-height: 100vh;
   }
 }
+
