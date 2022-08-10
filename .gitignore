@@ -36,8 +36,13 @@
 # Netbeans
 nbactions*.xml
 nb-configuration*.xml
-nbproject/private/
+**/nbproject/private/
 build.xml
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 
 
 # Folder config file
