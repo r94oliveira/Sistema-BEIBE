@@ -1,4 +1,4 @@
 *.idea
-*/beibe/dist/
-*/beibe/nbproject/private/
-*/beibe/build/
+*/dist/
+*/nbproject/private/
+*/build/
