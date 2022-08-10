@@ -36,6 +36,8 @@
 # Netbeans
 nbactions*.xml
 nb-configuration*.xml
+nbproject/private/
+build.xml
 
 
 # Folder config file
