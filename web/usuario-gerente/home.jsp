@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,7 @@
   <title>Home Page</title>
 
   <!-- CSS only -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
@@ -28,20 +29,18 @@
         <div>
           <ul class="navi">
             <li class="active">
-              <a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a>
-            </li>
-            <li>
-              <a href="client-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Painel do cliente</span></a>
-            </li>
-            <li>
-              <a href="func-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Painel do funcionário</span></a>
-            </li>
-            <li>
               <a href="gerente-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Painel do gerente</span></a>
+                  class="hidden-xs hidden-sm">Relatórios</span></a>
             </li>
+            <li>
+              <a href="gerente-atend.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
+                  class="hidden-xs hidden-sm">Atendimentos</span></a>
+            </li>
+            <li>
+              <a href="gerente-func.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
+                  class="hidden-xs hidden-sm">Funcionários</span></a>
+            </li>
+
 
           </ul>
         </div>
@@ -51,7 +50,7 @@
         <div class="row">
           <header class="d-flex flex-row">
             <div class="p-2 col-9 text-left">
-              <p>Seja bem vindo(a) Usuário</p>
+              <p>Seja bem vindo(a) Gerente</p>
             </div>
             <div class="p-2 col-3 text-right">
               <p><a href="login.html">Sair</a></p>
@@ -62,136 +61,6 @@
         <div class="user-dashboard">
           <div class="row">
             <!-- INICIO DE CONTEÚDO  -->
-
-            <!-- Filtro  -->
-
-            <div class="pt-3 col-md-5 col-sm-5">
-              <div class="sales">
-                <h2>Atendimento</h2>
-
-                <div class="btn-group">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <span>Status</span>
-                  </button>
-                  <div class="dropdown-menu">
-                    <a href="#">Todos</a>
-                    <a href="#">Aberto</a>
-                    <a href="#">Fechado</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Barra de pesquisa  -->
-
-            <div class="search col-5 pt-3">
-              <input type="text" placeholder="Search" id="search" />
-            </div>
-
-            <!-- Botão para abrir modal  -->
-
-            <li class="pt-4">
-              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Add Project</a>
-            </li>
-
-            <!-- Texto Título -->
-            <div class="w-100">
-              <h2 class="text-center">Meus Atendimentos</h2>
-            </div>
-
-            <!-- tabela -->
-            <div class="table-responsive-sm w-100 py-2">
-              <table class="table align-middle mb-0 bg-white">
-                <thead class="bg-light">
-                  <tr>
-                    <th>ID</th>
-                    <th>Produto</th>
-                    <th>Abertura</th>
-                    <th>Status</th>
-                    <th>Resolver</th>
-                    <th>Abrir</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">123</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Creme</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">14/05/2022</p>
-                    </td>
-                    <td>
-                      <span class="badge badge-warning rounded-pill d-inline">Aberto</span>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Resolver
-                      </button></a>                    
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Editar
-                      </button></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">123</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Creme</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">14/05/2022</p>
-                    </td>
-                    <td>
-                      <span class="badge badge-primary rounded-pill d-inline">Encerrado</span>
-                    </td>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Resolver
-                      </button></a>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Editar
-                      </button></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">123</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Creme</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">14/05/2022</p>
-                    </td>
-                    <td>
-                      <span class="badge badge-warning rounded-pill d-inline">Aberto</span>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Resolver
-                      </button></a>
-                    </td>
-                    <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Editar
-                      </button></a>
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
 
             <!-- quadros com quantidades -->
 
@@ -257,28 +126,129 @@
                     15/100</h4>
                 </div>
               </div>
-
             </div>
-
-            <!-- Formulário  -->
-
-            <div class="form d-flex flex-row w-100">
-
-              <form action="index.html" class="col-12 p-0 m-0">
-                <input required type="email" name="Email" class="form-control col-5" placeholder="Email" />
-
-                <input required type="password" name="Senha" class="form-control col-5" placeholder="Senha" />
-
-                <input required type="password" name="Senha" class="form-control col-10" placeholder="Senha" />
-                <textarea  class="form-control col-10"  placeholder="Description"></textarea>
-               
-                <div class="col-12 p-0 pt-2">
-                  <input type="submit" value="Cancelar" class="btn btn-secondary col-3" />
-                  <input type="submit" value="Criar" class="btn btn-success col-3" />
-
+            
+                        <div class="col-md-3 p-2">
+              <div class="list-group">
+                <div class="list-group-item">
+                  <p class="list-group-item-text">
+                    Tipo de atedimento: Reclamação</p>
+                  <h4 class="list-group-item-heading count">
+                    15/100</h4>
                 </div>
-              </form>
+              </div>
             </div>
+            
+            <!-- tabela -->
+            <div class="table-responsive-sm w-100 py-2">
+              <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                  <tr>
+                    <th>Tipo do Relatório</th>
+                    <th>Especificações para Emissão</th>
+                    <th>Emitir relatório</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">Cadastro de Funcionários</p>
+                    </td>
+                    <td></td>
+                    <td>
+                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Emitir
+                      </button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">Produtos Mais Reclamados</p>
+                    </td>
+                    <td></td>
+                    <td>
+                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Emitir
+                      </button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">Atendimentos em Aberto</p>
+                    </td>
+                    <td>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-sm">
+                            <div class="input-group mb-3">
+                              <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Dia</option>
+                                <option value="1">01</option>
+                                <option value="2">02</option>                      
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm">
+                            <div class="input-group mb-3">
+                              <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Mês</option>
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>                      
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-sm">
+                            <div class="input-group mb-3">
+                              <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Ano</option>
+                                <option value="1">2022</option>
+                                <option value="2">2021</option>                      
+                              </select>
+                            </div>
+                          </div>
+                  </td>
+                    <td>
+                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Emitir
+                      </button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">Reclamações</p>
+                    </td>
+                    <td>
+                      <div class="input-group mb-3">
+                        
+                        <select class="custom-select" id="inputGroupSelect01">
+                          <option selected>Tipo</option>
+                          <option value="1">Todas</option>
+                          <option value="2">Em Aberto</option>                      
+                        </select>
+                        <span id="reclamation-span"></span>
+                      </div>
+                    
+                    <td>
+                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Emitir
+                      </button></a>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -288,20 +258,17 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header login-header">
-                    <h4 class="modal-title">Add Project</h4>
+                    <h4 class="modal-title">Relatório</h4>
                   </div>
                   <div class="modal-body">
-                    <input type="text" placeholder="Project Title" name="name" />
-                    <input type="text" placeholder="Post of Post" name="mail" />
-                    <input type="text" placeholder="Author" name="passsword" />
-                    <textarea placeholder="Desicrption"></textarea>
+                    Relatório...
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="cancel" data-dismiss="modal">
                       Close
                     </button>
                     <button type="button" class="add-modal" data-dismiss="modal">
-                      Save
+                      Download
                     </button>
                   </div>
                 </div>

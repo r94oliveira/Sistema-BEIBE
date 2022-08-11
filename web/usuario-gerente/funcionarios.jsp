@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,7 @@
   <title>Home Page</title>
 
   <!-- CSS only -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
@@ -27,19 +28,19 @@
         </div>
         <div>
           <ul class="navi">
-
+            <li>
+              <a href="gerente-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
+                  class="hidden-xs hidden-sm">Relatórios</span></a>
+            </li>
             <li>
               <a href="gerente-atend.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Atendimentos</span></a>
             </li>
-            <li>
+            <li class="active">
               <a href="gerente-func.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Funcionários</span></a>
             </li>
-            <li class="active">
-              <a href="gerente-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Relatórios</span></a>
-            </li>
+
 
           </ul>
         </div>
@@ -198,20 +199,78 @@
           
 
             <!-- Modal confirm -->
-            <div id="modal-confirm" class="modal fade" role="dialog">
+            <div id="modal-form" class="modal fade" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header login-header">
                     <h4 class="modal-title">Deseja realizar essa ação?</h4>
                   </div>
+                                      <div class="modal-body">
+                    <div class="form d-flex flex-row w-100">
+
+                      <form action="index.html" class="custom-control custom-checkbox mb-3">
+                        <input required type="text" name="Nome" class="form-control col-10" placeholder="Nome Completo" />
+        
+                        <input required type="text" name="Cpf" class="form-control col-10" placeholder="CPF"  />
+        
+                        <input required type="email" name="Email" class="form-control col-5" placeholder="E-mail" />
+        
+                        <input required type="password" name="Senha" class="form-control col-5" placeholder="Senha" />
+        
+                        <input required type="tel" name="Telefone" class="form-control col-5" placeholder="Telefone" />
+        
+                        <input required type="text" name="Rua" class="form-control col-5" placeholder="Rua" />
+        
+                        <input required type="number" name="Numero" class="form-control col-5" placeholder="Numero" />
+        
+                        <input required type="text" name="Complemento" class="form-control col-5" placeholder="Complemento" />
+        
+                        <input required type="text" name="Cep" class="form-control col-5" placeholder="CEP" />
+        
+                        <input required type="text" name="Bairro" class="form-control col-5" placeholder="Bairro" />
+        
+                        <select required placeholder="Estado" class="form-control col-5 mb-3" name="Estado" >
+                          <option value="AC">Estado</option>
+                          <option value="AC">Acre</option>
+                          <option value="AL">Alagoas</option>
+                          <option value="AP">Amapá</option>
+                          <option value="AM">Amazonas</option>
+                          <option value="BA">Bahia</option>
+                          <option value="CE">Ceará</option>
+                          <option value="DF">Distrito Federal</option>
+                          <option value="ES">Espírito Santo</option>
+                          <option value="GO">Goiás</option>
+                          <option value="MA">Maranhão</option>
+                          <option value="MT">Mato Grosso</option>
+                          <option value="MS">Mato Grosso do Sul</option>
+                          <option value="MG">Minas Gerais</option>
+                          <option value="PA">Pará</option>
+                          <option value="PB">Paraíba</option>
+                          <option value="PR">Paraná</option>
+                          <option value="PE">Pernambuco</option>
+                          <option value="PI">Piauí</option>
+                          <option value="RJ">Rio de Janeiro</option>
+                          <option value="RN">Rio Grande do Norte</option>
+                          <option value="RS">Rio Grande do Sul</option>
+                          <option value="RO">Rondônia</option>
+                          <option value="RR">Roraima</option>
+                          <option value="SC">Santa Catarina</option>
+                          <option value="SP">São Paulo</option>
+                          <option value="SE">Sergipe</option>
+                          <option value="TO">Tocantins</option>
+                          <option value="EX">Estrangeiro</option>
+                        </select>        
+                        <input required type="text" name="Cidade" class="form-control col-5" placeholder="Cidade" />                        
+                        
+                      </form>
+                    </div>
+                  </div>
                   <div class="modal-footer">
                     <button type="button" class="add-modal" data-dismiss="modal">
-                      Sim
+                      Fechar
                     </button>
-                    <button type="button" class="cancel" data-dismiss="modal">
-                      Não
-                    </button>
+
                   </div>
                 </div>
               </div>

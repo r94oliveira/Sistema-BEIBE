@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,10 +6,10 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Page</title>
+  <title>Home Page Funcionário</title>
 
   <!-- CSS only -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
@@ -28,7 +29,7 @@
         <div>
           <ul class="navi">
 
-            <li>
+            <li class="active">
               <a href="func-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Atendimentos</span></a>
             </li>
@@ -36,7 +37,7 @@
               <a href="func-categ.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Categorias</span></a>
             </li>
-            <li class="active">
+            <li>
               <a href="func-prod.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Produtos</span></a>
             </li>
@@ -61,15 +62,11 @@
           <div class="row">
             <!-- INICIO DE CONTEÚDO  -->
 
-            <!-- Botão para abrir modal  -->
 
-            <li class="pt-4">
-              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Cadastrar produto</a>
-            </li>
 
             <!-- Texto Título -->
             <div class="w-100">
-              <h2 class="text-center">Produtos</h2>
+              <h2 class="text-center">Atendimentos</h2>
             </div>
 
             <!-- tabela -->
@@ -78,11 +75,11 @@
                 <thead class="bg-light">
                   <tr>
                     <th>ID</th>
-                    <th>Nome do Produto</th>
-                    <th>Categoria</th>
-                    <th>Peso</th>
-                    <th>Descrição</th>
-                    <th>Remover produto</th>
+                    <th>Produto</th>
+                    <th>Abertura</th>
+                    <th>Status</th>
+                    <th>Resolver</th>
+                    <th>Editar</th>
 
                   </tr>
                 </thead>
@@ -92,20 +89,22 @@
                       <p class="fw-normal mb-1">123</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Creme Bonito</p>
+                      <p class="fw-normal mb-1">Creme</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Beleza</p>
+                      <p class="fw-normal mb-1">14/05/2022</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">100g</p>
-                    </td>
-                    <td>
-                      <p class="fw-normal mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                      <span class="badge badge-success rounded-pill d-inline">Aberto</span>
                     </td>
                     <td>
                       <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Excluir
+                        Resolver
+                      </button></a>                    
+                    </td>
+                    <td>
+                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Editar
                       </button></a>
                     </td>
                   </tr>
@@ -114,20 +113,23 @@
                       <p class="fw-normal mb-1">123</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Creme Bonito</p>
+                      <p class="fw-normal mb-1">Creme</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Beleza</p>
+                      <p class="fw-normal mb-1">14/05/2022</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">100g</p>
+                      <span class="badge badge-success rounded-pill d-inline">Aberto</span>
                     </td>
-                    <td>
-                      <p class="fw-normal mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
                     </td>
                     <td>
                       <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Excluir
+                        Resolver
+                      </button></a>
+                    </td>
+                    <td>
+                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Editar
                       </button></a>
                     </td>
                   </tr>
@@ -136,24 +138,23 @@
                       <p class="fw-normal mb-1">123</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Creme Bonito</p>
+                      <p class="fw-normal mb-1">Creme</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Beleza</p>
+                      <p class="fw-normal mb-1">14/05/2022</p>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">100g</p>
+                      <span class="badge badge-secondary rounded-pill d-inline">Encerrado</span>
                     </td>
                     <td>
-                      <p class="fw-normal mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                      
                     </td>
                     <td>
-                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Excluir
+                      <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Abrir
                       </button></a>
                     </td>
                   </tr>
-
 
                 </tbody>
               </table>
@@ -165,18 +166,39 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header login-header">
-                    <h4 class="modal-title">Adicionar novo produto</h4>
+                    <h4 class="modal-title">Add Project</h4>
                   </div>
                   <div class="modal-body">
-                    <select class="form-control" class="form-select" aria-label="Default select example">
-                      <option selected>Selecione a categoria do produto</option>
-                      <option value="categoria1">Categoria 1</option>
-                      <option value="categoria2">Categoria 2</option>
-                      <option value="categoria3">Categoria 3</option>
-                    </select>
-                    <input type="text" placeholder="Nome" name="mail" />
-                    <input type="text" placeholder="Peso" name="passsword" />
-                    <textarea placeholder="Descrição"></textarea>
+                    <input type="text" placeholder="Project Title" name="name" />
+                    <input type="text" placeholder="Post of Post" name="mail" />
+                    <input type="text" placeholder="Author" name="passsword" />
+                    <textarea placeholder="Desicrption"></textarea>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="cancel" data-dismiss="modal">
+                      Close
+                    </button>
+                    <button type="button" class="add-modal" data-dismiss="modal">
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal form -->
+            <div id="modal-form" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header login-header">
+                    <h4 class="modal-title">Editar atendimento</h4>
+                  </div>
+                  <div class="modal-body">
+                    <input type="text" placeholder="Project Title" name="name" />
+                    <input type="text" placeholder="Post of Post" name="mail" />
+                    <input type="text" placeholder="Author" name="passsword" />
+                    <textarea placeholder="Description"></textarea>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="cancel" data-dismiss="modal">
@@ -190,13 +212,13 @@
               </div>
             </div>
 
-            <!-- Modal confirm -->
+ <!-- Modal confirm -->
             <div id="modal-confirm" class="modal fade" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header login-header">
-                    <h4 class="modal-title">Realmente deseja excluir esse produto?</h4>
+                    <h4 class="modal-title">Realmente deseja resolver esse atendimento?</h4>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="add-modal" data-dismiss="modal">
@@ -209,7 +231,6 @@
                 </div>
               </div>
             </div>
-
 
             <!-- FIM DE CONTEÚDO  -->
           </div>

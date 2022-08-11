@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,30 +9,13 @@
   <title>Home Page</title>
 
   <!-- CSS only -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" />
 
-   <!--script alerta--> 
-   <script type="text/javascript">
-    function conf()
-    {
-    var con=confirm("Do you want to submit for sure?");
-    }
-    </script>
-
-
-
-  </head>
-
-
-
-
-
-
-
+</head>
 
 <body id="home">
 
@@ -50,13 +34,13 @@
               <a href="func-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Atendimentos</span></a>
             </li>
-            <li>
-              <a href="func-categoria.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Categoria</span></a>
+            <li class="active">
+              <a href="func-categ.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
+                  class="hidden-xs hidden-sm">Categorias</span></a>
             </li>
             <li>
               <a href="func-prod.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Produto</span></a>
+                  class="hidden-xs hidden-sm">Produtos</span></a>
             </li>
 
           </ul>
@@ -82,40 +66,57 @@
             <!-- Botão para abrir modal  -->
 
             <li class="pt-4">
-              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Nova Categoria</a>
+              <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Cadastrar categoria</a>
             </li>
 
             <!-- Texto Título -->
             <div class="w-100">
-              <h2 class="text-center">Categoria</h2>
+              <h2 class="text-center">Categorias</h2>
             </div>
 
-            <!-- Formulário  -->
-            <div class="form d-flex flex-row w-100">
-              <form action="index.html" class="col-5 p-0 m-0">
-              <label for="tipoAtendimento">Categorias</label>
-              <select class="form-control col-10 mb-3 p-2" class="form-select" aria-label="Default select example">
-                <option selected>Lista de Categorias Cadastradas</option>
-                <option value="categoria1">Categoria 1</option>
-                <option value="categoria2">Categoria 2</option>
-                <option value="categoria3">Categoria 3</option>
-              </select>
+            <!-- tabela -->
+            <div class="table-responsive-sm w-100 py-2">
+              <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome da categoria</th>
+                    <th>Remover categoria</th>
 
-             
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">123</p>
+                    </td>
+                    <td>
+                      <p class="fw-normal mb-1">Categoria 1</p>
+                    </td>
+                    <td>
+                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Excluir
+                      </button></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="fw-normal mb-1">123</p>
+                    </td>
+                    <td>
+                      <p class="fw-normal mb-1">Categoria 2</p>
+                    </td>
+                    <td>
+                      <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                        Excluir
+                      </button></a>
+                    </td>
+                  </tr>
 
-              <input type="submit" onClick="conf()" value="Remover Categoria" class="btn btn-secondary col-3" action=/>
 
+                </tbody>
+              </table>
             </div>
-
-
-            <script>
-              function clickAlert() {
-                alert("Alert!");
-            }
-            </script>
-            
-            <input type="button" onclick="clickAlert()" value="Click-2-Alert">
-
 
             <!-- Modal project -->
             <div id="modal-project" class="modal fade" role="dialog">
@@ -123,14 +124,15 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header login-header">
-                    <h4 class="modal-title">Nova Categoria</h4>
+                    <h4 class="modal-title">Adicionar nova categoria</h4>
                   </div>
                   <div class="modal-body">
-                    <input type="text" placeholder="Nome Categoria" name="name" />
+                   
+                    <input type="text" placeholder="Nome da categoria" name="categoria" />
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="cancel" data-dismiss="modal">
-                      Cancelar
+                      Fechar
                     </button>
                     <button type="button" class="add-modal" data-dismiss="modal">
                       Salvar
@@ -146,7 +148,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header login-header">
-                    <h4 class="modal-title">Deseja realizar essa ação?</h4>
+                    <h4 class="modal-title">Realmente deseja excluir essa categoria?</h4>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="add-modal" data-dismiss="modal">

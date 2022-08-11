@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +8,7 @@
     <title>Home Page - Cliente</title>
 
     <!-- CSS only -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -43,13 +44,13 @@
                   ><span class="hidden-xs hidden-sm">Meus atendimentos</span></a
                 >
               </li>
-              <li class="active">
+              <li>
                 <a href="client-atend.html"
                   ><i class="fa fa-ticket" aria-hidden="true"></i
                   ><span class="hidden-xs hidden-sm">Novo atendimento</span></a
                 >
               </li>
-              <li >
+              <li  class="active">
                 <a href="client-perfil.html"
                   ><i class="fa fa-user" aria-hidden="true"></i
                   ><span class="hidden-xs hidden-sm">Meu cadastro</span></a
@@ -76,39 +77,70 @@
               <!-- INICIO DE CONTEÚDO  -->
               <!-- Texto Título -->
               <div class="w-100 py-4">
-                <h2 class="text-center">Novo Atedimento</h2>
+                <h2 class="text-center">Meu Cadastro</h2>
               </div>
-
             <!-- Formulário  -->
 
             <div class="form d-flex flex-row w-100">
 
-              <form action="client-atend.html" class="col-12 p-0 m-0">
-                
-                <select class="form-control col-10 mb-3 p-2" class="form-select" aria-label="Default select example">
-                  <option selected>Selecione o tipo de atendimento</option>
-                  <option value="reclamacao">Reclamação</option>
-                  <option value="problema">Problema</option>
-                  <option value="sugestao">Sugestão</option>
-                  <option value="critica">Critica</option>
-                </select>
-                <select class="form-control col-10 mb-3 p-2" class="form-select" aria-label="Default select example">
-                  <option selected>Selecione a categoria do produto</option>
-                  <option value="categoria1">Categoria 1</option>
-                  <option value="categoria2">Categoria 2</option>
-                  <option value="categoria3">Categoria 3</option>
-                </select>
-                <select class="form-control col-10 mb-3 p-2" class="form-select" aria-label="Default select example">
-                  <option selected>Selecione o nome do produto</option>
-                  <option value="categoria1">Produto 1</option>
-                  <option value="categoria2">Produto 2</option>
-                  <option value="categoria3">Produto 3</option>
-                </select>
-                <textarea  class="form-control col-10 pb-4"  placeholder="Descrição"></textarea>
-                <div class="col-12 p-0 pt-2">
-                  <input type="submit" value="Cancelar" class="btn btn-secondary col-3" />
-                  <input type="submit" value="Criar" class="btn btn-success col-3" />
+              <form action="index.html" class="col-12 p-0 m-0">
+                <input required type="text" name="Nome" class="form-control col-10" placeholder="Nome Completo" />
 
+                <input required type="text" name="Cpf" class="form-control col-10" value="CPF" readonly="readonly" />
+
+                <input required type="text" name="Email" class="form-control col-5" value="Email" readonly="readonly" />
+
+                <input required type="password" name="Senha" class="form-control col-5" placeholder="Senha" />
+
+                <input required type="number" name="Telefone" class="form-control col-5" placeholder="Telefone" />
+
+                <input required type="text" name="Rua" class="form-control col-5" placeholder="Rua" />
+
+                <input required type="number" name="Numero" class="form-control col-5" placeholder="Numero" />
+
+                <input required type="text" name="Complemento" class="form-control col-5" placeholder="Complemento" />
+
+                <input required type="number" name="Cep" class="form-control col-5" placeholder="CEP" />
+
+                <input required type="text" name="Bairro" class="form-control col-5" placeholder="Bairro" />
+
+                <select required placeholder="Estado" class="form-control col-5 mb-3" name="Estado" >
+                  <option value="AC">Estado</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                  <option value="EX">Estrangeiro</option>
+                </select>
+
+                <input required type="text" name="Cidade" class="form-control col-5" placeholder="Cidade" />
+                
+                <div class="col-12 p-0  pt-2">
+                  <input type="submit" value="Cancelar" class="btn btn-secondary col-3" />
+                  <input type="submit" value="Salvar" class="btn btn-success col-3" />
                 </div>
               </form>
             </div>
