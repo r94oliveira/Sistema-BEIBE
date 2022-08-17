@@ -9,20 +9,20 @@ import java.io.Serializable;
 
 
 public class LoginBean implements Serializable {
-    private String nome;
-    private int id;
+    private String email;
+    private String senha;
     
     public LoginBean() {}
     
-    public LoginBean(int id, String nome){
-        this.id   = id;
-        this.nome = nome;
+    public LoginBean(String email, String senha){
+        this.email   = email;
+        this.senha = senha;
     }
     
-    public int getId(){
-        return id;
+    public String getEmail(){
+        return email;
     }
-    public String getNome(){
-        return nome;
+    public String getSenha(){
+        return senha;
     }
 }
