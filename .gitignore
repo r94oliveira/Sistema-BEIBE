@@ -43,6 +43,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/nbproject
 
 
 # Folder config file

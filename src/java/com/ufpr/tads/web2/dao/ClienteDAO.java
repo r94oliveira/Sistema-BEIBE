@@ -30,7 +30,7 @@ public class ClienteDAO {
                             + "cpfCliente,\n" 
                             + "ruaEnderecoCliente,\n" 
                             + "numeroEndercoCliente,\n" 
-                            + "complementoEnderecoCliente)\n"
+                            + "complementoEnderecoCliente,\n"
                             + "bairroEnderecoCliente,\n" 
                             + "cidadeEnderecoCliente,\n" 
                             + "cepEnderecoCliente,\n" 
