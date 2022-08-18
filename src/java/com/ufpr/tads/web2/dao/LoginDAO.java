@@ -20,7 +20,7 @@ import java.sql.SQLException;
  */
 public class LoginDAO {
     
-    
+    /*
     public static LoginBean logar (LoginBean login){
         LoginBean log = login;
         Connection conn = null;
@@ -49,6 +49,6 @@ public class LoginDAO {
         catch (Exception e){
        
        }
-    }
+    }*/
  
 }

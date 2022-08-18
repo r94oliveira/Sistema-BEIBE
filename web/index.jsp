@@ -122,11 +122,19 @@
                 <input
                   required
                   type="text"
-                  name="NomeCompleto"
+                  name="Nome"
                   class="form-control"
-                  placeholder="Nome completo"
+                  placeholder="Nome"
                 />
-
+ 
+                <input
+                  required
+                  type="text"
+                  name="Sobrenome"
+                  class="form-control"
+                  placeholder="Sobrenome"
+                />
+                
                 <input
                   required
                   type="email"
@@ -181,7 +189,7 @@
                   placeholder="Cidade"
                 />
 
-                <select
+           <!--     <select
                   required
                   placeholder="Estado"
                   class="form-control mb-3"
@@ -216,7 +224,15 @@
                   <option value="SE">Sergipe</option>
                   <option value="TO">Tocantins</option>
                   <option value="EX">Estrangeiro</option>
-                </select>
+                </select>-->
+
+                <input
+                  required
+                  type="text"
+                  name="Estado"
+                  class="form-control"
+                  placeholder="Estado"
+                />           
 
                 <input
                   required
@@ -245,6 +261,7 @@
                   value="Cadastrar-se"
                   class="btn btn-success btn-block"
                 />
+                <!-- ENVIA PARA CadastroClienteServlet -->
               </form>
             </div>
           </div>

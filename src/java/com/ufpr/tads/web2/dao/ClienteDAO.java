@@ -23,7 +23,6 @@ public class ClienteDAO {
         try {
             conn = new ConnectionFactory().getConnection();
             String query = "INSERT INTO cliente ("
-                            + "idPessoa,\n" 
                             + "nomeCliente,\n" 
                             + "sobrenomeCliente,\n" 
                             + "emailCliente,\n" 
@@ -37,23 +36,21 @@ public class ClienteDAO {
                             + "estadoEnderecoCliente,\n" 
                             + "telefoneCliente,\n" 
                             + "senhaCliente,\n" 
-                            + ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                            + ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             st = conn.prepareStatement(query);
-            st.setInt(1, c.getIdCliente());
-            st.setString(2, );
-            st.setString(3, );
-            st.setString(4, );
-            st.setString(5, );
-            st.setString(5, );
-            st.setString(6, );
-            st.setInt(7, );
-            st.setString(8, );
-            st.setString(9, );
-            st.setString(10, );
-            st.setString(11, );
-            st.setString(12, );
-            st.setString(13, );
-            st.setString(14, );
+            st.setString(1,c.getNomecliente());
+            st.setString(2,c.getSobreNome());
+            st.setString(3,c.getEmailCliente());
+            st.setString(4,c.getCpfCliente());
+            st.setString(5,c.getRuaEnderecoCliente());
+            st.setInt(6,c.getNumeroEndercoCliente() );
+            st.setString(7,c.getComplementoEnderecoCliente());
+            st.setString(8,c.getBairroEnderecoCliente());
+            st.setString(9,c.getCidadeEnderecoCliente());
+            st.setString(10,c.getCepEnderecoCliente());
+            st.setString(11,c.getEstadoEnderecoCliente());
+            st.setString(12,c.getTelefoneCliente());
+            st.setString(13,c.getSenhaCliente());
             st.executeUpdate();
             st.close();
             conn.close();
