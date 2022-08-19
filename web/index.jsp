@@ -80,7 +80,7 @@
               <h3 class="text-center">BEIBE</h3>
 
               <p class="text-center">Digite seu email e senha para entrar</p>
-              <form action="index.html">
+              <form action="NewServlet">
                 <input
                   required
                   type="email"
@@ -118,7 +118,7 @@
               <p class="text-center">
                 Digite as informações para criar sua conta
               </p>
-              <form action="login.html">
+              <form action="NewServlet" method="post">
                 <input
                   required
                   type="text"

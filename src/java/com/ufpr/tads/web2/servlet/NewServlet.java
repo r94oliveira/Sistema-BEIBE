@@ -13,12 +13,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
 /**
  *
- * @author Rafael
+ * @author janai
  */
-@WebServlet(name = "CadastroClienteServlet", urlPatterns = {"/CadastroClienteServlet"})
-public class CadastroClienteServlet extends HttpServlet {
+@WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
+public class NewServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,7 +30,7 @@ public class CadastroClienteServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String nome = request.getParameter("Nome");
@@ -63,9 +64,8 @@ public class CadastroClienteServlet extends HttpServlet {
         c.setSenhaCliente(senha);
         
         System.out.println(nome);
-        //chamar/enviar para facede Cadastro para enviar para ClienteDAO
-        
-    }
+     
+     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

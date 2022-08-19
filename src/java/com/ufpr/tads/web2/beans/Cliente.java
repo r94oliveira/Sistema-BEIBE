@@ -27,8 +27,9 @@ public class Cliente extends Pessoa implements Serializable{
     public Cliente() {
     }
 
-    public Cliente( String nomecliente, String sobrenomeCliente, String emailCliente, String cpfCliente, String ruaEnderecoCliente, int numeroEndercoCliente, String complementoEnderecoCliente, String bairroEnderecoCliente, String cidadeEnderecoCliente, String cepEnderecoCliente, String estadoEnderecoCliente, String telefoneCliente, String senhaCliente, String primeiroNome, String sobreNome, long cpf, Endereco endereco, String telefone) {
-        super(primeiroNome, sobreNome, cpf, endereco, telefone);
+    public Cliente( String nomecliente, String sobrenomeCliente, String emailCliente, String cpfCliente, String ruaEnderecoCliente, int numeroEndercoCliente,
+            String complementoEnderecoCliente, String bairroEnderecoCliente, String cidadeEnderecoCliente, String cepEnderecoCliente, String estadoEnderecoCliente, String telefoneCliente,
+            String senhaCliente) {
         this.nomecliente = nomecliente;
         this.sobrenomeCliente = sobrenomeCliente;
         this.emailCliente = emailCliente;
