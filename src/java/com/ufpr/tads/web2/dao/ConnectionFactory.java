@@ -16,7 +16,7 @@ public class ConnectionFactory {
     public Connection getConnection() {
         try {
 //mudar o nome do usuario e adicionar senha caso precissar
-             return DriverManager.getConnection("jdbc:mysql://localhost/web2", "root", "");//"rrw@and14"
+             return DriverManager.getConnection("jdbc:mysql://localhost:3306/web2", "root", "");//"rrw@and14"
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

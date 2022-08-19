@@ -17,7 +17,7 @@ import java.sql.SQLException;
  * @author Rafael
  */
 public class ClienteDAO {
-    public static boolean inserir (Cliente c){
+    public static Cliente inserir (Cliente c){
         Connection conn = null;
         PreparedStatement st = null;
         try {
@@ -54,11 +54,11 @@ public class ClienteDAO {
             st.executeUpdate();
             st.close();
             conn.close();
-            return true;    
+            return c;   
         }
         catch (Exception e){
-          //ver qual exception usa    
-        return false;    
+            return null; 
+          
         }
     }
 }
