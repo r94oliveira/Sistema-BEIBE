@@ -65,7 +65,7 @@ public class NewServlet extends HttpServlet {
         c.setTelefoneCliente(telefone);
         c.setSenhaCliente(senha);
         
-        ClienteDAO.inserir(c);
+        ClienteFacade.adicionaCliente(c);
      
      }
 

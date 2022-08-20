@@ -26,7 +26,7 @@ public class ClienteDAO {
         System.out.println(c.getCepEnderecoCliente());
         try {
             conn = new ConnectionFactory().getConnection();
-            String query = "INSERT INTO cliente (nomeCliente, sobrenomeCliente,emailCliente,cpfCliente,ruaEnderecoCliente,numeroEndercoCliente,complementoEnderecoCliente,bairroEnderecoCliente, cidadeEnderecoCliente cepEnderecoCliente, estadoEnderecoCliente, telefoneCliente, senhaCliente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
+            String query = "INSERT INTO cliente (nomeCliente, sobrenomeCliente,emailCliente,cpfCliente,ruaEnderecoCliente,numeroEndercoCliente,complementoEnderecoCliente,bairroEnderecoCliente, cidadeEnderecoCliente, cepEnderecoCliente, estadoEnderecoCliente, telefoneCliente, senhaCliente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
             st = conn.prepareStatement(query);
             st.setString(1,c.getNomecliente());
             st.setString(2,c.getSobreNome());
@@ -50,6 +50,7 @@ public class ClienteDAO {
         }
         catch (Exception e){
             System.out.println("nao inseriu");
+            e.printStackTrace();
             return null; 
           
         }
