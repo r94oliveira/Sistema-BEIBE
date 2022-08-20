@@ -20,23 +20,13 @@ public class ClienteDAO {
     public static Cliente inserir (Cliente c){
         Connection conn = null;
         PreparedStatement st = null;
+        ResultSet rs = null;
+        
+        System.out.println(c.getNomecliente());
+        System.out.println(c.getCepEnderecoCliente());
         try {
             conn = new ConnectionFactory().getConnection();
-            String query = "INSERT INTO cliente ("
-                            + "nomeCliente,\n" 
-                            + "sobrenomeCliente,\n" 
-                            + "emailCliente,\n" 
-                            + "cpfCliente,\n" 
-                            + "ruaEnderecoCliente,\n" 
-                            + "numeroEndercoCliente,\n" 
-                            + "complementoEnderecoCliente,\n"
-                            + "bairroEnderecoCliente,\n" 
-                            + "cidadeEnderecoCliente,\n" 
-                            + "cepEnderecoCliente,\n" 
-                            + "estadoEnderecoCliente,\n" 
-                            + "telefoneCliente,\n" 
-                            + "senhaCliente,\n" 
-                            + ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO cliente (nomeCliente, sobrenomeCliente,emailCliente,cpfCliente,ruaEnderecoCliente,numeroEndercoCliente,complementoEnderecoCliente,bairroEnderecoCliente, cidadeEnderecoCliente cepEnderecoCliente, estadoEnderecoCliente, telefoneCliente, senhaCliente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
             st = conn.prepareStatement(query);
             st.setString(1,c.getNomecliente());
             st.setString(2,c.getSobreNome());
@@ -51,12 +41,15 @@ public class ClienteDAO {
             st.setString(11,c.getEstadoEnderecoCliente());
             st.setString(12,c.getTelefoneCliente());
             st.setString(13,c.getSenhaCliente());
+            System.out.println(st);
             st.executeUpdate();
             st.close();
             conn.close();
+            System.out.println("inseriu");
             return c;   
         }
         catch (Exception e){
+            System.out.println("nao inseriu");
             return null; 
           
         }

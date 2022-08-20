@@ -5,6 +5,8 @@
 package com.ufpr.tads.web2.servlet;
 
 import com.ufpr.tads.web2.beans.Cliente;
+import com.ufpr.tads.web2.dao.ClienteDAO;
+import com.ufpr.tads.web2.facade.ClienteFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -63,7 +65,7 @@ public class NewServlet extends HttpServlet {
         c.setTelefoneCliente(telefone);
         c.setSenhaCliente(senha);
         
-        System.out.println(nome);
+        ClienteDAO.inserir(c);
      
      }
 

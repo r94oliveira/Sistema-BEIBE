@@ -12,11 +12,8 @@ import com.ufpr.tads.web2.dao.ClienteDAO;
  * @author katia
  */
 public class ClienteFacade {
+    ClienteDAO clienteDao = new ClienteDAO();
     public static Cliente adicionaCliente(Cliente cliente){
-           // String senhaCriptografada = Ferramentas.criptografaSenha(cliente.getSenha());
-            //cliente.setSenha(senhaCriptografada);
-            ClienteDAO clienteDao = new ClienteDAO();
-            Cliente clienteNovo = clienteDao.inserir(cliente);
-            return clienteNovo;
+            return ClienteDAO.inserir(cliente);
     }
 }
