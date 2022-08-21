@@ -8,13 +8,13 @@ package com.ufpr.tads.web2.beans;
 import java.io.Serializable;
 
 
-public class LoginBean implements Serializable {
+public class Login implements Serializable {
     private String email;
     private String senha;
     
-    public LoginBean() {}
+    public Login() {}
     
-    public LoginBean(String email, String senha){
+    public Login(String email, String senha){
         this.email   = email;
         this.senha = senha;
     }
@@ -24,5 +24,13 @@ public class LoginBean implements Serializable {
     }
     public String getSenha(){
         return senha;
+    }
+    
+    public void setEmail(String email){
+        this.email = email;
+    }
+    
+    public void setSenha (String senha){
+        this.senha = senha;
     }
 }

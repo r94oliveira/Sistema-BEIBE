@@ -20,8 +20,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author janai
  */
-@WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
-public class NewServlet extends HttpServlet {
+@WebServlet(name = "NewServlet", urlPatterns = {"/ClienteServlet"})
+public class ClienteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

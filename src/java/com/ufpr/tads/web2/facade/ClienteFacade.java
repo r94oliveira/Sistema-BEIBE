@@ -13,6 +13,7 @@ import com.ufpr.tads.web2.dao.ClienteDAO;
  */
 public class ClienteFacade {
     ClienteDAO clienteDao = new ClienteDAO();
+    
     public static Cliente adicionaCliente(Cliente cliente){
             return ClienteDAO.inserir(cliente);
     }
