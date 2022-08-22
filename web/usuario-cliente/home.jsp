@@ -93,7 +93,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr> 
                   <td>
                     <p class="fw-normal mb-1">123</p>
                   </td>

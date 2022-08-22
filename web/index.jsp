@@ -118,7 +118,7 @@
               <p class="text-center">
                 Digite as informações para criar sua conta
               </p>
-              <form action="ClienteServlet" method="post">
+              <form action="CadastroClienteServlet" method="post">
                 <input
                   required
                   type="text"

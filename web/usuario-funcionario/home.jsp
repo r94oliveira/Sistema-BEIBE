@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +18,10 @@
 </head>
 
 <body id="home">
-
+    <c:if test="${empty sessionScope.logado}">
+        <c:set var= "mensagem" value="Precisa fazer o login" scope="request"/>
+        <jsp:forward page="index.jsp" />
+    </c:if>
   <!-- Página da home -->
   <div class="container-fluid display-table">
     <div class="row display-table-row">
@@ -34,7 +38,7 @@
                   class="hidden-xs hidden-sm">Atendimentos</span></a>
             </li>
             <li>
-              <a href="func-categ.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
+              <a href="http://localhost:8080/beibe/usuario-funcionario/categorias.jsp"><i class="fa fa-tasks" aria-hidden="true"></i><span
                   class="hidden-xs hidden-sm">Categorias</span></a>
             </li>
             <li>

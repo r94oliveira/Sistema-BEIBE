@@ -29,7 +29,7 @@ public class ClienteDAO {
             String query = "INSERT INTO cliente (nomeCliente, sobrenomeCliente,emailCliente,cpfCliente,ruaEnderecoCliente,numeroEndercoCliente,complementoEnderecoCliente,bairroEnderecoCliente, cidadeEnderecoCliente, cepEnderecoCliente, estadoEnderecoCliente, telefoneCliente, senhaCliente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
             st = conn.prepareStatement(query);
             st.setString(1,c.getNomecliente());
-            st.setString(2,c.getSobreNome());
+            st.setString(2,c.getSobrenomeCliente());
             st.setString(3,c.getEmailCliente());
             st.setString(4,c.getCpfCliente());
             st.setString(5,c.getRuaEnderecoCliente());

@@ -15,6 +15,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -34,7 +35,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        HttpSession session = request.getSession();
         String email = request.getParameter ("Email");
         String senha = request.getParameter("Senha");
         
@@ -54,26 +55,25 @@ public class LoginServlet extends HttpServlet {
         
         Funcionario func = LoginFacade.logarFuncionario(log);
         
-        
-        
+        if (func.getCargoFuncionario() == null){
+         //ENVIAR ALERTA DIZENDO QUE O USUARIO NAO EXISTE????
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);     
+        }
         if(Integer.parseInt(func.getCargoFuncionario())== 1){
            //AQUI DEVE SER VERIFICADO OS DADOS QUE DEVEM PASSAR POR REQUEST.SETATTRIBUTE
           //E CRIAR UM SESSION PARA O FUNCIONARIO;
+            session.setAttribute("logado", func);
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
             rd.forward(request, response); 
         }   
+   
         if(Integer.parseInt(func.getCargoFuncionario())== 2){
            //AQUI DEVE SER VERIFICADO OS DADOS QUE DEVEM PASSAR POR REQUEST.SETATTRIBUTE
           //E CRIAR UM SESSION PARA O GERENTE;
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/home.jsp");
             rd.forward(request, response); 
-        } else {
-            //ENVIAR ALERTA DIZENDO QUE O USUARIO NAO EXISTE????
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response); 
-        }     
-        
-        
+        }   
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

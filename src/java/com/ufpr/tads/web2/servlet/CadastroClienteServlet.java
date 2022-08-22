@@ -5,6 +5,9 @@
 package com.ufpr.tads.web2.servlet;
 
 import com.ufpr.tads.web2.beans.Cliente;
+import com.ufpr.tads.web2.dao.ClienteDAO;
+import com.ufpr.tads.web2.facade.ClienteFacade;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,11 +16,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
 /**
  *
- * @author Rafael
+ * @author janai
  */
-@WebServlet(name = "CadastroClienteServlet", urlPatterns = {"/CadastroClienteServlet"})
+@WebServlet(name = "NewServlet", urlPatterns = {"/CadastroClienteServlet"})
 public class CadastroClienteServlet extends HttpServlet {
 
     /**
@@ -29,7 +33,7 @@ public class CadastroClienteServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String nome = request.getParameter("Nome");
@@ -62,10 +66,12 @@ public class CadastroClienteServlet extends HttpServlet {
         c.setTelefoneCliente(telefone);
         c.setSenhaCliente(senha);
         
-        System.out.println(nome);
-        //chamar/enviar para facede Cadastro para enviar para ClienteDAO
+        ClienteFacade.adicionaCliente(c);
         
-    }
+        RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+        rd.forward(request, response);
+     
+     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

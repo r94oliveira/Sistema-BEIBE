@@ -4,9 +4,6 @@
  */
 package com.ufpr.tads.web2.servlet;
 
-import com.ufpr.tads.web2.beans.Cliente;
-import com.ufpr.tads.web2.dao.ClienteDAO;
-import com.ufpr.tads.web2.facade.ClienteFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -15,12 +12,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 /**
  *
- * @author janai
+ * @author Rafael
  */
-@WebServlet(name = "NewServlet", urlPatterns = {"/ClienteServlet"})
+@WebServlet(name = "ClienteServlet", urlPatterns = {"/ClienteServlet"})
 public class ClienteServlet extends HttpServlet {
 
     /**
@@ -32,42 +28,17 @@ public class ClienteServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String nome = request.getParameter("Nome");
-        String sobrenome = request.getParameter("Sobrenome");
-        String email = request.getParameter("Email");
-        String cpf = request.getParameter("Cpf");
-        String rua = request.getParameter("Rua");
-        String num = request.getParameter("Numero");
-        int numero = Integer.parseInt(num);
-        String complemento = request.getParameter("Complemento");
-        String bairro = request.getParameter("Bairro");
-        String cidade = request.getParameter("Cidade");
-        String cep = request.getParameter("Cep");
-        String estado = request.getParameter("Estado");
-        String telefone = request.getParameter("Telefone");
-        String senha = request.getParameter("Senha");
+       
         
-        Cliente c = new Cliente();
-        c.setNomecliente(nome);
-        c.setSobrenomeCliente(sobrenome);
-        c.setEmailCliente(email);
-        c.setCpfCliente(cpf);
-        c.setRuaEnderecoCliente(rua);
-        c.setNumeroEndercoCliente(numero);
-        c.setComplementoEnderecoCliente(complemento);
-        c.setBairroEnderecoCliente(bairro);
-        c.setCidadeEnderecoCliente(cidade);
-        c.setCepEnderecoCliente(cep);
-        c.setEstadoEnderecoCliente(estado);
-        c.setTelefoneCliente(telefone);
-        c.setSenhaCliente(senha);
         
-        ClienteFacade.adicionaCliente(c);
-     
-     }
+        
+        
+        
+        
+        
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
