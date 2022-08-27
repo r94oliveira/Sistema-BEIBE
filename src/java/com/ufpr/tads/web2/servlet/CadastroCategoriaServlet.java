@@ -18,8 +18,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Rafael
  */
-@WebServlet(name = "CadastroProdutoServlet", urlPatterns = {"/CadastroProdutoServlet"})
-public class CadastroProdutoServlet extends HttpServlet {
+@WebServlet(name = "CadastroCategoriaServlet", urlPatterns = {"/CadastroCategoriaServlet"})
+public class CadastroCategoriaServlet extends HttpServlet {
     
  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {   
@@ -27,6 +27,7 @@ public class CadastroProdutoServlet extends HttpServlet {
     CategoriaProduto categoria = new CategoriaProduto();
     
     String cat = request.getParameter("Categoria");
+    System.out.println("deveria aparecer aqui");
     System.out.println(cat);
     categoria.setNome(cat);
     

@@ -23,6 +23,34 @@
         <jsp:forward page="index.jsp" />
     </c:if>
   <!-- Página da home -->
+  <div class="modal-content">
+                                        <form action="CadastroCategoriaServlet" method="post">
+                                            <div class="modal-header login-header">
+                                                <h4 class="modal-title">Adicionar nova categoria</h4>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <input type="text" placeholder="Nome da categoria" name="Categoria" />
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="cancel" data-dismiss="modal">
+                                                    Fechar
+                                                </button>
+                                                <input type="submit" value="Salvar" class="btn btn-success btn-block"/>
+                                            </div>
+                                        </form>    
+                                    </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <div class="container-fluid display-table">
     <div class="row display-table-row">
       <!-- Menu lateral  -->

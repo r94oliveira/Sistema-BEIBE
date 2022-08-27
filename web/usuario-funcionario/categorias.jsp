@@ -123,7 +123,7 @@
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
-                                        <form action="CadastroProdutoServlet" method="post">
+                                        <form action="CadastroServlet" method="post">
                                             <div class="modal-header login-header">
                                                 <h4 class="modal-title">Adicionar nova categoria</h4>
                                             </div>
