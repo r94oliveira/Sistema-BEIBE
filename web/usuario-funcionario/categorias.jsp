@@ -18,6 +18,10 @@
     </head>
 
     <body id="home">
+        <c:if test="${empty sessionScope.logado}">
+        <c:set var= "mensagem" value="Precisa fazer o login" scope="request"/>
+        <jsp:forward page="index.jsp" />
+    </c:if>
 
         <!-- Página da home -->
         <div class="container-fluid display-table">

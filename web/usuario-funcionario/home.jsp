@@ -16,16 +16,21 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" />
 </head>
-
 <body id="home">
     <c:if test="${empty sessionScope.logado}">
         <c:set var= "mensagem" value="Precisa fazer o login" scope="request"/>
         <jsp:forward page="index.jsp" />
     </c:if>
   <!-- Página da home -->
+  
+    <% String str = (String)request.getParameter("Categorias"); %>
+    <% out.println(str);%>
+    <p>${pageContext.request.queryString}</p>
+
   <div class="modal-content">
                                         <form action="CadastroCategoriaServlet" method="post">
-                                            <div class="modal-header login-header">
+                                            <div class="modal-header log
+                                                 in-header">
                                                 <h4 class="modal-title">Adicionar nova categoria</h4>
                                             </div>
                                             <div class="modal-body">
@@ -40,7 +45,7 @@
                                             </div>
                                         </form>    
                                     </div>
-  
+
   
   
   

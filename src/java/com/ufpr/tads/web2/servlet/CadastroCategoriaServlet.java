@@ -6,6 +6,7 @@ package com.ufpr.tads.web2.servlet;
 
 import com.ufpr.tads.web2.beans.CategoriaProduto;
 import com.ufpr.tads.web2.facade.CategoriaFacade;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -32,6 +33,11 @@ public class CadastroCategoriaServlet extends HttpServlet {
     categoria.setNome(cat);
     
     CategoriaFacade.adicionaCategoria(categoria);
+    
+    request.setAttribute("Categorias", "teste");
+    RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
+    rd.forward(request, response);
+    
     
     
     
