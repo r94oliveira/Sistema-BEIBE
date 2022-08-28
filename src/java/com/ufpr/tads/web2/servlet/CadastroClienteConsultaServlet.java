@@ -6,7 +6,6 @@ package com.ufpr.tads.web2.servlet;
 
 import com.ufpr.tads.web2.beans.Cliente;
 import com.ufpr.tads.web2.facade.ClienteFacade;
-import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -19,68 +18,23 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author janai
  */
-@WebServlet(name = "CadastroClienteAlteraServlet", urlPatterns = {"/CadastroClienteAlteraServlet"})
-public class CadastroClienteAlteraServlet extends HttpServlet {
+@WebServlet(name = "CadastroClienteAltera", urlPatterns = {"/CadastroClienteAltera"})
+public class CadastroClienteConsultaServlet extends HttpServlet {
 
-   
+  
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        //Arrumar: pegar idCliente
         //verifica os dados do cliente logado, o id do cliente tem  que vir pela Session.
         int idCliente = 0; // o que vier da session
         
+        Cliente cliente = ClienteFacade.consultaCliente(idCliente);
         
-        String nome = request.getParameter("Nome");
-        String sobrenome = request.getParameter("Sobrenome");
-        String email = request.getParameter("Email");
-        String cpf = request.getParameter("Cpf");
-        String rua = request.getParameter("Rua");
-        String num = request.getParameter("Numero");
-        int numero = Integer.parseInt(num);
-        String complemento = request.getParameter("Complemento");
-        String bairro = request.getParameter("Bairro");
-        String cidade = request.getParameter("Cidade");
-        String cep = request.getParameter("Cep");
-        String estado = request.getParameter("Estado");
-        String telefone = request.getParameter("Telefone");
-        String senha = request.getParameter("Senha");
+        // como passar o cliente para jsp e a jsp mostrar no campo que precisa.
         
-        Cliente c = new Cliente();
         
-        c.setIdCliente(idCliente);
-        c.setNomecliente(nome);
-        c.setSobrenomeCliente(sobrenome);
-        c.setEmailCliente(email);
-        c.setCpfCliente(cpf);
-        c.setRuaEnderecoCliente(rua);
-        c.setNumeroEndercoCliente(numero);
-        c.setComplementoEnderecoCliente(complemento);
-        c.setBairroEnderecoCliente(bairro);
-        c.setCidadeEnderecoCliente(cidade);
-        c.setCepEnderecoCliente(cep);
-        c.setEstadoEnderecoCliente(estado);
-        c.setTelefoneCliente(telefone);
-        c.setSenhaCliente(senha);
-       
-        int x = ClienteFacade.alteraCliente(c);
         
-        if (x==1){
-            
-        // Arrumar : enviar o cliente para a home.
-        RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-        rd.forward(request, response);
-        } else {
-            // Arrumar: Enviar alerta
-            //enviar uma mensagem de não alteração dos dados
         }
-        
-        
-        
-        
-        
-    }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

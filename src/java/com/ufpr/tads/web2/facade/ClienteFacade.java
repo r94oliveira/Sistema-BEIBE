@@ -25,4 +25,8 @@ public class ClienteFacade {
     public static Cliente consultaCliente(int idCliente) {
         return ClienteDAO.consultaCliente(idCliente);
     }
+
+    public static int alteraCliente(Cliente c) {
+        return ClienteDAO.alteraCliente(c);
+    }
 }

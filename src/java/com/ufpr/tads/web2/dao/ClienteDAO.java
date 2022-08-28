@@ -136,6 +136,50 @@ public class ClienteDAO {
         
         
     }
+
+    public static int alteraCliente(Cliente c) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        
+        System.out.println(c.getNomecliente());
+        System.out.println(c.getCepEnderecoCliente());
+        try {
+            conn = new ConnectionFactory().getConnection();
+            String query = "UPDATE cliente SET (nomeCliente = ?, sobrenomeCliente= ?, emailCliente= ?, cpfCliente= ?,ruaEnderecoCliente= ?,numeroEndercoCliente = ?,complementoEnderecoCliente = ?,bairroEnderecoCliente = ?, cidadeEnderecoCliente = ?, cepEnderecoCliente = ?, estadoEnderecoCliente = ?, telefoneCliente = ?) WHERE idCliente = ?";
+            //
+            st = conn.prepareStatement(query);
+            st.setString(1,c.getNomecliente());
+            st.setString(2,c.getSobrenomeCliente());
+            st.setString(3,c.getEmailCliente());
+            st.setString(4,c.getCpfCliente());
+            st.setString(5,c.getRuaEnderecoCliente());
+            st.setInt(6,c.getNumeroEndercoCliente() );
+            st.setString(7,c.getComplementoEnderecoCliente());
+            st.setString(8,c.getBairroEnderecoCliente());
+            st.setString(9,c.getCidadeEnderecoCliente());
+            st.setString(10,c.getCepEnderecoCliente());
+            st.setString(11,c.getEstadoEnderecoCliente());
+            st.setString(12,c.getTelefoneCliente());
+            st.setInt(13, c.getIdCliente());
+            System.out.println(st);
+            st.executeUpdate();
+            st.close();
+            conn.close();
+            System.out.println("inseriu");
+            
+            
+            return 1;
+            
+        }
+        catch (Exception e){
+            System.out.println("nao inseriu");
+            e.printStackTrace();
+            return 0; 
+          
+        }
+    
+    }
     
 
 }
