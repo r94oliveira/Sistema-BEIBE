@@ -35,7 +35,7 @@ public class CadastroCategoriaServlet extends HttpServlet {
     CategoriaFacade.adicionaCategoria(categoria);
     
     request.setAttribute("Categorias", "teste");
-    RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
+    RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp?categorias=valor");
     rd.forward(request, response);
     
     
