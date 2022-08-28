@@ -66,7 +66,14 @@ public class CadastroClienteServlet extends HttpServlet {
         c.setTelefoneCliente(telefone);
         c.setSenhaCliente(senha);
         
-        ClienteFacade.adicionaCliente(c);
+        // verificação se exist o cliente
+        
+        int x = ClienteFacade.verificaCliente(c);
+        
+        if(x==1){
+            ClienteFacade.adicionaCliente(c);
+        }
+        
         
         RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
         rd.forward(request, response);

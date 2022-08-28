@@ -55,4 +55,45 @@ public class ClienteDAO {
           
         }
     }
+
+    public static int verificaExiste(Cliente c) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        PreparedStatement st2 = null;
+        ResultSet rs = null;
+        ResultSet rs2 = null;
+        String cpfCliente = null;
+        String emailCliente = null;
+        
+        try{
+            conn = new ConnectionFactory().getConnection();
+            String queryc = "SELECT cpfCliente From cliente WHERE cpfCliente = ?";
+            String queryEmail = "SELECT emailCliente From cliente WHERE emailCliente = ?";
+            st = conn.prepareStatement(queryc);
+            st2 = conn.prepareStatement(queryEmail);
+            st.setString(1,c.getCpfCliente());
+            st2.setString(1,c.getEmailCliente());
+            rs = st.executeQuery();
+            rs2 = st2.executeQuery();
+            while (rs.next()){
+                cpfCliente = rs.getString("cpfCliente");
+            }
+            
+            while(rs2.next()){
+                emailCliente = rs2.getString("emailCliente");
+            
+            }
+            
+            if (cpfCliente!=null && emailCliente!=null){
+            return 1;
+            }
+        }
+           catch (Exception e){
+            System.out.println("nao consultou");
+            e.printStackTrace();
+            return 0; 
+       }
+        return 0;
+    }
+
 }
