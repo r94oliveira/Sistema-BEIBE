@@ -17,4 +17,12 @@ public class ClienteFacade {
     public static Cliente adicionaCliente(Cliente cliente){
             return ClienteDAO.inserir(cliente);
     }
+
+    public static int verificaCliente(Cliente c) {
+            return ClienteDAO.verificaExiste(c);
+    }
+
+    public static Cliente consultaCliente(int idCliente) {
+        return ClienteDAO.consultaCliente(idCliente);
+    }
 }
