@@ -41,7 +41,34 @@ public class CategoriaDAO {
           
         }
     }
+
+    public static int buscaCategoria(String Categoria) {
+        
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        int idCategoria = 0;
+        
+        try{
+            conn = new ConnectionFactory().getConnection();
+            String queryc = "SELECT idCategoria From categoria WHERE nomeCategoria = ?";
+            st = conn.prepareStatement(queryc);
+            st.setString(1,Categoria);
+            rs = st.executeQuery();
+            while (rs.next()){
+                idCategoria = rs.getInt("idCategoria");
+            }
+            return idCategoria;
+        }
+        catch (Exception e){
+            System.out.println("nao consultou");
+            e.printStackTrace();
+            return 0; 
+       }
+    }
+    
+        
+    }
     
     
-    
-}
+

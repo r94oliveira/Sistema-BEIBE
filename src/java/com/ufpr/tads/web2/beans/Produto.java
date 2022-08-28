@@ -12,14 +12,14 @@ public class Produto implements Serializable{
     private int idProduto;
     private String nome;
     private String descricao;
-    private CategoriaProduto categoria;
+    private int categoria;
     private float preco;
     private float peso;
     private int quantidadeReclamacoes;
     
     public Produto() {}
     
-    public Produto(String nome, String descricao, CategoriaProduto categoria, float preco ,float peso, int quantidadeReclamacoes){
+    public Produto(String nome, String descricao, int categoria, float preco ,float peso, int quantidadeReclamacoes){
         this.nome                  = nome;
         this.descricao             = descricao;
         this.categoria             = categoria;
@@ -48,10 +48,10 @@ public class Produto implements Serializable{
         this.descricao = descricao;
     }
     
-    public CategoriaProduto getCategoria(){
+    public int getCategoria(){
         return this.categoria;
     }
-    public void setCategoria(CategoriaProduto categoria){
+    public void setCategoria(int categoria){
         this.categoria = categoria;
     }
     public float getPreco(){
