@@ -22,12 +22,12 @@ import java.sql.SQLException;
  */
 public class LoginDAO {
     
-    public static  int logarCliente (Login login){
+    public static  Cliente logarCliente (Login login){
         Login log = login;
         Connection conn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
-        int idPessoa = 0;
+        Cliente cliente = new Cliente();
         
         try{
             conn = new ConnectionFactory().getConnection();
@@ -37,14 +37,14 @@ public class LoginDAO {
             st.setString(2,log.getSenha());
             rs = st.executeQuery();
             while (rs.next()){
-                idPessoa = rs.getInt("idPessoa");
+                cliente.setIdCliente(rs.getInt("idPessoa"));
             }
-            return idPessoa;
+            return cliente;
         }
         catch (Exception e){
             System.out.println("nao consultou");
             e.printStackTrace();
-            return 0; 
+            return null; 
        }
     }
     

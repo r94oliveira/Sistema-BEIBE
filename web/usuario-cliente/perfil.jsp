@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,7 +25,10 @@
   </head>
 
   <body id="home">
-
+        <c:if test="${empty sessionScope.logado}">
+            <c:set var="msg" value="Você deve fazer login para acessar o sistema." scope="request"/>
+            <jsp:forward page="index.jsp"/>
+        </c:if>
     <!-- Página da home -->
     <div class="container-fluid display-table">
       <div class="row display-table-row">
@@ -84,60 +88,31 @@
             <div class="form d-flex flex-row w-100">
 
               <form action="index.html" class="col-12 p-0 m-0">
-                <input required type="text" name="Nome" class="form-control col-10" placeholder="Nome Completo" />
-
-                <input required type="text" name="Cpf" class="form-control col-10" value="CPF" readonly="readonly" />
-
-                <input required type="text" name="Email" class="form-control col-5" value="Email" readonly="readonly" />
-
-                <input required type="password" name="Senha" class="form-control col-5" placeholder="Senha" />
-
-                <input required type="number" name="Telefone" class="form-control col-5" placeholder="Telefone" />
-
-                <input required type="text" name="Rua" class="form-control col-5" placeholder="Rua" />
-
-                <input required type="number" name="Numero" class="form-control col-5" placeholder="Numero" />
-
-                <input required type="text" name="Complemento" class="form-control col-5" placeholder="Complemento" />
-
-                <input required type="number" name="Cep" class="form-control col-5" placeholder="CEP" />
-
-                <input required type="text" name="Bairro" class="form-control col-5" placeholder="Bairro" />
-
-                <select required placeholder="Estado" class="form-control col-5 mb-3" name="Estado" >
-                  <option value="AC">Estado</option>
-                  <option value="AC">Acre</option>
-                  <option value="AL">Alagoas</option>
-                  <option value="AP">Amapá</option>
-                  <option value="AM">Amazonas</option>
-                  <option value="BA">Bahia</option>
-                  <option value="CE">Ceará</option>
-                  <option value="DF">Distrito Federal</option>
-                  <option value="ES">Espírito Santo</option>
-                  <option value="GO">Goiás</option>
-                  <option value="MA">Maranhão</option>
-                  <option value="MT">Mato Grosso</option>
-                  <option value="MS">Mato Grosso do Sul</option>
-                  <option value="MG">Minas Gerais</option>
-                  <option value="PA">Pará</option>
-                  <option value="PB">Paraíba</option>
-                  <option value="PR">Paraná</option>
-                  <option value="PE">Pernambuco</option>
-                  <option value="PI">Piauí</option>
-                  <option value="RJ">Rio de Janeiro</option>
-                  <option value="RN">Rio Grande do Norte</option>
-                  <option value="RS">Rio Grande do Sul</option>
-                  <option value="RO">Rondônia</option>
-                  <option value="RR">Roraima</option>
-                  <option value="SC">Santa Catarina</option>
-                  <option value="SP">São Paulo</option>
-                  <option value="SE">Sergipe</option>
-                  <option value="TO">Tocantins</option>
-                  <option value="EX">Estrangeiro</option>
-                </select>
-
-                <input required type="text" name="Cidade" class="form-control col-5" placeholder="Cidade" />
+                Nome: <input required type="text" name="Nome" class="form-control col-5" value="${cliente.nomecliente}" />
                 
+               Sobrenome: <input required type="text" name="Sobrenome" class="form-control col-5" value="${cliente.sobrenomeCliente}" />
+
+               Cpf: <input required type="text" name="Cpf" class="form-control col-5" value="${cliente.cpfCliente}" readonly="readonly" />
+
+               Email: <input required type="text" name="Email" class="form-control col-5" value="${cliente.emailCliente}" readonly="readonly" />
+
+               Rua: <input required type="text" name="Rua" class="form-control col-5" value="${cliente.ruaEnderecoCliente}" />
+                
+               Numero: <input required type="number" name="Numero" class="form-control col-5" value="${cliente.numeroEndercoCliente}" />
+                
+               Complemento: <input required type="text" name="Complemento" class="form-control col-5" value="${cliente.complementoEnderecoCliente}" />
+
+               Bairro: <input required type="text" name="Bairro" class="form-control col-5" value="${cliente.bairroEnderecoCliente}" />
+
+               Cidade: <input required type="text" name="Cidade" class="form-control col-5" value="${cliente.cidadeEnderecoCliente}" />
+                
+               Cep: <input required type="text" name="Cep" class="form-control col-5" value="${cliente.cepEnderecoCliente}" />
+                
+               Estado: <input required type="text" name="Estado" class="form-control col-5" value="${cliente.estadoEnderecoCliente}" />
+                
+               Telefone: <input required type="text" name="Telefone" class="form-control col-5" value="${cliente.telefoneCliente}" />
+                
+               
                 <div class="col-12 p-0  pt-2">
                   <input type="submit" value="Cancelar" class="btn btn-secondary col-3" />
                   <input type="submit" value="Salvar" class="btn btn-success col-3" />

@@ -127,6 +127,11 @@
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
+                                        
+                                        <form  action="ClientesServlet?action=NOME DA ACAO" method="post" class="form-horizontal">
+                                            
+                                        </form>
+                                        
                                         <form action="CadastroServlet" method="post">
                                             <div class="modal-header login-header">
                                                 <h4 class="modal-title">Adicionar nova categoria</h4>

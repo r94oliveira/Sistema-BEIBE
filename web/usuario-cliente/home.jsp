@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,6 +25,10 @@
   </head>
 
   <body id="home">
+      <c:if test="${empty sessionScope.logado}">
+        <c:set var= "mensagem" value="Precisa fazer o login" scope="request"/>
+        <jsp:forward page="index.jsp" />
+    </c:if>
 
     <!-- Página da home -->
     <div class="container-fluid display-table">
@@ -51,10 +56,10 @@
                 >
               </li>
               <li >
-                <a href="client-perfil.html"
-                  ><i class="fa fa-user" aria-hidden="true"></i
-                  ><span class="hidden-xs hidden-sm">Meu cadastro</span></a
-                >
+                
+                     <a href="${pageContext.request.contextPath}/ClienteServlet?action=consultaCadastro" method="post" class="float-right btn btn-danger rounded">Meus Dados</a>
+                       
+                     
               </li>
             </ul>
           </div>

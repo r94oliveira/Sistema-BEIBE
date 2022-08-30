@@ -4,8 +4,10 @@
  */
 package com.ufpr.tads.web2.servlet;
 
+import com.ufpr.tads.web2.beans.Cliente;
 import com.ufpr.tads.web2.beans.Funcionario;
 import com.ufpr.tads.web2.beans.Login;
+import com.ufpr.tads.web2.beans.LoginBean;
 import com.ufpr.tads.web2.facade.LoginFacade;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
@@ -35,7 +37,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+       
         String email = request.getParameter ("Email");
         String senha = request.getParameter("Senha");
         
@@ -43,12 +45,13 @@ public class LoginServlet extends HttpServlet {
         log.setEmail(email);
         log.setSenha(senha);
 
-        int idPessoa = LoginFacade.logarCliente(log);
+        Cliente cliente = LoginFacade.logarCliente(log);
        
-        if (idPessoa != 0){
+        if (cliente.getIdCliente() != 0){
             
-          //AQUI DEVE SER VERIFICADO OS DADOS QUE DEVEM PASSAR POR REQUEST.SETATTRIBUTE
-          //E CRIAR UM SESSION PARA O USUARIO;
+            LoginBean loginBean = new LoginBean(cliente.getIdCliente(),cliente.getNomecliente());
+            HttpSession session = request.getSession();
+            session.setAttribute("logado", loginBean);
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");
             rd.forward(request, response); 
         } 
@@ -63,6 +66,7 @@ public class LoginServlet extends HttpServlet {
         if(Integer.parseInt(func.getCargoFuncionario())== 1){
            //AQUI DEVE SER VERIFICADO OS DADOS QUE DEVEM PASSAR POR REQUEST.SETATTRIBUTE
           //E CRIAR UM SESSION PARA O FUNCIONARIO;
+            HttpSession session = request.getSession();
             session.setAttribute("logado", func);
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
             rd.forward(request, response); 

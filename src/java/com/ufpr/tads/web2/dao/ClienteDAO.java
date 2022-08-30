@@ -105,17 +105,17 @@ public class ClienteDAO {
              
         try{
             conn = new ConnectionFactory().getConnection();
-            String queryc = "SELECT (nomeCliente, sobrenomeCliente,emailCliente,cpfCliente,ruaEnderecoCliente,numeroEndercoCliente,complementoEnderecoCliente,bairroEnderecoCliente, cidadeEnderecoCliente, cepEnderecoCliente, estadoEnderecoCliente, telefoneCliente, senhaCliente) from cliente where idCliente = ?";
+            String queryc = "SELECT nomeCliente, sobrenomeCliente,emailCliente,cpfCliente,ruaEnderecoCliente,numeroEndercoCliente,complementoEnderecoCliente,bairroEnderecoCliente, cidadeEnderecoCliente, cepEnderecoCliente, estadoEnderecoCliente, telefoneCliente, senhaCliente from cliente where idPessoa = ?";
             st = conn.prepareStatement(queryc);
             st.setInt(1,idCliente);
             rs = st.executeQuery();
             while (rs.next()){
                 cliente.setNomecliente(rs.getString("nomeCliente"));
-                cliente.setSobreNome(rs.getString("sobrenomeCliente"));
+                cliente.setSobrenomeCliente(rs.getString("sobrenomeCliente"));
                 cliente.setEmailCliente(rs.getString("emailCliente"));
                 cliente.setCpfCliente(rs.getString("cpfCliente"));
                 cliente.setRuaEnderecoCliente(rs.getString("ruaEnderecoCliente"));
-                cliente.setNumeroEndercoCliente(rs.getInt("numeroEnderecoCliente"));
+                cliente.setNumeroEndercoCliente(rs.getInt("numeroEndercoCliente"));
                 cliente.setComplementoEnderecoCliente(rs.getString("complementoEnderecoCliente"));
                 cliente.setBairroEnderecoCliente(rs.getString("bairroEnderecoCliente"));
                 cliente.setCidadeEnderecoCliente(rs.getString("cidadeEnderecoCliente"));
