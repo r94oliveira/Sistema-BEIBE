@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 
         Cliente cliente = LoginFacade.logarCliente(log);
        
-        if (cliente.getIdCliente() != 0){
+        if (0 != cliente.getIdCliente()){
             
             LoginBean loginBean = new LoginBean(cliente.getIdCliente(),cliente.getNomecliente());
             HttpSession session = request.getSession();
@@ -58,13 +58,8 @@ public class LoginServlet extends HttpServlet {
         } 
         
         Funcionario func = LoginFacade.logarFuncionario(log);
-        
-        if (func.getCargoFuncionario() == null){
-         //ENVIAR ALERTA DIZENDO QUE O USUARIO NAO EXISTE????
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response);     
-        }
-        if(Integer.parseInt(func.getCargoFuncionario())== 1){
+
+        if(1 == func.getIdFuncionario()){
            
             LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
             HttpSession session = request.getSession();
@@ -74,14 +69,19 @@ public class LoginServlet extends HttpServlet {
             rd.forward(request, response); 
         }   
    
-        if(Integer.parseInt(func.getCargoFuncionario())== 2){
+        if(2 == func.getIdFuncionario()){
             LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
             HttpSession session = request.getSession();
             session.setAttribute("logado", loginBean);
             request.setAttribute("id",loginBean.getId());
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/home.jsp");
             rd.forward(request, response); 
-        }   
+        }
+        else{
+            //arrumar: enviar alert de usuario ou senha errado
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response); 
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

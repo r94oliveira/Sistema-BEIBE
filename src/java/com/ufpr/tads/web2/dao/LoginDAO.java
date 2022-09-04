@@ -44,7 +44,8 @@ public class LoginDAO {
         catch (Exception e){
             System.out.println("nao consultou");
             e.printStackTrace();
-            return null; 
+            cliente.setIdCliente(0);
+            return cliente; 
        }
     }
     
@@ -66,7 +67,7 @@ public class LoginDAO {
                 funcionario.setIdFuncionario(rs.getInt("idFuncionario"));
                 funcionario.setCargoFuncionario(rs.getString("cargo"));
             }
-            System.out.println(funcionario.getCargoFuncionario());
+
             return funcionario;
         }
         catch (Exception e){

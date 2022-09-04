@@ -61,7 +61,8 @@
           <div class="row">
             <header class="d-flex flex-row">
               <div class="p-2 col-9 text-left">
-                <p>Seja bem vindo(a) Usuário</p>
+                  
+                  <p>Seja bem vindo(a) <c:out value="${logado.nome}"/>  </p>
               </div>
               <div class="p-2 col-3 text-right">
                 <p><a href="login.html">Sair</a></p>
