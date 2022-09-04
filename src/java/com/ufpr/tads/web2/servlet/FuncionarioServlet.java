@@ -50,7 +50,7 @@ public class FuncionarioServlet extends HttpServlet {
             categoria.setNome(cat);
             CategoriaFacade.adicionaCategoria(categoria);
             //arrumar: enviar alerta de cadastrado ou não a categoria
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp?CadastroCategoria=true");
             rd.forward(request, response);
         }
         if ("produtos".equals(action)){
@@ -82,7 +82,7 @@ public class FuncionarioServlet extends HttpServlet {
             //HttpSession session = request.getSession();
             //LoginBean logado = (LoginBean) session.getAttribute("logado");
             //Arrumar: enviar um alerta para dizer que foi cadastrado
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/categorias.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp?CadastroProduto=true");
             rd.forward(request, response);    
         }
         

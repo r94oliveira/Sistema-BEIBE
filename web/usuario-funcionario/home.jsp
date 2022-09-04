@@ -29,6 +29,12 @@
         <jsp:forward page="index.jsp" />
     </c:if>
   <!-- Página da home -->
+  
+    <c:set var="CadastroCategoria" value="${param.CadastroCategoria}" />
+                <c:if test="${CadastroCategoria}">
+                    <script>alert("Categoria Cadastrada com Sucesso");</script>
+                </c:if>
+    
 
   <div class="container-fluid display-table">
     <div class="row display-table-row">

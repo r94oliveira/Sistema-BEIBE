@@ -23,6 +23,12 @@
         <c:set var= "mensagem" value="Precisa fazer o login" scope="request"/>
         <jsp:forward page="index.jsp" />
     </c:if>
+    
+    
+    <c:set var="CadastroProduto" value="${param.CadastroProduto}" />
+                <c:if test="${CadastroProduto}">
+                    <script>alert("Produto Cadastrado com Sucesso");</script>
+                </c:if>
 
   <!-- Página da home -->
   <div class="container-fluid display-table">
