@@ -101,6 +101,15 @@
                   value="Entrar"
                   class="btn btn-success btn-block"
                 />
+                
+                
+                <c:set var="falha" value="${param.falha}" />
+                <c:if test="${falha}">
+                    <h2>Usuário ou Senha Inválidos</h2>
+                </c:if>
+
+                
+                
               </form>
             </div>
           </div>

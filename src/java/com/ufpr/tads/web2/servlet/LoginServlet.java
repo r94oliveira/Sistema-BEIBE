@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
         log.setSenha(senha);
 
         Cliente cliente = LoginFacade.logarCliente(log);
-       
+      
         if (0 != cliente.getIdCliente()){
             
             LoginBean loginBean = new LoginBean(cliente.getIdCliente(),cliente.getNomecliente());
@@ -78,9 +78,9 @@ public class LoginServlet extends HttpServlet {
             rd.forward(request, response); 
         }
         else{
-            //arrumar: enviar alert de usuario ou senha errado
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response); 
+            
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?falha=true");
+            rd.forward(request, response);
         }
     }
 
