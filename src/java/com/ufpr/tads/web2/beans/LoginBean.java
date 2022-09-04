@@ -27,4 +27,8 @@ public class LoginBean implements Serializable {
     public String getNome(){
         return nome;
     }
+    
+    public void setId(int id){
+        this.id = id;
+    }
 }

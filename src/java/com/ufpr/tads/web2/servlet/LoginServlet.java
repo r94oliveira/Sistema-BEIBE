@@ -52,6 +52,7 @@ public class LoginServlet extends HttpServlet {
             LoginBean loginBean = new LoginBean(cliente.getIdCliente(),cliente.getNomecliente());
             HttpSession session = request.getSession();
             session.setAttribute("logado", loginBean);
+            session.setAttribute("id",loginBean.getId());
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");
             rd.forward(request, response); 
         } 
@@ -64,17 +65,20 @@ public class LoginServlet extends HttpServlet {
             rd.forward(request, response);     
         }
         if(Integer.parseInt(func.getCargoFuncionario())== 1){
-           //AQUI DEVE SER VERIFICADO OS DADOS QUE DEVEM PASSAR POR REQUEST.SETATTRIBUTE
-          //E CRIAR UM SESSION PARA O FUNCIONARIO;
+           
+            LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
             HttpSession session = request.getSession();
-            session.setAttribute("logado", func);
+            session.setAttribute("logado", loginBean);
+            request.setAttribute("id",loginBean.getId());
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
             rd.forward(request, response); 
         }   
    
         if(Integer.parseInt(func.getCargoFuncionario())== 2){
-           //AQUI DEVE SER VERIFICADO OS DADOS QUE DEVEM PASSAR POR REQUEST.SETATTRIBUTE
-          //E CRIAR UM SESSION PARA O GERENTE;
+            LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
+            HttpSession session = request.getSession();
+            session.setAttribute("logado", loginBean);
+            request.setAttribute("id",loginBean.getId());
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/home.jsp");
             rd.forward(request, response); 
         }   

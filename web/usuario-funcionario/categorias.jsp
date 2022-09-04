@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -132,7 +133,7 @@
                                             
                                         </form>
                                         
-                                        <form action="CadastroServlet" method="post">
+                                        <form action="FuncionarioServlet?action=cadastroCategoria" method="post">
                                             <div class="modal-header login-header">
                                                 <h4 class="modal-title">Adicionar nova categoria</h4>
                                             </div>
@@ -141,7 +142,7 @@
                                                 <input type="text" placeholder="Nome da categoria" name="Categoria" />
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="cancel" data-dismiss="modal">
+                                                <button type="button" class="cancel" data-dismiss="modal" >
                                                     Fechar
                                                 </button>
                                                 <input type="submit" value="Salvar" class="btn btn-success btn-block"/>

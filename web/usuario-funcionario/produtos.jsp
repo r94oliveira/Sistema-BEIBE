@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -169,30 +170,32 @@
             <div id="modal-project" class="modal fade" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header login-header">
-                    <h4 class="modal-title">Adicionar novo produto</h4>
-                  </div>
-                  <div class="modal-body">
-                    <select class="form-control" class="form-select" aria-label="Default select example">
-                      <option selected>Selecione a categoria do produto</option>
-                      <option value="categoria1">Categoria 1</option>
-                      <option value="categoria2">Categoria 2</option>
-                      <option value="categoria3">Categoria 3</option>
-                    </select>
-                    <input type="text" placeholder="Nome" name="mail" />
-                    <input type="text" placeholder="Peso" name="passsword" />
-                    <textarea placeholder="Descrição"></textarea>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="cancel" data-dismiss="modal">
-                      Fechar
-                    </button>
-                    <button type="button" class="add-modal" data-dismiss="modal">
-                      Salvar
-                    </button>
-                  </div>
-                </div>
+                <form action="FuncionarioServlet?action=cadastroProduto" method="post">
+                    <div class="modal-content">
+                      <div class="modal-header login-header">
+                        <h4 class="modal-title">Adicionar novo produto</h4>
+                      </div>
+                      <div class="modal-body">
+                         
+                            <select name="categoriaProduto" class="form-control" class="form-select" aria-label="Default select example">
+                                <option selected>Selecione a categoria do produto</option>
+                                <c:forEach var="categoria" items="${requestScope.categorias}">
+                                    <option  value="<c:out value="${categoria.idCategoria}"/>"> <c:out value="${categoria.nome}"/> </options>
+                                </c:forEach>
+                            </select>
+                          
+                        <input name="nome" type="text" placeholder="Nome"  />
+                        <input name="peso" type="number" placeholder="Peso" class="form-control" />
+                        <input name="descricao" type="text" placeholder="Descrição" />
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="cancel" data-dismiss="modal">
+                          Fechar
+                        </button>
+                        <input type="submit" value="Salvar" class="btn btn-success btn-block"/>
+                      </div>
+                    </div>
+                </form>   
               </div>
             </div>
 

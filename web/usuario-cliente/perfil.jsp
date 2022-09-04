@@ -29,6 +29,7 @@
             <c:set var="msg" value="Você deve fazer login para acessar o sistema." scope="request"/>
             <jsp:forward page="index.jsp"/>
         </c:if>
+       
     <!-- Página da home -->
     <div class="container-fluid display-table">
       <div class="row display-table-row">
@@ -87,8 +88,15 @@
 
             <div class="form d-flex flex-row w-100">
 
-              <form action="index.html" class="col-12 p-0 m-0">
-                Nome: <input required type="text" name="Nome" class="form-control col-5" value="${cliente.nomecliente}" />
+        
+                
+                
+                
+              <form action="ClienteServlet?action=alteraCadastro" method="post" class="col-12 p-0 m-0">
+               
+               <input name="idCliente" value="${cliente.idCliente}" />
+                  
+               Nome: <input required type="text" name="Nome" class="form-control col-5" value="${cliente.nomecliente}" />
                 
                Sobrenome: <input required type="text" name="Sobrenome" class="form-control col-5" value="${cliente.sobrenomeCliente}" />
 

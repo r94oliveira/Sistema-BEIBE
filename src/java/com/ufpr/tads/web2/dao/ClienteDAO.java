@@ -110,6 +110,7 @@ public class ClienteDAO {
             st.setInt(1,idCliente);
             rs = st.executeQuery();
             while (rs.next()){
+                cliente.setIdCliente(idCliente);
                 cliente.setNomecliente(rs.getString("nomeCliente"));
                 cliente.setSobrenomeCliente(rs.getString("sobrenomeCliente"));
                 cliente.setEmailCliente(rs.getString("emailCliente"));
@@ -146,7 +147,7 @@ public class ClienteDAO {
         System.out.println(c.getCepEnderecoCliente());
         try {
             conn = new ConnectionFactory().getConnection();
-            String query = "UPDATE cliente SET (nomeCliente = ?, sobrenomeCliente= ?, emailCliente= ?, cpfCliente= ?,ruaEnderecoCliente= ?,numeroEndercoCliente = ?,complementoEnderecoCliente = ?,bairroEnderecoCliente = ?, cidadeEnderecoCliente = ?, cepEnderecoCliente = ?, estadoEnderecoCliente = ?, telefoneCliente = ?) WHERE idCliente = ?";
+            String query = "UPDATE cliente SET nomeCliente = ?, sobrenomeCliente= ?, emailCliente= ?, cpfCliente= ?,ruaEnderecoCliente= ?,numeroEndercoCliente = ?,complementoEnderecoCliente = ?,bairroEnderecoCliente = ?, cidadeEnderecoCliente = ?, cepEnderecoCliente = ?, estadoEnderecoCliente = ?, telefoneCliente = ? WHERE idPessoa = ?";
             //
             st = conn.prepareStatement(query);
             st.setString(1,c.getNomecliente());

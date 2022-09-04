@@ -2,7 +2,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,10 +10,18 @@
 
   <!-- CSS only -->
   <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
-    integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous" />
+  <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+        crossorigin="anonymous" 
+        />
+  <link 
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" 
+        rel="stylesheet"
+        integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" 
+        crossorigin="anonymous" 
+        />
 </head>
 <body id="home">
     <c:if test="${empty sessionScope.logado}">
@@ -22,40 +29,7 @@
         <jsp:forward page="index.jsp" />
     </c:if>
   <!-- Página da home -->
-  
-    <% String str = (String)request.getParameter("Categorias"); %>
-    <% out.println(str);%>
-    <p>${pageContext.request.queryString}</p>
 
-  <div class="modal-content">
-                                        <form action="CadastroCategoriaServlet" method="post">
-                                            <div class="modal-header log
-                                                 in-header">
-                                                <h4 class="modal-title">Adicionar nova categoria</h4>
-                                            </div>
-                                            <div class="modal-body">
-
-                                                <input type="text" placeholder="Nome da categoria" name="Categoria" />
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="cancel" data-dismiss="modal">
-                                                    Fechar
-                                                </button>
-                                                <input type="submit" value="Salvar" class="btn btn-success btn-block"/>
-                                            </div>
-                                        </form>    
-                                    </div>
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <div class="container-fluid display-table">
     <div class="row display-table-row">
       <!-- Menu lateral  -->
@@ -67,16 +41,17 @@
           <ul class="navi">
 
             <li class="active">
-              <a href="func-home.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Atendimentos</span></a>
+              <a href="func-home.html"
+                 ><i class="fa fa-tasks" aria-hidden="true"></i
+                  ><span class="hidden-xs hidden-sm">Atendimentos</span></a>
             </li>
             <li>
-              <a href="http://localhost:8080/beibe/usuario-funcionario/categorias.jsp"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Categorias</span></a>
+              <a href="${pageContext.request.contextPath}/FuncionarioServlet?action=categoria" method="post" class="float-right btn btn-danger rounded">Categorias</a>  
+             
+              
             </li>
             <li>
-              <a href="func-prod.html"><i class="fa fa-tasks" aria-hidden="true"></i><span
-                  class="hidden-xs hidden-sm">Produtos</span></a>
+             <a href="${pageContext.request.contextPath}/FuncionarioServlet?action=produtos" method="post" class="float-right btn btn-danger rounded">Produtos</a>  
             </li>
 
           </ul>

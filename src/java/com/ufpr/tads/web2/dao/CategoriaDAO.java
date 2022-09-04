@@ -11,12 +11,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Rafael
  */
 public class CategoriaDAO {
+
+    
     
     public static CategoriaProduto inserir (CategoriaProduto categoria){
         Connection conn = null;
@@ -67,8 +71,40 @@ public class CategoriaDAO {
        }
     }
     
+    
+    public static List<CategoriaProduto> consultaCategoria (){
+         Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         List<CategoriaProduto> categorias = new ArrayList<CategoriaProduto>();
+         
+            try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT * From categoria_produto";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    CategoriaProduto categoria = new CategoriaProduto();
+                    categoria.setNome(rs.getString("nomeCategoria"));
+                    categoria.setIdCategoria(rs.getInt("idCategoria"));
+                    System.out.println(categoria.getIdCategoria());
+                    System.out.println(categoria.getNome());
+                    categorias.add(categoria);
+                }
+                return categorias;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return null; 
+           }
+        
+        
+        
         
     }
+        
+  }
     
     
 

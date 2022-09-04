@@ -4,9 +4,15 @@
  */
 package com.ufpr.tads.web2.servlet;
 
+import com.ufpr.tads.web2.beans.CategoriaProduto;
 import com.ufpr.tads.web2.beans.Cliente;
 import com.ufpr.tads.web2.beans.LoginBean;
+import com.ufpr.tads.web2.beans.Produto;
+import com.ufpr.tads.web2.beans.TipoAtendimento;
+import com.ufpr.tads.web2.facade.CategoriaFacade;
 import com.ufpr.tads.web2.facade.ClienteFacade;
+import com.ufpr.tads.web2.facade.ProdutosFacade;
+import com.ufpr.tads.web2.facade.TipoAtendimentoFacade;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
 import java.io.IOException;
@@ -17,6 +23,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -27,9 +35,10 @@ public class ClienteServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      // HttpSession session = request.getSession();
+      
        String action = request.getParameter("action");
        ServletContext sc = request.getServletContext();
+       
        
        
         if (action.equals("consultaCadastro")){
@@ -37,20 +46,18 @@ public class ClienteServlet extends HttpServlet {
            LoginBean logado = (LoginBean) session.getAttribute("logado");
            int idCliente = logado.getId();
            Cliente cliente = ClienteFacade.consultaCliente(idCliente); 
-           System.out.println(cliente.getSobrenomeCliente());
-           System.out.println(cliente.getNomecliente());
            request.setAttribute("cliente", cliente);
            
            RequestDispatcher rd = sc.getRequestDispatcher("/usuario-cliente/perfil.jsp");
            rd.forward(request, response);
         }
         
-        if(action.equals("alterarCadastro")){
-                //Arrumar: pegar idCliente
-            //verifica os dados do cliente logado, o id do cliente tem  que vir pela Session.
-            //idCliente = 0; // o que vier da session
-
-
+        if("alteraCadastro".equals(action)){
+            HttpSession session = request.getSession();
+            LoginBean logado = (LoginBean) session.getAttribute("logado");
+            
+            String idCli = request.getParameter("idCliente");
+            int idCliente = Integer.parseInt(idCli);
             String nome = request.getParameter("Nome");
             String sobrenome = request.getParameter("Sobrenome");
             String email = request.getParameter("Email");
@@ -68,7 +75,7 @@ public class ClienteServlet extends HttpServlet {
 
             Cliente c = new Cliente();
 
-           // c.setIdCliente(idCliente);
+            c.setIdCliente(idCliente);
             c.setNomecliente(nome);
             c.setSobrenomeCliente(sobrenome);
             c.setEmailCliente(email);
@@ -83,19 +90,57 @@ public class ClienteServlet extends HttpServlet {
             c.setTelefoneCliente(telefone);
             c.setSenhaCliente(senha);
 
-            int x = ClienteFacade.alteraCliente(c);
-
-            if (x==1){
-
-            // Arrumar : enviar o cliente para a home.
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            if (ClienteFacade.alteraCliente(c)== 1){
+            //arrumar: enviar um alerta que o usuario foi alterado    
+            request.setAttribute("cliente", c);
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");
             rd.forward(request, response);
+            
             } else {
-                // Arrumar: Enviar alerta
-                //enviar uma mensagem de não alteração dos dados
+                
+                //arrumar: enviar um alerta que não deu certo alterar
+                //alterar para enviar para "/usuario-cliente/home.jsp" (deixei diferente só para ver funcinando
+                
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);
             }
         }
         
+        if("atendimento".equals(action)){
+            HttpSession session = request.getSession();
+            LoginBean logado = (LoginBean) session.getAttribute("logado");
+            // na session encontra-se o id do cliente --se precisar--int idCliente = logado.getId();
+           
+            //pegar a lista de produtos do banco
+            List<CategoriaProduto> categorias = new ArrayList<CategoriaProduto>();
+            categorias = CategoriaFacade.consultaCategoria();
+            request.setAttribute("categorias", categorias);
+            //pegar os tipos de atendimentos do banco
+            List<TipoAtendimento> tipoAtendimentos = new ArrayList<TipoAtendimento>();
+            tipoAtendimentos = TipoAtendimentoFacade.consultaTipoAtendimento();
+            request.setAttribute("tipoAtendimentos", tipoAtendimentos);
+            //pegar os produtos relacionados com o tipo escolhido do bacno
+            List<Produto> produtos = new ArrayList<Produto>();
+            produtos = ProdutosFacade.consultaProdutos();
+            request.setAttribute("produtos", produtos);
+            
+            //verificar como filtrar os produtos de acordo com o tipo
+            //se isso é feito em servlet ou se pode ser feito na jsp
+            
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/atendimento.jsp");
+            rd.forward(request, response);
+        }
+        
+        if("novoAtendimento".equals(action)){
+            HttpSession session = request.getSession();
+            LoginBean logado = (LoginBean) session.getAttribute("logado");
+           
+            
+            
+            
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/atendimento.jsp");
+            rd.forward(request, response);
+        }
         
         
         

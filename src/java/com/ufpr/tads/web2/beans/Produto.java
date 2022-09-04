@@ -13,19 +13,17 @@ public class Produto implements Serializable{
     private String nome;
     private String descricao;
     private int categoria;
-    private float preco;
-    private float peso;
-    private int quantidadeReclamacoes;
+    private double peso;
+
     
     public Produto() {}
     
-    public Produto(String nome, String descricao, int categoria, float preco ,float peso, int quantidadeReclamacoes){
+    public Produto(String nome, String descricao, int categoria ,double peso){
         this.nome                  = nome;
         this.descricao             = descricao;
         this.categoria             = categoria;
-        this.preco                 = preco;
         this.peso                  = peso;
-        this.quantidadeReclamacoes = quantidadeReclamacoes;
+
     }
     
     public int getIdProduto(){
@@ -54,22 +52,11 @@ public class Produto implements Serializable{
     public void setCategoria(int categoria){
         this.categoria = categoria;
     }
-    public float getPreco(){
-        return this.preco;
-    }
-    public void setPreco(float preco){
-        this.preco = preco;
-    }
-    public float getPeso(){
+
+    public double getPeso(){
         return this.peso;
     }
-    public void setPeso(float peso){
+    public void setPeso(double peso){
         this.peso = peso;
     }
-    public int getQtdReclamacoes(){
-        return this.quantidadeReclamacoes;
-    }
-    public void setQtdReclamacoes(int quantidadeReclamacoes){
-        this.quantidadeReclamacoes = quantidadeReclamacoes;
-    }
-}
+}    

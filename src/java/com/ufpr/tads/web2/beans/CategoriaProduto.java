@@ -9,9 +9,12 @@ public class CategoriaProduto implements Serializable {
     
     public CategoriaProduto() {}
     
-    public CategoriaProduto(String nome){
+    public CategoriaProduto(String nome, int IdCategoria){
         this.nome = nome;
+        this.idCategoria = idCategoria;
     }
+    
+    
     public int getIdCategoria(){
         return this.idCategoria;
     }

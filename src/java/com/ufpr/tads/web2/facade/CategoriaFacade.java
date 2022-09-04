@@ -6,17 +6,25 @@ package com.ufpr.tads.web2.facade;
 
 import com.ufpr.tads.web2.dao.CategoriaDAO;
 import com.ufpr.tads.web2.beans.CategoriaProduto;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  *
  * @author Rafael
  */
 public class CategoriaFacade {
+
+
     CategoriaDAO categoriaDao = new CategoriaDAO();
     
     public static CategoriaProduto adicionaCategoria (CategoriaProduto categoria){
         return CategoriaDAO.inserir(categoria);
     }
     
+    public static List<CategoriaProduto> consultaCategoria (){
+        return CategoriaDAO.consultaCategoria();
+    }
     
 }

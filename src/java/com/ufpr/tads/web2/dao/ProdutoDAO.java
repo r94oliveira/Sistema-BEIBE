@@ -10,12 +10,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author janai
  */
-public class ProdutoDAO {
+public class  ProdutoDAO {
 
     public static Produto inserir(Produto produto) {
         Connection conn = null;
@@ -27,14 +29,12 @@ public class ProdutoDAO {
             String query = "INSERT INTO produto (descricaoProduto, pesoProduto, fk_Categoria_Produto_idCategoria, nomeProduto) VALUES (?,?,?,?);";
             st = conn.prepareStatement(query);
             st.setString(1,produto.getDescricao());
-            st.setFloat(2,produto.getPeso());
+            st.setDouble(2,produto.getPeso());
             st.setInt(3,produto.getCategoria());
             st.setString(4,produto.getNome());
-            
             st.executeUpdate();
             st.close();
             conn.close();
-            System.out.println("inseriu");
             return produto;   
         }
         catch (Exception e){
@@ -43,6 +43,37 @@ public class ProdutoDAO {
             return null; 
           
         }
+    }
+
+    public static List<Produto> consultaProdutos() {
+         Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         List<Produto> produtos = new ArrayList<Produto>();
+         
+            try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT * From produto";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    Produto produto = new Produto();
+                    produto.setCategoria(rs.getInt("fk_Categoria_Produto_idCategoria"));
+                    produto.setDescricao(rs.getString("descricaoProduto"));
+                    produto.setIdProduto(rs.getInt("idProduto"));
+                    produto.setNome(rs.getString("nomeProduto"));
+                    produto.setPeso(rs.getDouble("pesoProduto"));
+
+                    System.out.println(produto.getNome());
+                    produtos.add(produto);
+                }
+                return produtos;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return null; 
+           }
     }
     
 }

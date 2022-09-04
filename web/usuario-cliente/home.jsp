@@ -23,13 +23,11 @@
     crossorigin="anonymous"
   />
   </head>
-
   <body id="home">
       <c:if test="${empty sessionScope.logado}">
         <c:set var= "mensagem" value="Precisa fazer o login" scope="request"/>
         <jsp:forward page="index.jsp" />
     </c:if>
-
     <!-- Página da home -->
     <div class="container-fluid display-table">
       <div class="row display-table-row">
@@ -50,16 +48,10 @@
                 >
               </li>
               <li>
-                <a href="client-atend.html"
-                  ><i class="fa fa-ticket" aria-hidden="true"></i
-                  ><span class="hidden-xs hidden-sm">Novo atendimento</span></a
-                >
+                <a href="${pageContext.request.contextPath}/ClienteServlet?action=atendimento" method="post" class="float-right btn btn-danger rounded">Novo Atendimento</a>
               </li>
               <li >
-                
-                     <a href="${pageContext.request.contextPath}/ClienteServlet?action=consultaCadastro" method="post" class="float-right btn btn-danger rounded">Meus Dados</a>
-                       
-                     
+                     <a href="${pageContext.request.contextPath}/ClienteServlet?action=consultaCadastro" method="post" class="float-right btn btn-danger rounded">Meus Dados</a>                     
               </li>
             </ul>
           </div>
