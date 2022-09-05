@@ -4,11 +4,13 @@
  */
 package com.ufpr.tads.web2.servlet;
 
+import com.ufpr.tads.web2.beans.Atendimento;
 import com.ufpr.tads.web2.beans.CategoriaProduto;
 import com.ufpr.tads.web2.beans.Cliente;
 import com.ufpr.tads.web2.beans.LoginBean;
 import com.ufpr.tads.web2.beans.Produto;
 import com.ufpr.tads.web2.beans.TipoAtendimento;
+import com.ufpr.tads.web2.facade.AtendimentoFacade;
 import com.ufpr.tads.web2.facade.CategoriaFacade;
 import com.ufpr.tads.web2.facade.ClienteFacade;
 import com.ufpr.tads.web2.facade.ProdutosFacade;
@@ -111,11 +113,12 @@ public class ClienteServlet extends HttpServlet {
             LoginBean logado = (LoginBean) session.getAttribute("logado");
             // na session encontra-se o id do cliente --se precisar--int idCliente = logado.getId();
            
-            //pegar a lista de produtos do banco
+            /*pegar a lista de produtos do banco DEIXEI AQUI, VAI QUE PRECISA
             List<CategoriaProduto> categorias = new ArrayList<CategoriaProduto>();
             categorias = CategoriaFacade.consultaCategoria();
-            request.setAttribute("categorias", categorias);
-            //pegar os tipos de atendimentos do banco
+            request.setAttribute("categorias", categorias);*/
+            
+            //pegar os tipos de atendimentos do banco E
             List<TipoAtendimento> tipoAtendimentos = new ArrayList<TipoAtendimento>();
             tipoAtendimentos = TipoAtendimentoFacade.consultaTipoAtendimento();
             request.setAttribute("tipoAtendimentos", tipoAtendimentos);
@@ -134,10 +137,25 @@ public class ClienteServlet extends HttpServlet {
         if("novoAtendimento".equals(action)){
             HttpSession session = request.getSession();
             LoginBean logado = (LoginBean) session.getAttribute("logado");
-           
+            String idPro = request.getParameter("produto");
+            int idProduto = Integer.parseInt(idPro);
+            String tipoAten = request.getParameter("tipoAtendimento");
+            int idTipoAtendimento = Integer.parseInt(tipoAten);
+            String descricao = request.getParameter("descricao");
+            int idCliente = logado.getId();
+            System.out.println(idProduto);
+            System.out.println(idTipoAtendimento);
+            System.out.println(descricao);
+            System.out.println(idCliente);
+            Atendimento atendimento = new Atendimento();
+            atendimento.setDescricao(descricao);
+            atendimento.setIdCliente(idCliente);
+            atendimento.setIdTipoAtendimento(idTipoAtendimento);
+            atendimento.setIdProduto(idProduto);
+            //pegar data e hora e inserir em atendimento
+            AtendimentoFacade.cadastroAtendimento(atendimento);
             
-            
-            
+            //enviar alerta de cadastro com sucesso ou nao
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/atendimento.jsp");
             rd.forward(request, response);
         }

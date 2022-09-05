@@ -6,101 +6,101 @@ import java.util.Calendar;
 
 public class Atendimento implements Serializable{
     private int idAtendimento;
-    private Cliente cliente;
-    private Funcionario funcionario;
-    private Produto produto;
-    private TipoAtendimento tipoAtendimento;
-    private Calendar dataHoraInicio;
-    private Calendar dataHoraFim;
-    private String reclamacao;
+    private Calendar dataHoraAtendimento;
+    private String descricao;
     private String solucao;
-    private Situacao estado;
+    private int situacao;
+    private int idCliente;
+    private int idProduto;
+    private int idTipoAtendimento;
+
+    public void setIdAtendimento(int idAtendimento) {
+        this.idAtendimento = idAtendimento;
+    }
+
+    public void setDataHoraAtendimento(Calendar dataHoraAtendimento) {
+        this.dataHoraAtendimento = dataHoraAtendimento;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setSolucao(String solucao) {
+        this.solucao = solucao;
+    }
+
+    public void setSituacao(int situacao) {
+        this.situacao = situacao;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    public void setIdTipoAtendimento(int idTipoAtendimento) {
+        this.idTipoAtendimento = idTipoAtendimento;
+    }
+
+    public void setIdFuncionario(int idFuncionario) {
+        this.idFuncionario = idFuncionario;
+    }
+    private int idFuncionario;
+  
     
     public Atendimento() {}
     
-    public Atendimento(Cliente cliente, Produto produto, TipoAtendimento tipoAtendimento, 
-                       String reclamacao, Calendar dataHoraInicio, Situacao estado){
-        this.cliente         = cliente;
-        this.produto         = produto;
-        this.tipoAtendimento = tipoAtendimento;
-        this.reclamacao      = reclamacao;
-        this.dataHoraInicio  = dataHoraInicio;
-        this.estado          = estado;
-    }
-    
-    public Atendimento(Cliente cliente, Funcionario funcionario,Produto produto, TipoAtendimento tipoAtendimento, 
-                       String reclamacao, String solucao, Calendar dataHoraInicio, Calendar dataHoraFim,Situacao estado){
-        this.cliente         = cliente;
-        this.funcionario     = funcionario;
-        this.produto         = produto;
-        this.tipoAtendimento = tipoAtendimento;
-        this.reclamacao      = reclamacao;
-        this.solucao         = solucao;
-        this.dataHoraInicio  = dataHoraInicio;
-        this.dataHoraFim     = dataHoraFim;
-        this.estado          = estado;
-    }  
-    
-    public int getIdAtendimento(){
-        return this.idAtendimento;
-    }
-    public void setIdAtendimento(int idAtendimento){
+    public Atendimento(int idAtendimento,Calendar dataHoraAtendimento,String descricao,String solucao,int situacao,int idCliente,int idProduto,int idTipoAtendimento,int idFuncionario){
         this.idAtendimento = idAtendimento;
-    }
-    public Cliente getCliente(){
-        return this.cliente;
-    }
-    public void setCliente(Cliente cliente){
-        this.cliente = cliente;
-    }
-    public Funcionario getFuncionario(){
-        return this.funcionario;
-    }
-    public void setFuncionario(Funcionario funcionario){
-        this.funcionario = funcionario;
-    }
-    public Produto getProduto(){
-        return this.produto;
-    }
-    public void setProduto(Produto produto){
-        this.produto = produto;
-    }
-    
-    public TipoAtendimento getTipoAtendimento(){
-        return this.tipoAtendimento;
-    }
-    public void setTipoAtendimento(TipoAtendimento tipoAtendimento){
-        this.tipoAtendimento = tipoAtendimento;
-    }
-    public Calendar getDataHoraInicio(){
-        return this.dataHoraInicio;
-    }
-    public void setDataHoraInicio(Calendar dataHoraInicio){
-        this.dataHoraInicio = dataHoraInicio;
-    }
-    
-    public Calendar getDataHoraFim(){
-        return this.dataHoraFim;
-    }
-    public void setDataHoraFim(Calendar dataHoraFim){
-        this.dataHoraFim = dataHoraFim;
-    }
-    public String getReclamacao(){
-        return this.reclamacao;
-    }
-    public void setReclamacao(String reclamacao){
-        this.reclamacao = reclamacao;
-    }
-    public String getSolucao(){
-        return this.solucao;
-    }
-    public void setSolucao(String solucao){
+        this.dataHoraAtendimento = dataHoraAtendimento;
+        this.descricao = descricao;
         this.solucao = solucao;
+        this.situacao = situacao;
+        this.idCliente = idCliente;
+        this.idProduto = idProduto;
+        this.idTipoAtendimento = idTipoAtendimento;
+        this.idFuncionario = idFuncionario;
     }
-    public Situacao getSituacao(){
-        return this.estado;
+
+    public int getIdAtendimento() {
+        return idAtendimento;
     }
-    public void setSituacao(Situacao estado){
-        this.estado = estado;
+
+    public Calendar getDataHoraAtendimento() {
+        return dataHoraAtendimento;
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public String getSolucao() {
+        return solucao;
+    }
+
+    public int getSituacao() {
+        return situacao;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public int getIdProduto() {
+        return idProduto;
+    }
+
+    public int getIdTipoAtendimento() {
+        return idTipoAtendimento;
+    }
+
+    public int getIdFuncionario() {
+        return idFuncionario;
+    }
+
+   
 }

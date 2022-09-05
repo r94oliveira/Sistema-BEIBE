@@ -2,22 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ufpr.tads.web2.facade;
+package com.ufpr.tads.web2.exceptions;
 
 /**
  *
  * @author janai
  */
-public class FerramentasException extends Exception {
-    public FerramentasException() {}
+public class EstadoException extends Exception{
+    public EstadoException() {}
     
-    public FerramentasException(String string)
+    public EstadoException(String string)
     {
         super(string);
     }
     
-    public FerramentasException(String string, Throwable thrwbl)
+    public EstadoException(String string, Throwable thrwbl)
     {
         super(string, thrwbl);
-    }    
+    }
 }

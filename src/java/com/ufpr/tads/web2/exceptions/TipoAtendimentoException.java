@@ -2,21 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ufpr.tads.web2.facade;
+package com.ufpr.tads.web2.exceptions;
 
 /**
  *
  * @author janai
  */
-public class ProdutoException extends Exception{
-    public ProdutoException() {}
+public class TipoAtendimentoException extends Exception {
+    public TipoAtendimentoException() {}
     
-    public ProdutoException(String string)
+    public TipoAtendimentoException(String string)
     {
         super(string);
     }
     
-    public ProdutoException(String string, Throwable thrwbl)
+    public TipoAtendimentoException(String string, Throwable thrwbl)
     {
         super(string, thrwbl);
     }

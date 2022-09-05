@@ -31,26 +31,19 @@
 
                             <div class="form d-flex flex-row w-100">
 
-                                <form action="client-atend.html" class="col-12 p-0 m-0">
+                                <form action="ClienteServlet?action=novoAtendimento" method="post" class="col-12 p-0 m-0">
 
                                     <select name="tipoAtendimento" class="form-control col-10 mb-3 p-2" class="form-select" aria-label="Default select example">
                                         <option selected>Selecione o tipo de atendimento</option>
-                                        <option value="reclamacao">Reclamação</option>
-                                        <option value="problema">Problema</option>
-                                        <option value="sugestao">Sugestão</option>
-                                        <option value="critica">Critica</option>
-                                    </select>
-                                    <select nome="categoriaProduto" class="form-control col-10 mb-3 p-2" class="form-select" aria-label="Default select example">
-                                        <option selected>Selecione a categoria do produto</option>
-                                        <option value="categoria1">Categoria 1</option>
-                                        <option value="categoria2">Categoria 2</option>
-                                        <option value="categoria3">Categoria 3</option>
+                                        <c:forEach var="tipoAtendimentos" items="${requestScope.tipoAtendimentos}">
+                                            <option  value="<c:out value="${tipoAtendimentos.idTipo}"/>"> <c:out value="${tipoAtendimentos.nome}"/> </options>
+                                        </c:forEach>
                                     </select>
                                     <select name="produto" class="form-control col-10 mb-3 p-2" class="form-select" aria-label="Default select example">
                                         <option selected>Selecione o nome do produto</option>
-                                        <option value="categoria1">Produto 1</option>
-                                        <option value="categoria2">Produto 2</option>
-                                        <option value="categoria3">Produto 3</option>
+                                        <c:forEach var="produtos" items="${requestScope.produtos}">
+                                            <option  value="<c:out value="${produtos.idProduto}"/>"> <c:out value="${produtos.nome}"/> </options>
+                                        </c:forEach>
                                     </select>
                                     <textarea name="descricao"  class="form-control col-10 pb-4"  placeholder="Descrição"></textarea>
                                     <div class="col-12 p-0 pt-2">
