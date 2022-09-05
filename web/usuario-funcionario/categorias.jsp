@@ -42,7 +42,7 @@
                                 <table class="table align-middle mb-0 bg-white">
                                     <thead class="bg-light">
                                         <tr>
-                                            <th>ID</th>
+                                         
                                             <th>Nome da categoria</th>
                                             <th>Remover categoria</th>
 
@@ -52,9 +52,6 @@
                                         <c:forEach var="categoria" items="${requestScope.categorias}">
                                             <tr>
 
-                                                <td>
-                                                    <p class="fw-normal mb-1"> <c:out value="${categoria.idCategoria}"/></p>
-                                                </td>
                                                 <td>
                                                     <p class="fw-normal mb-1"> <c:out value="${categoria.nome}"/></p>
                                                 </td>
