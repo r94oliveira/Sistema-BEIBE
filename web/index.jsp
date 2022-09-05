@@ -271,6 +271,15 @@
                   class="btn btn-success btn-block"
                 />
                 <!-- ENVIA PARA CadastroClienteServlet -->
+                
+                <c:set var="CadastroCliente" value="${param.CadastroCliente}" />
+                <c:if test="${CadastroCliente}">
+                    <script>alert("Cliente cadastrado com sucesso. Faça o login!");</script>
+                </c:if>
+                <c:set var="falhaCadastroCliente" value="${param.falhaCadastroCliente}" />
+                <c:if test="${falhaCadastroCliente}">
+                    <script>alert("Cliente não cadastrado! Refaça o cadastro");</script>
+                </c:if>
               </form>
             </div>
           </div>

@@ -66,10 +66,11 @@ public class CadastroClienteServlet extends HttpServlet {
             c.setSenhaCliente(senha);
         
             if(ClienteFacade.adicionaCliente(c) == null){
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                //falha em add o cliente
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?falhaCadastroCliente=true");
                 rd.forward(request, response); 
             } else {
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?CadastroCliente=true");
                 rd.forward(request, response); 
             }
             

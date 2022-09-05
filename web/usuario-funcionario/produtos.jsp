@@ -65,7 +65,7 @@
               <p>Seja bem vindo(a) Funcionário</p>
             </div>
             <div class="p-2 col-3 text-right">
-              <p><a href="login.html">Sair</a></p>
+              <p><a href="${pageContext.request.contextPath}/LogoutServlet" method="post" class="float-right btn btn-danger rounded">Sair</a></p>
             </div>
           </header>
         </div>
