@@ -23,8 +23,16 @@ public class CategoriaFacade {
         return CategoriaDAO.inserir(categoria);
     }
     
+    public static String excluirCategoria (String id){
+        return CategoriaDAO.excluirCategoria(id);
+    }
+    
     public static List<CategoriaProduto> consultaCategoria (){
         return CategoriaDAO.consultaCategoria();
     }
+    
+    
+    
+    
     
 }

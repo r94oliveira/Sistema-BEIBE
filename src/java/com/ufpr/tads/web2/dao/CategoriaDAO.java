@@ -31,7 +31,7 @@ public class CategoriaDAO {
             conn = new ConnectionFactory().getConnection();
             String query = "INSERT INTO categoria_produto (nomeCategoria) VALUES (?);";
             st = conn.prepareStatement(query);
-            st.setString(1, categoria.getNome());;
+            st.setString(1, categoria.getNome());
             st.executeUpdate();
             st.close();
             conn.close();
@@ -69,6 +69,32 @@ public class CategoriaDAO {
             e.printStackTrace();
             return 0; 
        }
+    }
+    
+        public static String excluirCategoria(String id) {
+        
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        int idCategoria = Integer.parseInt(id);
+        
+        try{
+            conn = new ConnectionFactory().getConnection();
+            String queryc = "DELETE from categoria_produto WHERE idCategoria= ? ;";
+            st = conn.prepareStatement(queryc);
+            st.setInt(1, idCategoria);
+            st.executeUpdate();
+            st.close();
+            conn.close();
+            System.out.println("excluiu");
+            return id;   
+        }
+        catch (Exception e){
+            System.out.println("nao inseriu");
+            e.printStackTrace();
+            return null; 
+          
+        }
     }
     
     

@@ -12,6 +12,7 @@
 
     <body id="home">
 
+
         <!-- Página da home -->
         <div class="container-fluid display-table">
             <div class="row display-table-row">
@@ -48,34 +49,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <p class="fw-normal mb-1">123</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Categoria 1</p>
-                                            </td>
-                                            <td>
-                                                <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                        Excluir
-                                                    </button></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="fw-normal mb-1">123</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Categoria 2</p>
-                                            </td>
-                                            <td>
-                                                <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                        Excluir
-                                                    </button></a>
-                                            </td>
-                                        </tr>
+                                        <c:forEach var="categoria" items="${requestScope.categorias}">
+                                            <tr>
 
-
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${categoria.idCategoria}"/></p>
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${categoria.nome}"/></p>
+                                                </td>
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#confirm-delete" data-title="Delete" data-delete ="${categoria.idCategoria}">
+                                                        Excluir
+                                                        </button></a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -111,7 +100,7 @@
                             </div>
 
                             <!-- Modal confirm -->
-                            <div id="modal-confirm" class="modal fade" role="dialog">
+                            <div id="confirm-delete" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
@@ -119,7 +108,7 @@
                                             <h4 class="modal-title">Realmente deseja excluir essa categoria?</h4>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="add-modal" data-dismiss="modal">
+                                            <button type="button" class="add-modal" id="delBtn">
                                                 Sim
                                             </button>
                                             <button type="button" class="cancel" data-dismiss="modal">
@@ -138,6 +127,8 @@
             </div>
         </div>
         <%@include file="../footer.jsp" %>
+          
+
     </body>
 
 </html>

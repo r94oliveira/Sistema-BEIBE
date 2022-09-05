@@ -37,9 +37,9 @@ public class FuncionarioServlet extends HttpServlet {
         
         if ("categoria".equals(action)){
             System.out.println(action);
-            //HttpSession session = request.getSession();
-            //LoginBean logado = (LoginBean) session.getAttribute("logado");
-            //pode ser que precise passar mais coisas por session ou request
+            HttpSession session = request.getSession();
+            List<CategoriaProduto> categorias = CategoriaFacade.consultaCategoria();
+            request.setAttribute("categorias",categorias);
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/categorias.jsp");
             rd.forward(request, response);    
         }
@@ -47,12 +47,29 @@ public class FuncionarioServlet extends HttpServlet {
         if("cadastroCategoria".equals(action)){
             CategoriaProduto categoria = new CategoriaProduto();
             String cat = request.getParameter("Categoria");
-            categoria.setNome(cat);
-            CategoriaFacade.adicionaCategoria(categoria);
-            //arrumar: enviar alerta de cadastrado ou não a categoria
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp?CadastroCategoria=true");
+            
+            if("".equals(cat)){
+             request.setAttribute("msgServlet","É necessário digitar algo como o nome da categoria!");
+           
+            } else {
+                categoria.setNome(cat);
+                CategoriaFacade.adicionaCategoria(categoria);
+                request.setAttribute("msgServlet","A categoria "+categoria.getNome()+ " foi adicionada!");
+            }      
+             
+            RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=categoria&CadastroCategoria=true");
             rd.forward(request, response);
         }
+        
+        if ("excluirCategoria".equals(action)){
+
+            String id = request.getParameter("id");
+            CategoriaFacade.excluirCategoria(id);
+            request.setAttribute("msgServlet","A categoria foi excluída com sucesso!");
+            RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=categoria");
+            rd.forward(request, response);    
+        }
+                
         if ("produtos".equals(action)){
             HttpSession session = request.getSession();
             List<CategoriaProduto> categorias = new ArrayList<CategoriaProduto>();
