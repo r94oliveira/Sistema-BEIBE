@@ -9,7 +9,7 @@
   <title>Home Page Funcionário</title>
 
   <!-- CSS only -->
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
   <link 
         rel="stylesheet" 
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
