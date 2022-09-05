@@ -59,21 +59,21 @@ public class LoginServlet extends HttpServlet {
         
         Funcionario func = LoginFacade.logarFuncionario(log);
 
-        if(1 == func.getIdFuncionario()){
+        if(1 == Integer.parseInt(func.getCargoFuncionario())){
            
             LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
             HttpSession session = request.getSession();
             session.setAttribute("logado", loginBean);
-            request.setAttribute("id",loginBean.getId());
+            session.setAttribute("id",loginBean.getId());
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
             rd.forward(request, response); 
         }   
    
-        if(2 == func.getIdFuncionario()){
+        if(2 == Integer.parseInt(func.getCargoFuncionario())){
             LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
             HttpSession session = request.getSession();
             session.setAttribute("logado", loginBean);
-            request.setAttribute("id",loginBean.getId());
+            session.setAttribute("id",loginBean.getId());
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/home.jsp");
             rd.forward(request, response); 
         }

@@ -1,4 +1,4 @@
-<%@page isErrorPage = "true" %>
+<%@ page isErrorPage = "true" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="idade" value="23" scope="page"/> 
