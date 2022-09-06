@@ -56,14 +56,13 @@ public class AtendimentoDAO {
         
         try {
             conn = new ConnectionFactory().getConnection();
-            String query = "INSERT INTO atendimento (dataHoraAtendimento, descricaoAtendimento, situacaoAtendimento, fk_Cliente_idPessoa, fk_Produto_idProduto, fk_Tipo_Atendimento_idTipoAtendimento) VALUES (?,?,?,?,?,?);";
+            String query = "INSERT INTO atendimento (descricaoAtendimento, situacaoAtendimento, fk_Cliente_idPessoa, fk_Produto_idProduto, fk_Tipo_Atendimento_idTipoAtendimento) VALUES (?,?,?,?,?);";
             st = conn.prepareStatement(query);
-            //st.setdata(atendimento.getdatahoraatendimento posicao 1
-            st.setString(2, atendimento.getDescricao());
-            st.setInt(3, atendimento.getSituacao());
-            st.setInt(4, atendimento.getIdCliente());
-            st.setInt(5, atendimento.getIdProduto());
-            st.setInt(6, atendimento.getIdTipoAtendimento());
+            st.setString(1, atendimento.getDescricao());
+            st.setInt(2, atendimento.getSituacao());
+            st.setInt(3, atendimento.getIdCliente());
+            st.setInt(4, atendimento.getIdProduto());
+            st.setInt(5, atendimento.getIdTipoAtendimento());
             st.executeUpdate();
             st.close();
             conn.close();
@@ -72,6 +71,42 @@ public class AtendimentoDAO {
         }
         catch (Exception e){
             System.out.println("nao inseriu");
+            e.printStackTrace();
+            return null; 
+          
+        }
+    }
+
+    public static List<Atendimento> consultaAtendimento(int idCliente) {
+         Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        List<Atendimento> atendimentos = new ArrayList<Atendimento>();
+        
+        try {
+            conn = new ConnectionFactory().getConnection();
+            String query = "SELECT * FROM atendimento WHERE fk_Cliente_idPessoa = ?;";
+            st = conn.prepareStatement(query);
+            st.setInt(1, idCliente);
+            rs = st.executeQuery();
+            while(rs.next()){
+                Atendimento atendimento = new Atendimento();
+                atendimento.setIdAtendimento(rs.getInt("idAtendimento"));
+                java.util.Date dt = new java.util.Date(rs.getTimestamp("dataHoraAtendimento").getTime());
+                atendimento.setDataHoraAtendimento(dt);
+                atendimento.setDescricao(rs.getString("descricaoAtendimento"));
+                atendimento.setSituacao(rs.getInt("situacaoAtendimento"));
+                atendimento.setIdCliente(idCliente);
+                atendimento.setIdProduto(rs.getInt("fk_Produto_idProduto"));
+                atendimento.setIdTipoAtendimento(rs.getInt("fk_Tipo_Atendimento_idTipoAtendimento"));
+                atendimentos.add(atendimento);
+            }
+            st.close();
+            conn.close();
+            return atendimentos;   
+        }
+        catch (Exception e){
+            System.out.println("nao consultou");
             e.printStackTrace();
             return null; 
           

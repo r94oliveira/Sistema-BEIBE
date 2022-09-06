@@ -6,6 +6,7 @@ package com.ufpr.tads.web2.facade;
 
 import com.ufpr.tads.web2.beans.Atendimento;
 import com.ufpr.tads.web2.dao.AtendimentoDAO;
+import java.util.List;
 
 /**
  *
@@ -16,5 +17,10 @@ public class AtendimentoFacade {
     public static Atendimento cadastroAtendimento(Atendimento atendimento) {
         return AtendimentoDAO.cadastroAtendimento(atendimento);
     }
+
+    public static List<Atendimento> consultaAtendimento(int idCliente) {
+        return AtendimentoDAO.consultaAtendimento(idCliente);
+    }
+
     
 }

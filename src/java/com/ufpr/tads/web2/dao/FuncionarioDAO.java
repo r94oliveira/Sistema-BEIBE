@@ -54,7 +54,7 @@ public class FuncionarioDAO {
             st.setString(12,f.getCepEnderecoFuncionario());
             st.setString(13,f.getEstadoEnderecoFuncionario());
             st.setString(14,f.getSenhaFuncionario());
-            st.setString(15,f.getCargoFuncionario());
+            st.setInt(15,f.getCargoFuncionario());
             st.executeUpdate();
             st.close();
             conn.close();

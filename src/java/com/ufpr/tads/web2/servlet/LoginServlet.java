@@ -4,10 +4,12 @@
  */
 package com.ufpr.tads.web2.servlet;
 
+import com.ufpr.tads.web2.beans.Atendimento;
 import com.ufpr.tads.web2.beans.Cliente;
 import com.ufpr.tads.web2.beans.Funcionario;
 import com.ufpr.tads.web2.beans.Login;
 import com.ufpr.tads.web2.beans.LoginBean;
+import com.ufpr.tads.web2.facade.AtendimentoFacade;
 import com.ufpr.tads.web2.facade.LoginFacade;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
@@ -18,6 +20,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -53,13 +57,16 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("logado", loginBean);
             session.setAttribute("id",loginBean.getId());
+            List<Atendimento> atendimentos = new ArrayList<Atendimento>();
+            atendimentos = AtendimentoFacade.consultaAtendimento(cliente.getIdCliente());
+            session.setAttribute("atendimentos", atendimentos);
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");
             rd.forward(request, response); 
         } 
         
         Funcionario func = LoginFacade.logarFuncionario(log);
 
-        if(1 == Integer.parseInt(func.getCargoFuncionario())){
+        if(1 == func.getCargoFuncionario()){
            
             LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
             HttpSession session = request.getSession();
@@ -69,7 +76,7 @@ public class LoginServlet extends HttpServlet {
             rd.forward(request, response); 
         }   
    
-        if(2 == Integer.parseInt(func.getCargoFuncionario())){
+        if(2 == func.getCargoFuncionario()){
             LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
             HttpSession session = request.getSession();
             session.setAttribute("logado", loginBean);

@@ -23,12 +23,12 @@ public class Funcionario extends Pessoa implements Serializable{
     private String estadoEnderecoFuncionario;
     private String telefoneFuncionario;
     private String senhaFuncionario;
-    private String cargoFuncionario;
+    private int cargoFuncionario;
 
     public Funcionario() {
     }
 
-    public Funcionario(int idFuncionario, String nomeFuncionario, String sobrenomeFuncionario, String emailFuncionario, String cpfFuncionario, String ruaEnderecoFuncionario, int numeroEndercoFuncionario, String complementoEnderecoFuncionario, String bairroEnderecoFuncionario, String cidadeEnderecoFuncionario, String cepEnderecoFuncionario, String estadoEnderecoFuncionario, String telefoneFuncionario, String senhaFuncionario, String cargoFuncionario, String primeiroNome, String sobreNome, long cpf, Endereco endereco, String telefone) {
+    public Funcionario(int idFuncionario, String nomeFuncionario, String sobrenomeFuncionario, String emailFuncionario, String cpfFuncionario, String ruaEnderecoFuncionario, int numeroEndercoFuncionario, String complementoEnderecoFuncionario, String bairroEnderecoFuncionario, String cidadeEnderecoFuncionario, String cepEnderecoFuncionario, String estadoEnderecoFuncionario, String telefoneFuncionario, String senhaFuncionario, int cargoFuncionario, String primeiroNome, String sobreNome, long cpf, Endereco endereco, String telefone) {
         super(primeiroNome, sobreNome, cpf, endereco, telefone);
         this.idFuncionario = idFuncionario;
         this.nomeFuncionario = nomeFuncionario;
@@ -159,11 +159,11 @@ public class Funcionario extends Pessoa implements Serializable{
         this.senhaFuncionario = senhaFuncionario;
     }
 
-    public String getCargoFuncionario() {
+    public int getCargoFuncionario() {
         return cargoFuncionario;
     }
 
-    public void setCargoFuncionario(String cargoFuncionario) {
+    public void setCargoFuncionario(int cargoFuncionario) {
         this.cargoFuncionario = cargoFuncionario;
     }
     

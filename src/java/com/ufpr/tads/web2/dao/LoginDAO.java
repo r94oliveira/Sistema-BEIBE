@@ -67,7 +67,7 @@ public class LoginDAO {
             while (rs.next()){
                 funcionario.setIdFuncionario(rs.getInt("idFuncionario"));
                 funcionario.setNomeFuncionario(rs.getString("nomeFuncionario"));
-                funcionario.setCargoFuncionario(rs.getString("cargo"));
+                funcionario.setCargoFuncionario(rs.getInt("cargo"));
             }
             
             return funcionario;

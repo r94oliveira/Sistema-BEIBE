@@ -125,6 +125,8 @@ public class ClienteDAO {
                 cliente.setTelefoneCliente(rs.getString("telefoneCliente"));
                               
             }
+            st.close();
+            conn.close();
             return cliente;
                
             

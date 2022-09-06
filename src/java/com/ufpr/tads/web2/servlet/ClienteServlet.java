@@ -25,6 +25,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,16 +145,11 @@ public class ClienteServlet extends HttpServlet {
             int idTipoAtendimento = Integer.parseInt(tipoAten);
             String descricao = request.getParameter("descricao");
             int idCliente = logado.getId();
-            System.out.println(idProduto);
-            System.out.println(idTipoAtendimento);
-            System.out.println(descricao);
-            System.out.println(idCliente);
             Atendimento atendimento = new Atendimento();
             atendimento.setDescricao(descricao);
             atendimento.setIdCliente(idCliente);
             atendimento.setIdTipoAtendimento(idTipoAtendimento);
             atendimento.setIdProduto(idProduto);
-            //pegar data e hora e inserir em atendimento
             AtendimentoFacade.cadastroAtendimento(atendimento);
             
             //enviar alerta de cadastro com sucesso ou nao
