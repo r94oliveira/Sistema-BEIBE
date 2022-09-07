@@ -1,4 +1,4 @@
-/*
+/* 
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
@@ -59,7 +59,13 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("id",loginBean.getId());
             List<Atendimento> atendimentos = new ArrayList<Atendimento>();
             atendimentos = AtendimentoFacade.consultaAtendimento(cliente.getIdCliente());
-            session.setAttribute("atendimentos", atendimentos);
+            for(Atendimento atendimento : atendimentos){
+                System.out.println(atendimento.getIdCliente());
+                System.out.println(atendimento.getDataHoraAtendimento());
+                System.out.println(atendimento.getDescricao());
+                System.out.println(atendimento.getIdTipoAtendimento());
+            }
+            session.setAttribute("atendimentos", atendimentos);            
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");
             rd.forward(request, response); 
         } 

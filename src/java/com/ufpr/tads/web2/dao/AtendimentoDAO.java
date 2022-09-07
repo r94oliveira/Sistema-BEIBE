@@ -12,6 +12,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,15 +87,16 @@ public class AtendimentoDAO {
         
         try {
             conn = new ConnectionFactory().getConnection();
-            String query = "SELECT * FROM atendimento WHERE fk_Cliente_idPessoa = ?;";
+            String query = "SELECT * FROM atendimento WHERE fk_Cliente_idPessoa = ? ORDER BY dataHoraAtendimento DESC;";
             st = conn.prepareStatement(query);
             st.setInt(1, idCliente);
             rs = st.executeQuery();
             while(rs.next()){
                 Atendimento atendimento = new Atendimento();
                 atendimento.setIdAtendimento(rs.getInt("idAtendimento"));
-                java.util.Date dt = new java.util.Date(rs.getTimestamp("dataHoraAtendimento").getTime());
-                atendimento.setDataHoraAtendimento(dt);
+                LocalDate dt1 = rs.getDate("dataHoraAtendimento").toLocalDate();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                atendimento.setDataHoraAtendimento(dt1.format(formatter));
                 atendimento.setDescricao(rs.getString("descricaoAtendimento"));
                 atendimento.setSituacao(rs.getInt("situacaoAtendimento"));
                 atendimento.setIdCliente(idCliente);

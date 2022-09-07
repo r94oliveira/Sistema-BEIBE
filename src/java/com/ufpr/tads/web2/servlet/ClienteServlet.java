@@ -136,6 +136,8 @@ public class ClienteServlet extends HttpServlet {
             rd.forward(request, response);
         }
         
+        
+        
         if("novoAtendimento".equals(action)){
             HttpSession session = request.getSession();
             LoginBean logado = (LoginBean) session.getAttribute("logado");

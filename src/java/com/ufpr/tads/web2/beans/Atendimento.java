@@ -1,13 +1,15 @@
 package com.ufpr.tads.web2.beans;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
 
 public class Atendimento implements Serializable{
     private int idAtendimento;
-    private Date dataHoraAtendimento;
+    private String dataHoraAtendimento;
     private String descricao;
     private String solucao;
     private int situacao;
@@ -19,7 +21,7 @@ public class Atendimento implements Serializable{
         this.idAtendimento = idAtendimento;
     }
 
-    public void setDataHoraAtendimento(Date dataHoraAtendimento) {
+    public void setDataHoraAtendimento(String dataHoraAtendimento) {
         this.dataHoraAtendimento = dataHoraAtendimento;
     }
 
@@ -55,7 +57,7 @@ public class Atendimento implements Serializable{
     
     public Atendimento() {}
     
-    public Atendimento(int idAtendimento,Date dataHoraAtendimento,String descricao,String solucao,int situacao,int idCliente,int idProduto,int idTipoAtendimento,int idFuncionario){
+    public Atendimento(int idAtendimento,String dataHoraAtendimento,String descricao,String solucao,int situacao,int idCliente,int idProduto,int idTipoAtendimento,int idFuncionario){
         this.idAtendimento = idAtendimento;
         this.dataHoraAtendimento = dataHoraAtendimento;
         this.descricao = descricao;
@@ -71,7 +73,7 @@ public class Atendimento implements Serializable{
         return idAtendimento;
     }
 
-    public Date getDataHoraAtendimento() {
+    public String getDataHoraAtendimento() {
         return dataHoraAtendimento;
     }
 

@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>  
@@ -40,17 +40,18 @@
                                     </thead>
                                     <tbody>
                                         <tr> 
+                                            <c:forEach var="atendimentos" items="${requestScope.atendimentos}">
                                             <td>
-                                                <p class="fw-normal mb-1">123</p>
+                                                <p class="fw-normal mb-1"> <c:out value="${atendimentos.idAtendimento}"/> </p>                            
                                             </td>
                                             <td>
-                                                <p class="fw-normal mb-1">Creme</p>
+                                                <p class="fw-normal mb-1"> <c:out value="${atendimentos.idProduto}"/> </p>
                                             </td>
                                             <td>
-                                                <p class="fw-normal mb-1">14/05/2022</p>
+                                                <p class="fw-normal mb-1"> <c:out value="${atendimentos.dataHoraAtendimento}"/> </p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-success rounded-pill d-inline">Aberto</span>
+                                                <p> ${atendimentos.situacao == 0 ? '<span class="badge badge-success rounded-pill d-inline">Aberto</span>' : '<span class="badge badge-secondary rounded-pill d-inline">Encerrado</span>'} </p>
                                             </td>
 
                                             <td>
@@ -58,6 +59,7 @@
                                                         Abrir
                                                     </button></a>
                                             </td>
+                                         </c:forEach>   
                                         </tr>
                                         <tr>
                                             <td>
