@@ -60,10 +60,11 @@ public class LoginServlet extends HttpServlet {
             List<Atendimento> atendimentos = new ArrayList<Atendimento>();
             atendimentos = AtendimentoFacade.consultaAtendimento(cliente.getIdCliente());
             for(Atendimento atendimento : atendimentos){
-                System.out.println(atendimento.getIdCliente());
+                System.out.println(atendimento.getNomeCategoria());
                 System.out.println(atendimento.getDataHoraAtendimento());
                 System.out.println(atendimento.getDescricao());
-                System.out.println(atendimento.getIdTipoAtendimento());
+                System.out.println(atendimento.getNomeProduto());
+                System.out.println(atendimento.getNomeTipoAtendimento());
             }
             session.setAttribute("atendimentos", atendimentos);            
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");

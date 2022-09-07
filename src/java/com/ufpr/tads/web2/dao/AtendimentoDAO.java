@@ -87,7 +87,7 @@ public class AtendimentoDAO {
         
         try {
             conn = new ConnectionFactory().getConnection();
-            String query = "SELECT * FROM atendimento WHERE fk_Cliente_idPessoa = ? ORDER BY dataHoraAtendimento DESC;";
+            String query = "SELECT idAtendimento, dataHoraAtendimento, descricaoAtendimento, solucaoApresentada, situacaoAtendimento, nomeCliente, nomeProduto, nomeCategoria , nomeTipoAtendimento from atendimento, cliente, produto, categoria_produto, tipo_atendimento WHERE fk_Produto_idProduto = idProduto AND fk_Cliente_idPessoa = idPessoa AND fk_Categoria_Produto_idCategoria = idCategoria AND fk_Tipo_Atendimento_idTipoAtendimento = idTipoAtendimento AND idPessoa = ? ORDER BY dataHoraAtendimento DESC";
             st = conn.prepareStatement(query);
             st.setInt(1, idCliente);
             rs = st.executeQuery();
@@ -98,11 +98,13 @@ public class AtendimentoDAO {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 atendimento.setDataHoraAtendimento(dt1.format(formatter));
                 atendimento.setDescricao(rs.getString("descricaoAtendimento"));
+                atendimento.setSolucao(rs.getString("solucaoApresentada"));
                 atendimento.setSituacao(rs.getInt("situacaoAtendimento"));
-                atendimento.setIdCliente(idCliente);
-                atendimento.setIdProduto(rs.getInt("fk_Produto_idProduto"));
-                atendimento.setIdTipoAtendimento(rs.getInt("fk_Tipo_Atendimento_idTipoAtendimento"));
+                atendimento.setNomeProduto(rs.getString("nomeProduto"));
+                atendimento.setNomeCategoria(rs.getString("nomeCategoria"));
+                atendimento.setNomeTipoAtendimento(rs.getString("nomeTipoAtendimento"));
                 atendimentos.add(atendimento);
+                //comentario
             }
             st.close();
             conn.close();
