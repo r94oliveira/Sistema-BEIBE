@@ -125,12 +125,40 @@ public class CategoriaDAO {
                 return null; 
            }
         
-        
-        
-        
     }
         
-  }
-    
+        
+        
     
 
+    public static int verificaExisteCategoria(CategoriaProduto categoria) {
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         String categoriaBanco = null;
+         
+            try{
+                conn = new ConnectionFactory().getConnection();
+                String queryCategoria = "SELECT nomeCategoria From categoria_produto";
+                st = conn.prepareStatement(queryCategoria);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    categoriaBanco = rs.getString("nomeCategoria");
+                 
+                    if(categoriaBanco.equals(categoria.toString())){
+                    return 1;   
+                    }              
+                }
+            }
+                
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+            }
+             return 0;
+    }
+    
+}
+  
+    

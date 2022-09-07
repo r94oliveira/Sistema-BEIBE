@@ -6,6 +6,7 @@ package com.ufpr.tads.web2.facade;
 
 import com.ufpr.tads.web2.dao.CategoriaDAO;
 import com.ufpr.tads.web2.beans.CategoriaProduto;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -31,8 +32,10 @@ public class CategoriaFacade {
         return CategoriaDAO.consultaCategoria();
     }
     
-    
-    
+    public static int verificaExisteCategoria(CategoriaProduto categoria){
+        return  CategoriaDAO.verificaExisteCategoria(categoria);
+    }
+      
     
     
 }
