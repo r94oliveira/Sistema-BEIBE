@@ -35,6 +35,7 @@
                                             <th>Abertura</th>
                                             <th>Status</th>
                                             <th>Abrir</th>
+                                            <th>Excluir</th>
 
                                         </tr>
                                     </thead>
@@ -59,6 +60,13 @@
                                                             Abrir
                                                         </button></a>
                                                 </td>
+                                                
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#confirm-delete" data-title="Delete" data-delete ="${atendimentos.idAtendimento} "> ${atendimentos.situacao == 0 ? '<button type="button" class="btn btn-link btn-sm btn-rounded">Excluir</button></a>':''}
+                                                </td>
+                                                
+                                               
+                                                
                                             </tr>
                                         </c:forEach>                                          
                                     </tbody>
@@ -100,7 +108,25 @@
                                 </div>
                             </c:forEach>  
                             
-
+ <!-- Modal confirm -->
+                            <div id="confirm-delete" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header login-header">
+                                            <h4 class="modal-title">Realmente deseja excluir esse chamado?</h4>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="add-modal" id="delBtn">
+                                                Sim
+                                            </button>
+                                            <button type="button" class="cancel" data-dismiss="modal">
+                                                Não
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
                             <!-- FIM DE CONTEÚDO  -->

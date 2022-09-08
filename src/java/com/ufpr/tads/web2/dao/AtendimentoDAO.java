@@ -220,6 +220,31 @@ public class AtendimentoDAO {
             return null; 
         }
     }
+
+    public static void excluirAtendimento(int id) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        
+        
+        try{
+            conn = new ConnectionFactory().getConnection();
+            String queryc = "DELETE from atendimento WHERE idAtendimento= ? ;";
+            st = conn.prepareStatement(queryc);
+            st.setInt(1, id);
+            st.executeUpdate();
+            st.close();
+            conn.close();
+            System.out.println("excluiu o atendimento");
+              
+        }
+        catch (Exception e){
+            System.out.println("nao inseriu o atendimento");
+            e.printStackTrace();
+            
+          
+        }
+    }
     
     
     

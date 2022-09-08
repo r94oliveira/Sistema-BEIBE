@@ -35,6 +35,7 @@ public class  ProdutoDAO {
             st.executeUpdate();
             st.close();
             conn.close();
+            System.out.println("inseriu um produto novo");
             return produto;   
         }
         catch (Exception e){

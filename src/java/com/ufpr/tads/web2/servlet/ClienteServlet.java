@@ -105,7 +105,11 @@ public class ClienteServlet extends HttpServlet {
             if (ClienteFacade.alteraCliente(c)== 1){
             //arrumar: enviar um alerta que o usuario foi alterado    
             request.setAttribute("cliente", c);
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");
+             List<Atendimento> atendimentos = new ArrayList<Atendimento>();
+            int id = (int)session.getAttribute("id");        
+            atendimentos = AtendimentoFacade.consultaAtendimento(id);
+            request.setAttribute("atendimentos", atendimentos);
+            RequestDispatcher rd = request.getRequestDispatcher("ClienteServlet?action=login");
             rd.forward(request, response);
             
             } else {
@@ -163,11 +167,26 @@ public class ClienteServlet extends HttpServlet {
             AtendimentoFacade.cadastroAtendimento(atendimento);
             
             //enviar alerta de cadastro com sucesso ou nao
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/atendimento.jsp");
+            List<Atendimento> atendimentos = new ArrayList<Atendimento>();
+            int id = (int)session.getAttribute("id");        
+            atendimentos = AtendimentoFacade.consultaAtendimento(id);
+            request.setAttribute("atendimentos", atendimentos);
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");
             rd.forward(request, response);
         }
         
-        
+        if ("excluirAtendimento".equals(action)){
+
+            String idAux = request.getParameter("id");
+            int id = Integer.parseInt(idAux);
+            System.out.println(id);
+             System.out.println("IMPRIMIU AQUI EM CIMA O ID");
+            AtendimentoFacade.excluirAtendimento(id);
+            
+            request.setAttribute("msgServlet","O atendimento foi excluído com sucesso!");
+            RequestDispatcher rd = request.getRequestDispatcher("ClienteServlet?action=login");
+            rd.forward(request, response);    
+        }
         
         
     }

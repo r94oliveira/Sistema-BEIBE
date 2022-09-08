@@ -34,5 +34,9 @@ public class AtendimentoFacade {
         return AtendimentoDAO.listarTodosAtendimentos();
     }
 
+    public static void excluirAtendimento(int id) {
+        AtendimentoDAO.excluirAtendimento(id);
+    }
+
     
 }
