@@ -32,7 +32,7 @@
 
                             <!-- Texto Título -->
                             <div class="w-100">
-                                <h2 class="text-center">Atendimentos em Aberto</h2>
+                                <h2 class="text-center">Todos os Atendimentos</h2>
                             </div>
 
                             <!-- tabela -->

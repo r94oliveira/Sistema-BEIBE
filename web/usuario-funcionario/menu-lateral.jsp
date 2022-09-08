@@ -8,10 +8,18 @@
           <ul class="navi">
 
             <li>
-              <a href="${pageContext.request.contextPath}/usuario-funcionario/home.jsp" method="post"
+              <a href="${pageContext.request.contextPath}/FuncionarioServlet?action=login" method="post"
                  ><i class="fa fa-tasks" aria-hidden="true"></i
                   ><span class="hidden-xs hidden-sm">Atendimentos em Aberto</span></a>
             </li>
+            
+            <li>
+              <a href="${pageContext.request.contextPath}/FuncionarioServlet?action=listarTodosAtendimentos" method="post"
+                 ><i class="fa fa-tasks" aria-hidden="true"></i
+                  ><span class="hidden-xs hidden-sm">Todos os Atendimentos</span></a>
+            </li>
+            
+            
             <li>
                <a href="${pageContext.request.contextPath}/FuncionarioServlet?action=categoria" method="post"
                  ><i class="fa fa-tasks" aria-hidden="true"></i

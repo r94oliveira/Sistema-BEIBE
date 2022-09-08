@@ -99,25 +99,7 @@
                                     </div>
                                 </div>
                             </c:forEach>  
-                            <!-- Modal confirm -->
-                            <div id="modal-confirm" class="modal fade" role="dialog">
-                                <div class="modal-dialog">
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header login-header">
-                                            <h4 class="modal-title">Deseja realizar essa ação?</h4>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="add-modal" data-dismiss="modal">
-                                                Sim
-                                            </button>
-                                            <button type="button" class="cancel" data-dismiss="modal">
-                                                Não
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
 
 
 

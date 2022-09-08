@@ -22,12 +22,16 @@ public class AtendimentoFacade {
         return AtendimentoDAO.consultaAtendimento(idCliente);
     }
 
-    public static List<Atendimento> listarTodosAtendimentos() {
-        return AtendimentoDAO.listarTodosAtendimentos();
+    public static List<Atendimento> listarTodosAtendimentosEmAberto() {
+        return AtendimentoDAO.listarTodosAtendimentosEmAberto();
     }
 
     public static Atendimento resolverAtendimento(Atendimento atendimento) {
         return AtendimentoDAO.resolverAtendimento(atendimento);
+    }
+
+    public static List<Atendimento> listarTodosAtendimentos() {
+        return AtendimentoDAO.listarTodosAtendimentos();
     }
 
     

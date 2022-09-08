@@ -40,7 +40,7 @@ public class FuncionarioServlet extends HttpServlet {
         if("login".equals(action)){
              HttpSession session = request.getSession();
             List<Atendimento> atendimentos = new ArrayList<Atendimento>();                   
-            atendimentos = AtendimentoFacade.listarTodosAtendimentos();
+            atendimentos = AtendimentoFacade.listarTodosAtendimentosEmAberto();
             request.setAttribute("atendimentos", atendimentos);
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
             rd.forward(request, response); 
@@ -85,19 +85,38 @@ public class FuncionarioServlet extends HttpServlet {
         
         
         if("resolver".equals(action)){
-             HttpSession session = request.getSession();
+            HttpSession session = request.getSession();
             Atendimento atendimento = new Atendimento();
-            int idAtendimento = (int)session.getAttribute("idAtendimento");
+            String idAtendimentoAux = request.getParameter("idAtendimento");
+            int idAtendimento = Integer.parseInt(idAtendimentoAux);
             atendimento.setIdAtendimento(idAtendimento);
-            atendimento.setSolucao(request.getParameter("Solucao"));
+            atendimento.setSolucao(request.getParameter("solucao"));
             int id = (int)session.getAttribute("id"); 
             atendimento.setIdFuncionario(id);
             atendimento.setSituacao(1);
             
             AtendimentoFacade.resolverAtendimento(atendimento);
+            
+            RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=login");
+            rd.forward(request, response);
+           
+        }
+        
+        if ("listarTodosAtendimentos".equals(action)){
+            HttpSession session = request.getSession();
+            List<Atendimento> atendimentos = new ArrayList<Atendimento>();                   
+            atendimentos = AtendimentoFacade.listarTodosAtendimentos();
+            request.setAttribute("atendimentos", atendimentos);
+            for(Atendimento atendimento:atendimentos){
+                System.out.println(atendimento.getIdAtendimento());
+            }
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/todos-atendimentos.jsp");
+            rd.forward(request, response); 
+        
         
         
         }
+       
         
         
                 
