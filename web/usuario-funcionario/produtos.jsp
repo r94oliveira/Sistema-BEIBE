@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,109 +55,30 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            
-                                            
-                                            
-                                            <c:forEach var="produtos" items="${requestScope.produtos}">
+                                        <c:forEach var="produtos" items="${requestScope.produtos}">
                                             <tr> 
                                                 <td>
                                                     <p class="fw-normal mb-1"> <c:out value="${produtos.idProduto}"/> </p>                            
                                                 </td>
                                                 <td>
-                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.nomeProduto}"/> </p>
+                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.nome}"/> </p>
                                                 </td>
                                                 <td>
-                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.categoriaProduto}"/> </p>
-                                                </td>
-                                                
+                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.categoria}"/> </p>
+                                                </td>                                                
                                                 <td>
-                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.pesoProduto}"/> </p>
-                                                </td>
-                                                
-                                                 <td>
-                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.descricaoProduto}"/> </p>
-                                                </td>
-                                                
+                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.peso}"/> </p>
+                                                </td>                                                
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.descricao}"/> </p>
+                                                </td>                                                
                                                 <td>
                                                     <a href="#" data-toggle="modal" data-target="#confirm-delete" data-title="Delete" data-delete ="${produtos.idProduto}">
                                                         Excluir
-                                                        </button></a>
+                                                        </a>
                                                 </td>
                                             </tr>
                                         </c:forEach> 
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            <td>
-                                                <p class="fw-normal mb-1">123</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Creme Bonito</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Beleza</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">100g</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                            </td>
-                                            <td>
-                                                <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                        Excluir
-                                                    </button></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="fw-normal mb-1">123</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Creme Bonito</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Beleza</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">100g</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                            </td>
-                                            <td>
-                                                <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                        Excluir
-                                                    </button></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="fw-normal mb-1">123</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Creme Bonito</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Beleza</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">100g</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                            </td>
-                                            <td>
-                                                <a href="#" data-toggle="modal" data-target="#modal-confirm"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                        Excluir
-                                                    </button></a>
-                                            </td>
-                                        </tr>
-
-
                                     </tbody>
                                 </table>
                             </div>

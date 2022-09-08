@@ -123,19 +123,16 @@ public class FuncionarioServlet extends HttpServlet {
             HttpSession session = request.getSession();
             List<Produto> produtos = ProdutosFacade.consultaProdutos();
             request.setAttribute("produtos",produtos);
-           
-            
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/qualquercoisa.jsp");
-            //RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp");
+            List<CategoriaProduto> categorias = new ArrayList<CategoriaProduto>();
+            categorias = CategoriaFacade.consultaCategoria();
+            request.setAttribute("categorias", categorias);
+         
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp");
             
             rd.forward(request, response);  
             
         }
-        
-        
-        
-        
-        
+   
         
                 
         if ("produtos".equals(action)){
