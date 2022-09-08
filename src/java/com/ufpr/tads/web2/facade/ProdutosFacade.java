@@ -21,5 +21,11 @@ public class ProdutosFacade {
     public static void excluirProduto(String id) {
         ProdutoDAO.excluirProduto(id);
     }
+
+    public static int verificaExisteProduto(String p) {
+        return ProdutoDAO.verificaExisteProduto(p);
+        
+    }    
+    
     
 }

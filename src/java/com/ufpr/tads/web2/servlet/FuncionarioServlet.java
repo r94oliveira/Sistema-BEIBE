@@ -68,7 +68,7 @@ public class FuncionarioServlet extends HttpServlet {
             } else {
                 CategoriaFacade.verificaExisteCategoria(cat);
                 if(CategoriaFacade.verificaExisteCategoria(cat) == 1){
-                request.setAttribute("msgServlet","A categoria "+categoria.getNome()+ " já existe!");
+                request.setAttribute("msgServlet","A categoria que você tentou adicionar já existe! NÃO FOI ADICIONADA");
                  RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=categoria&CadastroCategoria=true");
                  rd.forward(request, response);
                 
@@ -167,6 +167,20 @@ public class FuncionarioServlet extends HttpServlet {
             p.setNome(nomeProduto);
             p.setPeso(peso);
             
+            
+            int verifica = ProdutosFacade.verificaExisteProduto(nomeProduto);
+            if(verifica == 1){
+                request.setAttribute("msgServlet","O Produto que você tentou adicionar já existe! NÃO FOI ADICIONADO");
+                 List<Produto> produtos = ProdutosFacade.consultaProdutos();
+                request.setAttribute("produtos",produtos);
+                List<CategoriaProduto> categorias = new ArrayList<CategoriaProduto>();
+                categorias = CategoriaFacade.consultaCategoria();
+                request.setAttribute("categorias", categorias);
+                RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=produtos");
+                rd.forward(request, response);
+                
+                
+            } else {
             FuncionarioFacade.cadastrarProduto(p);
             
             //HttpSession session = request.getSession();
@@ -193,11 +207,10 @@ public class FuncionarioServlet extends HttpServlet {
             rd.forward(request, response);    
         }
         
-        
-        
+            
         
     }
-
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

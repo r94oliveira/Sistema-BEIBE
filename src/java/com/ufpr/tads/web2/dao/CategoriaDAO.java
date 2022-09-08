@@ -139,21 +139,22 @@ public class CategoriaDAO {
          
             try{
                 conn = new ConnectionFactory().getConnection();
-                String queryCategoria = "SELECT nomeCategoria From categoria_produto WHERE = ?";
+                String queryCategoria = "SELECT nomeCategoria From categoria_produto WHERE nomeCategoria = ?";
                 st = conn.prepareStatement(queryCategoria);
-                rs = st.executeQuery();
                 st.setString(1, categoria);
+                rs = st.executeQuery();
+                
                 while (rs.next()){
                     categoriaBanco = rs.getString("nomeCategoria");
                  
-                    if(categoriaBanco.equals(categoria)){
+                    if(categoriaBanco != null){
                     return 1;   
                     }              
                 }
             }
                 
             catch (Exception e){
-                System.out.println("nao consultou");
+                System.out.println("nao encontrou a categoria no banco");
                 e.printStackTrace();
                 return 0; 
             }

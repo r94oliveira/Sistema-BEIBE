@@ -103,5 +103,35 @@ public class  ProdutoDAO {
         
     }
     }
+
+    public static int verificaExisteProduto(String p) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        String produtoBanco = null;
+         
+            try{
+                conn = new ConnectionFactory().getConnection();
+                String queryProduto = "SELECT nomeProduto FROM produto WHERE nomeProduto = ?";
+                st = conn.prepareStatement(queryProduto);
+                st.setString(1, p);
+                rs = st.executeQuery();
+                
+                while (rs.next()){
+                    produtoBanco = rs.getString("nomeProduto");
+                 
+                    if(produtoBanco != null){
+                    return 1;   
+                    }              
+                }
+            }
+                
+            catch (Exception e){
+                System.out.println("nao buscou no banco");
+                e.printStackTrace();
+                return 0; 
+            }
+             return 0;
+    }
     
 }
