@@ -87,10 +87,10 @@
                                             <div class="modal-header login-header">
                                                 <h4 class="modal-title">Informações Atendimento</h4>
                                             </div>
-                                            <form action="FuncionarioServlet?action=resolver&idAtendimento=${atendimentos.idAtendimento}" method="post">
+                                            <form action="FuncionarioServlet?action=resolver&idAtendimento=${atendimentos.idAtendimento}" method="post" required="true">
                                             <div class="modal-body">
                                                 
-                                                
+                                               
                                                 <label>Tipo de Atendimento</label>
                                                 <input type="text" name="nomeTipoAtendimento" value="<c:out value="${atendimentos.nomeTipoAtendimento}"/>" readonly="readonly" />
                                                 <label>Categoria</label>
@@ -100,8 +100,9 @@
                                                      <label>Descrição</label>
                                                <input type="text" name="descricao" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
                                                   <label>Solução</label>
-                                                   <input type="text" name="solucao" value="<c:out value="${atendimentos.solucao}"/> " />
-                                            
+                                                  <input name="solucao" type="text" placeholder="Descrição" required="true" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
+                                                  
+                                                
                                             
                                             </div>
                                                    
