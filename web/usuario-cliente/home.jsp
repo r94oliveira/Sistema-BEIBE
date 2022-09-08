@@ -55,7 +55,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                                                    <a href="#" data-toggle="modal" data-target="#modalAtendimento<c:out value="${atendimentos.idAtendimento}"/>"><button type="button" class="btn btn-link btn-sm btn-rounded">
                                                             Abrir
                                                         </button></a>
                                                 </td>
@@ -65,32 +65,36 @@
                                 </table>
                             </div>
 
-                            <!-- Modal form -->
-                            <div id="modal-form" class="modal fade" role="dialog">
-                                <div class="modal-dialog">
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header login-header">
-                                            <h4 class="modal-title">Informações Atendimento</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <input type="text" placeholder="Tipo de Atendimento" name="tipoAtendimento" />
-                                            <input type="text" placeholder="Categoria" name="categoriaAtendimento" />
-                                            <input type="text" placeholder="Produto" name="produto" />
-                                            <textarea placeholder="Descrição"></textarea>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="cancel" data-dismiss="modal">
-                                                Fechar
-                                            </button>
-                                            <button type="button" class="add-modal" data-dismiss="modal">
-                                                Remover Atendimento
-                                            </button>
+                            <c:forEach var="atendimentos" items="${requestScope.atendimentos}">
+                                <!-- Modal form -->
+                                
+                               
+                                <div id="modalAtendimento<c:out value="${atendimentos.idAtendimento}"/>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header login-header">
+                                                <h4 class="modal-title">Informações Atendimento</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Tipo de Atendimento</label>
+                                                <input type="text" name="tipoAtendimento" value="<c:out value="${atendimentos.nomeTipoAtendimento}"/>" readonly="readonly" />
+                                                <label>Categoria</label>
+                                                <input type="text" name="categoriaAtendimento" value="<c:out value="${atendimentos.nomeCategoria}"/> " readonly="readonly" />
+                                                     <label>Produto</label>
+                                                <input type="text" name="produto" value="<c:out value="${atendimentos.nomeProduto}"/> " readonly="readonly" />
+                                                     <label>Descrição</label>
+                                               <input type="text" name="produto" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="cancel" data-dismiss="modal">
+                                                    Fechar
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            </c:forEach>  
                             <!-- Modal confirm -->
                             <div id="modal-confirm" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
