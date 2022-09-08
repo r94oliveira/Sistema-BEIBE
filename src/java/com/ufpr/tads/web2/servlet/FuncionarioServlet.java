@@ -11,6 +11,7 @@ import com.ufpr.tads.web2.beans.Produto;
 import com.ufpr.tads.web2.facade.AtendimentoFacade;
 import com.ufpr.tads.web2.facade.CategoriaFacade;
 import com.ufpr.tads.web2.facade.FuncionarioFacade;
+import com.ufpr.tads.web2.facade.ProdutosFacade;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
 import java.io.IOException;
@@ -117,6 +118,23 @@ public class FuncionarioServlet extends HttpServlet {
         
         }
        
+        
+        if ("listarProdutos".equals(action)){
+            HttpSession session = request.getSession();
+            List<Produto> produtos = ProdutosFacade.consultaProdutos();
+            request.setAttribute("produtos",produtos);
+           
+            
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/qualquercoisa.jsp");
+            //RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp");
+            
+            rd.forward(request, response);  
+            
+        }
+        
+        
+        
+        
         
         
                 

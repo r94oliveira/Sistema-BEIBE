@@ -63,7 +63,7 @@ public class  ProdutoDAO {
                     produto.setIdProduto(rs.getInt("idProduto"));
                     produto.setNome(rs.getString("nomeProduto"));
                     produto.setPeso(rs.getDouble("pesoProduto"));
-
+                     System.out.println("TEM QUE SOLTAR UM NOME AQUI EM BAIXO");
                     System.out.println(produto.getNome());
                     produtos.add(produto);
                 }

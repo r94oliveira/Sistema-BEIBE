@@ -28,7 +28,7 @@
               
             </li>
             <li>
-              <a href="${pageContext.request.contextPath}/FuncionarioServlet?action=produtos" method="post"
+              <a href="${pageContext.request.contextPath}/FuncionarioServlet?action=listarProdutos" method="post"
                  ><i class="fa fa-tasks" aria-hidden="true"></i
                   ><span class="hidden-xs hidden-sm">Produtos</span></a>  
             </li>

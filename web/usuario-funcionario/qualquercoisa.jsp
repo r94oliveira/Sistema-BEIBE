@@ -56,6 +56,41 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            
+                                            
+                                            
+                                            <c:forEach var="produtos" items="${requestScope.produtos}">
+                                            <tr> 
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.idProduto}"/> </p>                            
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.nomeProduto}"/> </p>
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.categoriaProduto}"/> </p>
+                                                </td>
+                                                
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.pesoProduto}"/> </p>
+                                                </td>
+                                                
+                                                 <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${produtos.descricaoProduto}"/> </p>
+                                                </td>
+                                                
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#confirm-delete" data-title="Delete" data-delete ="${produtos.idProduto}">
+                                                        Excluir
+                                                        </button></a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach> 
+                                            
+                                            
+                                            
+                                            
+                                            
                                             <td>
                                                 <p class="fw-normal mb-1">123</p>
                                             </td>
