@@ -38,29 +38,29 @@
                                     <label class="col-2"></label> <input required type="text" class="form-control" col-9" name="idCliente" value="${cliente.idCliente}" readonly="readonly"/>
                                     
                                     
-                                    <label class="col-2">Nome:</label> <input required type="text" name="Nome" class="form-control col-9" value="${cliente.nomecliente}" />
+                                    <label class="col-2">Nome:</label> <input required type="text" name="Nome" class="form-control col-9" value="${cliente.nomecliente}" maxlength="255" />
 
-                                    <label class="col-2">Sobrenome:</label> <input required type="text" name="Sobrenome" class="form-control col-9" value="${cliente.sobrenomeCliente}" />
+                                    <label class="col-2">Sobrenome:</label> <input required type="text" name="Sobrenome" class="form-control col-9" value="${cliente.sobrenomeCliente}" maxlength="255" />
 
                                     <label class="col-2">Cpf:</label> <input required type="text" name="Cpf" class="form-control col-9" value="${cliente.cpfCliente}" readonly="readonly" />
 
                                     <label class="col-2">Email:</label> <input required type="text" name="Email" class="form-control col-9" value="${cliente.emailCliente}" readonly="readonly" />
 
-                                    <label class="col-2">Rua:</label> <input required type="text" name="Rua" class="form-control col-9" value="${cliente.ruaEnderecoCliente}" />
+                                    <label class="col-2">Rua:</label> <input required type="text" name="Rua" class="form-control col-9" value="${cliente.ruaEnderecoCliente}" maxlength="255" />
 
-                                    <label class="col-2">Numero:</label> <input required type="number" name="Numero" class="form-control col-9" value="${cliente.numeroEndercoCliente}" />
+                                    <label class="col-2">Numero:</label> <input required type="number" name="Numero" class="form-control col-9" value="${cliente.numeroEndercoCliente}" maxlength="255" />
 
-                                    <label class="col-2">Complemento:</label> <input required type="text" name="Complemento" class="form-control col-9" value="${cliente.complementoEnderecoCliente}" />
+                                    <label class="col-2">Complemento:</label> <input required type="text" name="Complemento" class="form-control col-9" value="${cliente.complementoEnderecoCliente}" maxlength="255"/>
 
-                                    <label class="col-2">Bairro:</label> <input required type="text" name="Bairro" class="form-control col-9" value="${cliente.bairroEnderecoCliente}" />
+                                    <label class="col-2">Bairro:</label> <input required type="text" name="Bairro" class="form-control col-9" value="${cliente.bairroEnderecoCliente}" maxlength="255"/>
 
-                                    <label class="col-2">Cidade:</label> <input required type="text" name="Cidade" class="form-control col-9" value="${cliente.cidadeEnderecoCliente}" />
+                                    <label class="col-2">Cidade:</label> <input required type="text" name="Cidade" class="form-control col-9" value="${cliente.cidadeEnderecoCliente}" maxlength="255" />
 
-                                    <label class="col-2">Cep:</label> <input required type="text" name="Cep" class="form-control col-9" value="${cliente.cepEnderecoCliente}" />
+                                    <label class="col-2">Cep:</label> <input required type="text" name="Cep" class="form-control col-9" value="${cliente.cepEnderecoCliente}" maxlength="255" />
 
-                                    <label class="col-2">Estado:</label> <input required type="text" name="Estado" class="form-control col-9" value="${cliente.estadoEnderecoCliente}" />
+                                    <label class="col-2">Estado:</label> <input required type="text" name="Estado" class="form-control col-9" value="${cliente.estadoEnderecoCliente}" maxlength="255" />
 
-                                    <label class="col-2">Telefone:</label> <input required type="text" name="Telefone" class="form-control col-9" value="${cliente.telefoneCliente}" />
+                                    <label class="col-2">Telefone:</label> <input required type="text" name="Telefone" class="form-control col-9" value="${cliente.telefoneCliente}" maxlength="255"/>
 
 
                                     <div class="col-12 p-0  pt-2">

@@ -94,16 +94,16 @@
                                             </div>
                                             <div class="modal-body">
 
-                                                <select name="categoriaProduto" class="form-control" class="form-select" aria-label="Default select example">
-                                                    <option selected>Selecione a categoria do produto</option>
+                                                <select name="categoriaProduto" class="form-control" class="form-select" aria-label="Default select example" required = "true">
+                                                    <option selected value="">Selecione a categoria do produto</option>
                                                     <c:forEach var="categoria" items="${requestScope.categorias}">
                                                         <option  value="<c:out value="${categoria.idCategoria}"/>"> <c:out value="${categoria.nome}"/> </options>
                                                         </c:forEach>
                                                 </select>
 
-                                                <input name="nome" type="text" placeholder="Nome"  />
-                                                <input name="peso" type="number" placeholder="Peso" class="form-control" />
-                                                <input name="descricao" type="text" placeholder="Descrição" />
+                                                <input name="nome" type="text" placeholder="Nome" required="true" maxlength="255" />
+                                                <input name="peso" type="number" placeholder="Peso" class="form-control" required="true"/>
+                                                <input name="descricao" type="text" placeholder="Descrição" required="true" maxlength="255" />
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="cancel" data-dismiss="modal">

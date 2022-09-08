@@ -172,6 +172,13 @@ public class FuncionarioServlet extends HttpServlet {
             //HttpSession session = request.getSession();
             //LoginBean logado = (LoginBean) session.getAttribute("logado");
             //Arrumar: enviar um alerta para dizer que foi cadastrado
+            List<Produto> produtos = ProdutosFacade.consultaProdutos();
+            request.setAttribute("produtos",produtos);
+            List<CategoriaProduto> categorias = new ArrayList<CategoriaProduto>();
+            categorias = CategoriaFacade.consultaCategoria();
+            request.setAttribute("categorias", categorias);
+           
+            
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp?CadastroProduto=true");
             rd.forward(request, response);    
         }
