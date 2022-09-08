@@ -82,7 +82,7 @@
                                             </div>
                                             <div class="modal-body">
 
-                                                <input type="text" placeholder="Nome da categoria" name="Categoria" />
+                                                <input type="text" placeholder="Nome da categoria" name="Categoria" required="true" maxlength="255" />
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="cancel" data-dismiss="modal" >
