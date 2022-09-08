@@ -7,7 +7,7 @@
         <%@include file="../header.jsp" %>
     </head>
     <body id="home">
-        
+
         <!-- Página da home -->
         <div class="container-fluid display-table">
             <div class="row display-table-row">
@@ -38,69 +38,29 @@
 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr> 
-                                            <c:forEach var="atendimentos" items="${requestScope.atendimentos}">
-                                            <td>
-                                                <p class="fw-normal mb-1"> <c:out value="${atendimentos.idAtendimento}"/> </p>                            
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1"> <c:out value="${atendimentos.idProduto}"/> </p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1"> <c:out value="${atendimentos.dataHoraAtendimento}"/> </p>
-                                            </td>
-                                            <td>
-                                                <p> ${atendimentos.situacao == 0 ? '<span class="badge badge-success rounded-pill d-inline">Aberto</span>' : '<span class="badge badge-secondary rounded-pill d-inline">Encerrado</span>'} </p>
-                                            </td>
+                                    <tbody>                                       
+                                        <c:forEach var="atendimentos" items="${requestScope.atendimentos}">
+                                            <tr> 
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.idAtendimento}"/> </p>                            
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.idProduto}"/> </p>
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.dataHoraAtendimento}"/> </p>
+                                                </td>
+                                                <td>
+                                                    <p> ${atendimentos.situacao == 0 ? '<span class="badge badge-success rounded-pill d-inline">Aberto</span>' : '<span class="badge badge-secondary rounded-pill d-inline">Encerrado</span>'} </p>
+                                                </td>
 
-                                            <td>
-                                                <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                        Abrir
-                                                    </button></a>
-                                            </td>
-                                         </c:forEach>   
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="fw-normal mb-1">123</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Creme</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">14/05/2022</p>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-secondary rounded-pill d-inline">Encerrado</span>
-                                            </td>
-                                            </td>
-                                            <td>
-                                                <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                        Abrir
-                                                    </button></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="fw-normal mb-1">123</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">Creme</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">14/05/2022</p>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-success rounded-pill d-inline">Aberto</span>
-                                            </td>
-                                            <td>
-                                                <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                        Abrir
-                                                    </button></a>
-                                            </td>
-                                        </tr>
-
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                                                            Abrir
+                                                        </button></a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>                                          
                                     </tbody>
                                 </table>
                             </div>

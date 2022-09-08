@@ -10,7 +10,7 @@
             <li>
               <a href="${pageContext.request.contextPath}/usuario-funcionario/home.jsp" method="post"
                  ><i class="fa fa-tasks" aria-hidden="true"></i
-                  ><span class="hidden-xs hidden-sm">Atendimentos</span></a>
+                  ><span class="hidden-xs hidden-sm">Atendimentos em Aberto</span></a>
             </li>
             <li>
                <a href="${pageContext.request.contextPath}/FuncionarioServlet?action=categoria" method="post"

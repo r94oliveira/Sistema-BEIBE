@@ -4,9 +4,11 @@
  */
 package com.ufpr.tads.web2.servlet;
 
+import com.ufpr.tads.web2.beans.Atendimento;
 import com.ufpr.tads.web2.beans.CategoriaProduto;
 import com.ufpr.tads.web2.beans.LoginBean;
 import com.ufpr.tads.web2.beans.Produto;
+import com.ufpr.tads.web2.facade.AtendimentoFacade;
 import com.ufpr.tads.web2.facade.CategoriaFacade;
 import com.ufpr.tads.web2.facade.FuncionarioFacade;
 import jakarta.servlet.RequestDispatcher;
@@ -35,8 +37,19 @@ public class FuncionarioServlet extends HttpServlet {
         String action = request.getParameter("action");
         ServletContext sc = request.getServletContext();
         
+        if("login".equals(action)){
+             HttpSession session = request.getSession();
+            List<Atendimento> atendimentos = new ArrayList<Atendimento>();                   
+            atendimentos = AtendimentoFacade.listarTodosAtendimentos();
+            request.setAttribute("atendimentos", atendimentos);
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
+            rd.forward(request, response); 
+            
+        }
+        
+        
+        
         if ("categoria".equals(action)){
-            System.out.println(action);
             HttpSession session = request.getSession();
             List<CategoriaProduto> categorias = CategoriaFacade.consultaCategoria();
             request.setAttribute("categorias",categorias);

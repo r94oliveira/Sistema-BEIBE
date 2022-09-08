@@ -117,5 +117,42 @@ public class AtendimentoDAO {
           
         }
     }
+
+    public static List<Atendimento> listarTodosAtendimentos() {
+          Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        List<Atendimento> atendimentos = new ArrayList<Atendimento>();
+        
+        try {
+            conn = new ConnectionFactory().getConnection();
+            String query = "SELECT idAtendimento, dataHoraAtendimento, descricaoAtendimento, solucaoApresentada, situacaoAtendimento, nomeCliente, nomeProduto, nomeCategoria , nomeTipoAtendimento from atendimento, cliente, produto, categoria_produto, tipo_atendimento WHERE fk_Produto_idProduto = idProduto AND fk_Cliente_idPessoa = idPessoa AND fk_Categoria_Produto_idCategoria = idCategoria AND fk_Tipo_Atendimento_idTipoAtendimento = idTipoAtendimento AND situacaoAtendimento = 0 ORDER BY dataHoraAtendimento ASC";
+            st = conn.prepareStatement(query);
+            rs = st.executeQuery();
+            while(rs.next()){
+                Atendimento atendimento = new Atendimento();
+                atendimento.setIdAtendimento(rs.getInt("idAtendimento"));
+                LocalDate dt1 = rs.getDate("dataHoraAtendimento").toLocalDate();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                atendimento.setDataHoraAtendimento(dt1.format(formatter));
+                atendimento.setDescricao(rs.getString("descricaoAtendimento"));
+                atendimento.setSolucao(rs.getString("solucaoApresentada"));
+                atendimento.setSituacao(rs.getInt("situacaoAtendimento"));
+                atendimento.setNomeProduto(rs.getString("nomeProduto"));
+                atendimento.setNomeCategoria(rs.getString("nomeCategoria"));
+                atendimento.setNomeTipoAtendimento(rs.getString("nomeTipoAtendimento"));
+                atendimentos.add(atendimento);
+                //comentario
+            }
+            st.close();
+            conn.close();
+            return atendimentos;   
+        }
+        catch (Exception e){
+            System.out.println("nao consultou");
+            e.printStackTrace();
+            return null; 
+        }
+    }
     
 }

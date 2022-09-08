@@ -9,7 +9,7 @@
           </div>
           <div>
             <ul class="navi">
-                <a href="${pageContext.request.contextPath}/usuario-cliente/home.jsp" method="post" ><i class="fa fa-tasks" aria-hidden="true"></i
+                <a href="${pageContext.request.contextPath}/ClienteServlet?action=login" method="post" ><i class="fa fa-tasks" aria-hidden="true"></i
                   ><span class="hidden-xs hidden-sm">Meus atendimentos</span></a
                 >
               <li>

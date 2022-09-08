@@ -43,7 +43,15 @@ public class ClienteServlet extends HttpServlet {
        String action = request.getParameter("action");
        ServletContext sc = request.getServletContext();
        
-       
+        if (action.equals("login")){
+            HttpSession session = request.getSession();
+            List<Atendimento> atendimentos = new ArrayList<Atendimento>();
+            int id = (int)session.getAttribute("id");        
+            atendimentos = AtendimentoFacade.consultaAtendimento(id);
+            request.setAttribute("atendimentos", atendimentos);
+           RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");
+            rd.forward(request, response); 
+        }
        
         if (action.equals("consultaCadastro")){
            HttpSession session = request.getSession();

@@ -57,17 +57,10 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("logado", loginBean);
             session.setAttribute("id",loginBean.getId());
-            List<Atendimento> atendimentos = new ArrayList<Atendimento>();
-            atendimentos = AtendimentoFacade.consultaAtendimento(cliente.getIdCliente());
-            for(Atendimento atendimento : atendimentos){
-                System.out.println(atendimento.getNomeCategoria());
-                System.out.println(atendimento.getDataHoraAtendimento());
-                System.out.println(atendimento.getDescricao());
-                System.out.println(atendimento.getNomeProduto());
-                System.out.println(atendimento.getNomeTipoAtendimento());
-            }
-            session.setAttribute("atendimentos", atendimentos);            
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-cliente/home.jsp");
+            //List<Atendimento> atendimentos = new ArrayList<Atendimento>();
+            //atendimentos = AtendimentoFacade.consultaAtendimento(cliente.getIdCliente());
+           // request.setAttribute("atendimentos", atendimentos);            
+            RequestDispatcher rd = request.getRequestDispatcher("ClienteServlet?action=login");
             rd.forward(request, response); 
         } 
         
@@ -79,7 +72,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("logado", loginBean);
             session.setAttribute("id",loginBean.getId());
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/home.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=login");
             rd.forward(request, response); 
         }   
    
