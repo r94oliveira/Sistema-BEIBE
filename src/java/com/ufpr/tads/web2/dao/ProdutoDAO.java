@@ -75,5 +75,32 @@ public class  ProdutoDAO {
                 return null; 
            }
     }
+
+    public static void excluirProduto(String id) {
+                   
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        int idProduto = Integer.parseInt(id);
+        
+        try{
+            conn = new ConnectionFactory().getConnection();
+            String queryc = "DELETE from produto WHERE idProduto= ? ;";
+            st = conn.prepareStatement(queryc);
+            st.setInt(1, idProduto);
+            st.executeUpdate();
+            st.close();
+            conn.close();
+            System.out.println("excluiu o produto");
+            return;   
+        }
+        catch (Exception e){
+            System.out.println("nao inseriu");
+            e.printStackTrace();
+            return ; 
+          
+        
+    }
+    }
     
 }

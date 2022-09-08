@@ -131,21 +131,22 @@ public class CategoriaDAO {
         
     
 
-    public static int verificaExisteCategoria(CategoriaProduto categoria) {
-        Connection conn = null;
+    public static int verificaExisteCategoria(String categoria) {
+         Connection conn = null;
          PreparedStatement st = null;
          ResultSet rs = null;
          String categoriaBanco = null;
          
             try{
                 conn = new ConnectionFactory().getConnection();
-                String queryCategoria = "SELECT nomeCategoria From categoria_produto";
+                String queryCategoria = "SELECT nomeCategoria From categoria_produto WHERE = ?";
                 st = conn.prepareStatement(queryCategoria);
                 rs = st.executeQuery();
+                st.setString(1, categoria);
                 while (rs.next()){
                     categoriaBanco = rs.getString("nomeCategoria");
                  
-                    if(categoriaBanco.equals(categoria.toString())){
+                    if(categoriaBanco.equals(categoria)){
                     return 1;   
                     }              
                 }

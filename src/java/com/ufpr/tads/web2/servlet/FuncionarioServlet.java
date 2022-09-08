@@ -66,6 +66,14 @@ public class FuncionarioServlet extends HttpServlet {
              request.setAttribute("msgServlet","É necessário digitar algo como o nome da categoria!");
            
             } else {
+                CategoriaFacade.verificaExisteCategoria(cat);
+                if(CategoriaFacade.verificaExisteCategoria(cat) == 1){
+                request.setAttribute("msgServlet","A categoria "+categoria.getNome()+ " já existe!");
+                 RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=categoria&CadastroCategoria=true");
+                 rd.forward(request, response);
+                
+                
+                }
                 categoria.setNome(cat);
                 CategoriaFacade.adicionaCategoria(categoria);
                 request.setAttribute("msgServlet","A categoria "+categoria.getNome()+ " foi adicionada!");
@@ -167,6 +175,18 @@ public class FuncionarioServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp?CadastroProduto=true");
             rd.forward(request, response);    
         }
+        
+        
+        if ("excluirProduto".equals(action)){
+
+            String id = request.getParameter("id");
+            ProdutosFacade.excluirProduto(id);
+            request.setAttribute("msgServlet","O produto foi excluído com sucesso!");
+            RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=produtos");
+            rd.forward(request, response);    
+        }
+        
+        
         
         
     }

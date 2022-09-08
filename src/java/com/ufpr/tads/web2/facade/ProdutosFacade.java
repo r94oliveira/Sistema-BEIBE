@@ -17,5 +17,9 @@ public class ProdutosFacade {
     public static List<Produto> consultaProdutos() {
         return ProdutoDAO.consultaProdutos();
     }
+
+    public static void excluirProduto(String id) {
+        ProdutoDAO.excluirProduto(id);
+    }
     
 }

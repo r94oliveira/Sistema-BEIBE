@@ -32,7 +32,7 @@ public class CategoriaFacade {
         return CategoriaDAO.consultaCategoria();
     }
     
-    public static int verificaExisteCategoria(CategoriaProduto categoria){
+    public static int verificaExisteCategoria(String categoria){
         return  CategoriaDAO.verificaExisteCategoria(categoria);
     }
       
