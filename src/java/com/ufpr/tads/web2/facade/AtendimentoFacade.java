@@ -26,5 +26,9 @@ public class AtendimentoFacade {
         return AtendimentoDAO.listarTodosAtendimentos();
     }
 
+    public static Atendimento resolverAtendimento(Atendimento atendimento) {
+        return AtendimentoDAO.resolverAtendimento(atendimento);
+    }
+
     
 }

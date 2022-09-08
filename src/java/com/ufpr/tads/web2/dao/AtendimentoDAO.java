@@ -154,5 +154,31 @@ public class AtendimentoDAO {
             return null; 
         }
     }
+
+    public static Atendimento resolverAtendimento(Atendimento atendimento) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        
+        try {
+            conn = new ConnectionFactory().getConnection();
+            String query = "UPDATE atendimento SET solucaoApresentada = ? ,situacaoAtendimento = ? ,fk_Funcionario_idFuncionario = ? WHERE idAtendimento = ?;";
+            st = conn.prepareStatement(query);
+            st.setString(1, atendimento.getSolucao());
+            st.setInt(2, atendimento.getSituacao());
+            st.setInt(3, atendimento.getIdFuncionario());
+            st.executeUpdate();
+            st.close();
+            conn.close();
+            System.out.println("inseriu");
+            return atendimento;   
+        }
+        catch (Exception e){
+            System.out.println("nao inseriu");
+            e.printStackTrace();
+            return null; 
+          
+        }
+    }
     
 }

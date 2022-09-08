@@ -45,7 +45,7 @@
                                                     <p class="fw-normal mb-1"> <c:out value="${atendimentos.idAtendimento}"/> </p>                            
                                                 </td>
                                                 <td>
-                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.idProduto}"/> </p>
+                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.nomeProduto}"/> </p>
                                                 </td>
                                                 <td>
                                                     <p class="fw-normal mb-1"> <c:out value="${atendimentos.dataHoraAtendimento}"/> </p>
@@ -85,6 +85,10 @@
                                                 <input type="text" name="produto" value="<c:out value="${atendimentos.nomeProduto}"/> " readonly="readonly" />
                                                      <label>Descrição</label>
                                                <input type="text" name="produto" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
+                                                  <label>Solução</label>
+                                                   <input type="text" name="produto" value="<c:out value="${atendimentos.solucao}"/> " readonly="readonly" />
+                                            
+                                            
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="cancel" data-dismiss="modal">

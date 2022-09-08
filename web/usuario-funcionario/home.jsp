@@ -56,7 +56,7 @@
                                                     <p class="fw-normal mb-1"> <c:out value="${atendimentos.idAtendimento}"/> </p>                            
                                                 </td>
                                                 <td>
-                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.idProduto}"/> </p>
+                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.nomeProduto}"/> </p>
                                                 </td>
                                                 <td>
                                                     <p class="fw-normal mb-1"> <c:out value="${atendimentos.dataHoraAtendimento}"/> </p>
@@ -66,7 +66,7 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                                                    <a href="#" data-toggle="modal" data-target="modalAtendimento<c:out value="${atendimentos.idAtendimento}"/>"><button type="button" class="btn btn-link btn-sm btn-rounded">
                                                            Resolver
                                                         </button></a>
                                                 </td>
@@ -76,31 +76,40 @@
                                 </table>
                             </div>
 
-                            <!-- Modal project -->
-                            <div id="modal-project" class="modal fade" role="dialog">
-                                <div class="modal-dialog">
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header login-header">
-                                            <h4 class="modal-title">Add Project</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <input type="text" placeholder="Project Title" name="name" />
-                                            <input type="text" placeholder="Post of Post" name="mail" />
-                                            <input type="text" placeholder="Author" name="passsword" />
-                                            <textarea placeholder="Desicrption"></textarea>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="cancel" data-dismiss="modal">
-                                                Close
-                                            </button>
-                                            <button type="button" class="add-modal" data-dismiss="modal">
-                                                Save
-                                            </button>
+                             <c:forEach var="atendimentos" items="${requestScope.atendimentos}">
+                                <!-- Modal form -->
+                                
+                               
+                                <div id="modalAtendimento<c:out value="${atendimentos.idAtendimento}"/>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header login-header">
+                                                <h4 class="modal-title">Informações Atendimento</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Tipo de Atendimento</label>
+                                                <input type="text" name="tipoAtendimento" value="<c:out value="${atendimentos.nomeTipoAtendimento}"/>" readonly="readonly" />
+                                                <label>Categoria</label>
+                                                <input type="text" name="categoriaAtendimento" value="<c:out value="${atendimentos.nomeCategoria}"/> " readonly="readonly" />
+                                                     <label>Produto</label>
+                                                <input type="text" name="produto" value="<c:out value="${atendimentos.nomeProduto}"/> " readonly="readonly" />
+                                                     <label>Descrição</label>
+                                               <input type="text" name="produto" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
+                                                  <label>Solução</label>
+                                                   <input type="text" name="produto" value="<c:out value="${atendimentos.solucao}"/> " readonly="readonly" />
+                                            
+                                            
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="cancel" data-dismiss="modal">
+                                                    Fechar
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </c:forEach> 
 
                             <!-- Modal form -->
                             <div id="modal-form" class="modal fade" role="dialog">

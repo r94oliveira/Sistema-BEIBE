@@ -82,6 +82,24 @@ public class FuncionarioServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=categoria");
             rd.forward(request, response);    
         }
+        
+        
+        if("resolver".equals(action)){
+             HttpSession session = request.getSession();
+            Atendimento atendimento = new Atendimento();
+            int idAtendimento = (int)session.getAttribute("idAtendimento");
+            atendimento.setIdAtendimento(idAtendimento);
+            atendimento.setSolucao(request.getParameter("Solucao"));
+            int id = (int)session.getAttribute("id"); 
+            atendimento.setIdFuncionario(id);
+            atendimento.setSituacao(1);
+            
+            AtendimentoFacade.resolverAtendimento(atendimento);
+        
+        
+        }
+        
+        
                 
         if ("produtos".equals(action)){
             HttpSession session = request.getSession();
