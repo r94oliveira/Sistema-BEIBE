@@ -4,7 +4,8 @@
  */
 package com.ufpr.tads.web2.servlet;
 
-import jakarta.servlet.RequestDispatcher;
+import com.ufpr.tads.web2.beans.Funcionario;
+import com.ufpr.tads.web2.facade.GerenteFacade;
 import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,14 +14,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 /**
  *
- * @author Rafael
+ * @author janai
  */
-@WebServlet(name = "LogoutServlet", urlPatterns = {"/LogoutServlet"})
-public class LogoutServlet extends HttpServlet {
+@WebServlet(name = "GerenteServlet", urlPatterns = {"/GerenteServlet"})
+public class GerenteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,19 +33,57 @@ public class LogoutServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-       
-    HttpSession session = request.getSession(false);
-        if (session != null) {
-            session.invalidate();
-        }    
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            ServletContext sc = request.getServletContext();
-            RequestDispatcher rd = sc.getRequestDispatcher("/index.jsp");
-            request.setAttribute("msg", "Usuário desconectado com sucesso");
-            rd.forward(request, response);
+        
+        response.setContentType("text/html;charset=UTF-8");
+        String action = request.getParameter("action");
+        ServletContext sc = request.getServletContext();
+        
+        if("cadastrarFuncionario".equals(action)){
+            
+            String nome = request.getParameter("nome");
+            String sobrenome = request.getParameter("sobrenome");
+            String cpfAux = request.getParameter("cpf");
+            int cpf = Integer.parseInt(cpfAux);
+            String email = request.getParameter("email");
+            String senha = request.getParameter("senha");
+            String telefone = request.getParameter("telefone");
+            String rua = request.getParameter("rua");
+            String numeroAux = request.getParameter("numero");
+            int numero = Integer.parseInt(numeroAux);
+            String complemento = request.getParameter("complemento");
+            String cep = request.getParameter("cep");
+            String estado = request.getParameter("estado");
+            String cidade = request.getParameter("cidade");
+            String cargoAux = request.getParameter("cargo");
+            int cargo = Integer.parseInt(cargoAux);
+            
+            Funcionario funcionario = new Funcionario();
+            
+            funcionario.setNomeFuncionario(nome);
+            funcionario.setSobreNome(sobrenome);
+            funcionario.setCpf(cpf);
+            funcionario.setEmailFuncionario(email);
+            funcionario.setSenhaFuncionario(senha);
+            funcionario.setTelefone(telefone);
+            funcionario.setRuaEnderecoFuncionario(rua);
+            funcionario.setNumeroEndercoFuncionario(numero);
+            funcionario.setComplementoEnderecoFuncionario(complemento);
+            funcionario.setCepEnderecoFuncionario(cep);
+            funcionario.setEstadoEnderecoFuncionario(estado);
+            funcionario.setCidadeEnderecoFuncionario(cidade);
+            funcionario.setCargoFuncionario(cargo);
+            
+            GerenteFacade.cadastraFuncionario(funcionario);
+            
+            
+            
         }
+        
+        
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

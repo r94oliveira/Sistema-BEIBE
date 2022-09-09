@@ -26,7 +26,7 @@ public class CadastroProdutoServlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        response.setContentType("text/html;charset=UTF-8");
         String nomeCategoria = request.getParameter("nomeCategoria");
         int idCategoria = BuscaCategoriaFacade.buscaCategoria(nomeCategoria);
         String descricaoProduto = request.getParameter("descricaoProduto");

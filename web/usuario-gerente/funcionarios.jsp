@@ -85,71 +85,44 @@
                   <div class="modal-body">
                     <div class="form d-flex flex-row w-100">
 
-                      <form action="index.html" class="custom-control custom-checkbox mb-3">
-                        <input required type="text" name="Nome" class="form-control col-10" placeholder="Nome Completo" />
-        
-                        <input required type="text" name="Cpf" class="form-control col-10" placeholder="CPF"  />
-        
-                        <input required type="email" name="Email" class="form-control col-5" placeholder="E-mail" />
-        
-                        <input required type="password" name="Senha" class="form-control col-5" placeholder="Senha" />
-        
-                        <input required type="tel" name="Telefone" class="form-control col-5" placeholder="Telefone" />
-        
-                        <input required type="text" name="Rua" class="form-control col-5" placeholder="Rua" />
-        
-                        <input required type="number" name="Numero" class="form-control col-5" placeholder="Numero" />
-        
-                        <input required type="text" name="Complemento" class="form-control col-5" placeholder="Complemento" />
-        
-                        <input required type="text" name="Cep" class="form-control col-5" placeholder="CEP" />
-        
-                        <input required type="text" name="Bairro" class="form-control col-5" placeholder="Bairro" />
-        
-                        <select required placeholder="Estado" class="form-control col-5 mb-3" name="Estado" >
-                          <option value="AC">Estado</option>
-                          <option value="AC">Acre</option>
-                          <option value="AL">Alagoas</option>
-                          <option value="AP">Amapá</option>
-                          <option value="AM">Amazonas</option>
-                          <option value="BA">Bahia</option>
-                          <option value="CE">Ceará</option>
-                          <option value="DF">Distrito Federal</option>
-                          <option value="ES">Espírito Santo</option>
-                          <option value="GO">Goiás</option>
-                          <option value="MA">Maranhão</option>
-                          <option value="MT">Mato Grosso</option>
-                          <option value="MS">Mato Grosso do Sul</option>
-                          <option value="MG">Minas Gerais</option>
-                          <option value="PA">Pará</option>
-                          <option value="PB">Paraíba</option>
-                          <option value="PR">Paraná</option>
-                          <option value="PE">Pernambuco</option>
-                          <option value="PI">Piauí</option>
-                          <option value="RJ">Rio de Janeiro</option>
-                          <option value="RN">Rio Grande do Norte</option>
-                          <option value="RS">Rio Grande do Sul</option>
-                          <option value="RO">Rondônia</option>
-                          <option value="RR">Roraima</option>
-                          <option value="SC">Santa Catarina</option>
-                          <option value="SP">São Paulo</option>
-                          <option value="SE">Sergipe</option>
-                          <option value="TO">Tocantins</option>
-                          <option value="EX">Estrangeiro</option>
-                        </select>        
-                        <input required type="text" name="Cidade" class="form-control col-5" placeholder="Cidade" />                        
+                        <form action="GerenteServlet?action=cadastrarFuncionario" class="custom-control custom-checkbox mb-3" method="post">
+                        <input required type="text" name="nome" class="form-control col-10" placeholder="Nome" />
                         
-                      </form>
+                        <input required type="text" name="sobrenome" class="form-control col-10" placeholder="Sobrenome" />
+                        
+                        <input required type="text" name="cpf" class="form-control col-10" placeholder="CPF"  />
+        
+                        <input required type="email" name="email" class="form-control col-5" placeholder="E-mail" />
+        
+                        <input required type="password" name="senha" class="form-control col-5" placeholder="Senha" />
+        
+                        <input required type="tel" name="telefone" class="form-control col-5" placeholder="Telefone" />
+        
+                        <input required type="text" name="rua" class="form-control col-5" placeholder="Rua" />
+        
+                        <input required type="number" name="numero" class="form-control col-5" placeholder="Numero" />
+        
+                        <input required type="text" name="complemento" class="form-control col-5" placeholder="Complemento" />
+        
+                        <input required type="text" name="cep" class="form-control col-5" placeholder="CEP" />
+        
+                        <input required type="text" name="bairro" class="form-control col-5" placeholder="Bairro" />
+                        
+                        <input required type="text" name="estado" class="form-control col-5" placeholder="Estado" />
+                            
+                        <input required type="text" name="cidade" class="form-control col-5" placeholder="Cidade" />
+                        
+                        <input required type="text" name="cargo" class="form-control col-5" placeholder="Func = 1 Gerente = 2" />
+                      
                     </div>
+                  
+                  <div class="col-12 p-0  pt-2">
+                    <input type="submit" value="Cancelar" class="btn btn-secondary col-3" />
+                    <input type="submit" value="Salvar" class="btn btn-success col-3" />
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="cancel" data-dismiss="modal">
-                      Fechar
-                    </button>
-                    <button type="button" class="add-modal" data-dismiss="modal">
-                      Salvar
-                    </button>
-                  </div>
+                    
+                 </form>
+                        </div>
                 </div>
               </div>
             </div>
@@ -228,7 +201,6 @@
                     <button type="button" class="add-modal" data-dismiss="modal">
                       Fechar
                     </button>
-
                   </div>
                 </div>
               </div>

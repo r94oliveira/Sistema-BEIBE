@@ -34,7 +34,7 @@ public class FuncionarioServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
         ServletContext sc = request.getServletContext();
         
@@ -62,6 +62,7 @@ public class FuncionarioServlet extends HttpServlet {
             CategoriaProduto categoria = new CategoriaProduto();
             String cat = request.getParameter("Categoria");
             
+            
             if("".equals(cat)){
              request.setAttribute("msgServlet","É necessário digitar algo como o nome da categoria!");
            
@@ -76,6 +77,7 @@ public class FuncionarioServlet extends HttpServlet {
                 }
                 categoria.setNome(cat);
                 CategoriaFacade.adicionaCategoria(categoria);
+                response.setContentType("text/html;charset=UTF-8");
                 request.setAttribute("msgServlet","A categoria "+categoria.getNome()+ " foi adicionada!");
             }      
              

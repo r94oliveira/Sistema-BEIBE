@@ -22,8 +22,7 @@ public class ClienteDAO {
         PreparedStatement st = null;
         ResultSet rs = null;
         
-        System.out.println(c.getNomecliente());
-        System.out.println(c.getCepEnderecoCliente());
+        
         try {
             conn = new ConnectionFactory().getConnection();
             String query = "INSERT INTO cliente (nomeCliente, sobrenomeCliente,emailCliente,cpfCliente,ruaEnderecoCliente,numeroEndercoCliente,complementoEnderecoCliente,bairroEnderecoCliente, cidadeEnderecoCliente, cepEnderecoCliente, estadoEnderecoCliente, telefoneCliente, senhaCliente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,aes_encrypt(?,'beibe'));";
