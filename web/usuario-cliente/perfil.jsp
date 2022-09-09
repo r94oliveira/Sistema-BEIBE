@@ -1,9 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>  
         <title>Meus Dados - Cliente</title> 
+        <meta charset="UTF-8">
         <%@include file="../header.jsp" %>
     </head>
     <body id="home">

@@ -31,7 +31,7 @@ public class LoginDAO {
         
         try{
             conn = new ConnectionFactory().getConnection();
-            String queryc = "SELECT idPessoa, emailCliente, senhaCliente, nomeCliente from cliente WHERE emailCliente = ? AND senhaCliente = ?";
+            String queryc = "SELECT idPessoa, emailCliente, senhaCliente, nomeCliente from cliente WHERE emailCliente = ? AND senhaCliente = aes_encrypt(?,'beibe')";
             st = conn.prepareStatement(queryc);
             st.setString(1,log.getEmail());
             st.setString(2,log.getSenha());
@@ -59,7 +59,7 @@ public class LoginDAO {
         
         try{
             conn = new ConnectionFactory().getConnection();
-            String queryc = "SELECT idFuncionario, emailfuncionario, senhaFuncionario, nomeFuncionario, cargo from funcionario WHERE emailFuncionario = ? AND senhaFuncionario = ?";
+            String queryc = "SELECT idFuncionario, emailfuncionario, senhaFuncionario, nomeFuncionario, cargo from funcionario WHERE emailFuncionario = ? AND senhaFuncionario = aes_encrypt(?,'beibe')";
             st = conn.prepareStatement(queryc);
             st.setString(1,log.getEmail());
             st.setString(2,log.getSenha());

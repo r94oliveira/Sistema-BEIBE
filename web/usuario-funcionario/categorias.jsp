@@ -1,11 +1,12 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
     <head>
-        <title>Categorias - Funcionário</title>  
+        <title>Categorias - Funcionário</title> 
+        <meta charset="UTF-8">
         <%@include file="../header.jsp" %>
 
     </head>

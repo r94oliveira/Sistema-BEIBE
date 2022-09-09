@@ -38,7 +38,7 @@ public class FuncionarioDAO {
                             + "telefoneFuncionario,\n" 
                             + "senhaFuncionario,\n"
                             + "cargoFuncionario,\n" 
-                            + ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                            + ") VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,aes_encrypt(?,'beibe'),?)";
             st = conn.prepareStatement(query);
             st.setInt(1, f.getIdFuncionario());
             st.setString(2,f.getNomeFuncionario());
