@@ -10,6 +10,7 @@ import com.ufpr.tads.web2.beans.Cliente;
 import com.ufpr.tads.web2.beans.LoginBean;
 import com.ufpr.tads.web2.beans.Produto;
 import com.ufpr.tads.web2.beans.TipoAtendimento;
+import com.ufpr.tads.web2.beans.ValidaCPF;
 import com.ufpr.tads.web2.facade.AtendimentoFacade;
 import com.ufpr.tads.web2.facade.CategoriaFacade;
 import com.ufpr.tads.web2.facade.ClienteFacade;
@@ -87,6 +88,18 @@ public class ClienteServlet extends HttpServlet {
             String telefone = request.getParameter("Telefone");
             String senha = request.getParameter("Senha");
 
+             
+            boolean cpfb = ValidaCPF.isCPF(cpf);
+            
+            if (!cpfb){
+                request.setAttribute("msgServlet","CPF inválido");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);
+            }
+            
+            
+            
+            
             Cliente c = new Cliente();
 
             c.setIdCliente(idCliente);

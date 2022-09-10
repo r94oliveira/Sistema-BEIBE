@@ -12,7 +12,10 @@ $('#confirm-deleteAtendimento').on('show.bs.modal', function(e) {
 });
 
 
-
+$('#confirm-deleteProduto').on('show.bs.modal', function(e) {
+  var deleteid = $(e.relatedTarget).data('delete');
+  $('#delBtn').attr('onClick', "location.href='FuncionarioServlet?action=excluirProduto&idProduto="+deleteid+"'");
+});
 
 
 const btn = document.getElementById('closeX');

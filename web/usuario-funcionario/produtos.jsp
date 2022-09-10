@@ -68,7 +68,7 @@
                                                     <p class="fw-normal mb-1"> <c:out value="${produtos.descricao}"/> </p>
                                                 </td>                                                
                                                 <td>
-                                                    <a href="#" data-toggle="modal" data-target="#confirm-delete" data-title="Delete" data-delete ="${produtos.idProduto}">
+                                                    <a href="#" data-toggle="modal" data-target="#confirm-deleteProduto" data-title="Delete" data-delete ="${produtos.idProduto}">
                                                         Excluir
                                                         </a>
                                                 </td>
@@ -112,15 +112,15 @@
                             </div>
 
                             <!-- Modal confirm -->
-                            <div id="modal-confirm" class="modal fade" role="dialog">
+                                <div id="confirm-deleteProduto" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
                                         <div class="modal-header login-header">
-                                            <h4 class="modal-title">Realmente deseja excluir esse produto?</h4>
+                                            <h4 class="modal-title">Realmente deseja excluir esse chamado?</h4>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="add-modal" data-dismiss="modal">
+                                            <button type="button" class="add-modal" id="delBtn">
                                                 Sim
                                             </button>
                                             <button type="button" class="cancel" data-dismiss="modal">

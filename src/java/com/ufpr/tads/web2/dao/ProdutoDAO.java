@@ -96,7 +96,7 @@ public class  ProdutoDAO {
             return;   
         }
         catch (Exception e){
-            System.out.println("nao inseriu");
+            System.out.println("nao excluiu");
             e.printStackTrace();
             return ; 
           

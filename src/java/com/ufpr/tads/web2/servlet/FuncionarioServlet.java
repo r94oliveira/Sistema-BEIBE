@@ -38,6 +38,8 @@ public class FuncionarioServlet extends HttpServlet {
         String action = request.getParameter("action");
         ServletContext sc = request.getServletContext();
         
+     
+        
         if("login".equals(action)){
              HttpSession session = request.getSession();
             List<Atendimento> atendimentos = new ArrayList<Atendimento>();                   
@@ -199,20 +201,36 @@ public class FuncionarioServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp");
             rd.forward(request, response);    
         }
+         
         
-        
-        if ("excluirProduto".equals(action)){
-
-            String id = request.getParameter("id");
-            ProdutosFacade.excluirProduto(id);
-            request.setAttribute("msgServlet","O produto foi excluído com sucesso!");
-            RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=produtos");
-            rd.forward(request, response);    
-        }
         
             
         
     }
+        if ("excluirProduto".equals(action)){
+
+              String idProduto = request.getParameter("idProduto");
+             System.out.println("TEM QUE SOLTAR O ID AQUI no topo da pagina ");
+            System.out.println(idProduto);
+            ProdutosFacade.excluirProduto(idProduto);
+            request.setAttribute("msgServlet","O produto foi excluído com sucesso!");
+            
+             List<Produto> produtos = ProdutosFacade.consultaProdutos();
+            request.setAttribute("produtos",produtos);
+            List<CategoriaProduto> categorias = new ArrayList<CategoriaProduto>();
+            categorias = CategoriaFacade.consultaCategoria();
+            request.setAttribute("categorias", categorias);
+            
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp");
+            rd.forward(request, response);    
+        }
+        
+        
+        
+        
+        
+        
+        
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

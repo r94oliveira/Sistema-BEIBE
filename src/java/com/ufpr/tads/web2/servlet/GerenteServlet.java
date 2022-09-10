@@ -6,6 +6,7 @@ package com.ufpr.tads.web2.servlet;
 
 import com.ufpr.tads.web2.beans.Atendimento;
 import com.ufpr.tads.web2.beans.Funcionario;
+import com.ufpr.tads.web2.beans.ValidaCPF;
 import com.ufpr.tads.web2.facade.AtendimentoFacade;
 import com.ufpr.tads.web2.facade.FuncionarioFacade;
 import com.ufpr.tads.web2.facade.GerenteFacade;
@@ -65,6 +66,16 @@ public class GerenteServlet extends HttpServlet {
             String cargoAux = request.getParameter("cargo");
             
             int cargo = Integer.parseInt(cargoAux);
+            
+            boolean cpfb = ValidaCPF.isCPF(cpf);
+            
+            if (!cpfb){
+                request.setAttribute("msgServlet","CPF inválido");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);
+            }
+            
+            
             
             Funcionario funcionario = new Funcionario();
             
