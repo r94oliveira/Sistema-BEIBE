@@ -18,5 +18,9 @@ public class GerenteFacade {
         GerenteDAO.cadastrarFuncionario(funcionario);
         
     }
+
+    public static int verificaFuncionario(Funcionario funcionario) {
+        return GerenteDAO.verificaFuncionario(funcionario);
+    }
     
 }

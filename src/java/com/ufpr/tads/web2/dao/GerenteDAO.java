@@ -98,4 +98,44 @@ public class GerenteDAO {
                 return null; 
            }
     }
+
+    public static int verificaFuncionario(Funcionario funcionario) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        PreparedStatement st2 = null;
+        ResultSet rs = null;
+        ResultSet rs2 = null;
+        String cpfFuncionario = null;
+        String emailFuncionario = null;
+        
+        try{
+            conn = new ConnectionFactory().getConnection();
+            String queryc = "SELECT cpfFuncionario From funcionario WHERE cpfFuncionario = ?";
+            String queryEmail = "SELECT emailFuncionario From funcionario WHERE emailFuncionario = ?";
+            st = conn.prepareStatement(queryc);
+            st2 = conn.prepareStatement(queryEmail);
+            st.setString(1,funcionario.getCpfFuncionario());
+            st2.setString(1,funcionario.getEmailFuncionario());
+            rs = st.executeQuery();
+            rs2 = st2.executeQuery();
+            while (rs.next()){
+                cpfFuncionario = rs.getString("cpfFuncionario");
+            }
+            
+            while(rs2.next()){
+                emailFuncionario = rs2.getString("emailFuncionario");
+            
+            }
+            // se cpf funcionario DIFERENTE DE NULL e email diferente de null quer dizer que tem o dado no banco então retorna 1
+            if (cpfFuncionario!=null || cpfFuncionario!=null){
+            return 1;
+            }
+        }
+           catch (Exception e){
+            System.out.println("nao consultou");
+            e.printStackTrace();
+            return 0; 
+       }
+        return 0;
+    }
 }

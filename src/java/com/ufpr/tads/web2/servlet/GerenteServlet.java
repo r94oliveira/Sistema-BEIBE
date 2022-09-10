@@ -74,11 +74,8 @@ public class GerenteServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                 rd.forward(request, response);
             }
-            
-            
-            
+
             Funcionario funcionario = new Funcionario();
-            
             funcionario.setNomeFuncionario(nome);
             funcionario.setSobrenomeFuncionario(sobrenome);
             funcionario.setCpfFuncionario(cpf);
@@ -94,6 +91,15 @@ public class GerenteServlet extends HttpServlet {
             funcionario.setCidadeEnderecoFuncionario(cidade);
             funcionario.setCargoFuncionario(cargo);
             
+            if(GerenteFacade.verificaFuncionario(funcionario) == 1){
+                List<Funcionario> funcionarios = new ArrayList<Funcionario>();                   
+                funcionarios = FuncionarioFacade.listarTodosFuncionarios();
+                request.setAttribute("listarFuncionarios", funcionarios);
+                request.setAttribute("msgServlet","Funcionario não cadastrado! Email ou CPF Já Existem Em Outro Cadastro");
+                RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/funcionarios.jsp");
+                rd.forward(request, response);                
+            }
+
             GerenteFacade.cadastrarFuncionario(funcionario);
             request.setAttribute("msgServlet","Funcionario adicionado!");
             RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
@@ -129,11 +135,7 @@ public class GerenteServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
                 rd.forward(request, response);
             }
-            
-            
-            
             Funcionario funcionario = new Funcionario();
-            
             funcionario.setNomeFuncionario(nome);
             funcionario.setSobrenomeFuncionario(sobrenome);
             funcionario.setCpfFuncionario(cpf);
@@ -155,24 +157,7 @@ public class GerenteServlet extends HttpServlet {
             rd.forward(request, response); 
             
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
         
         if ("listarTodosAtendimentos".equals(action)){
         
