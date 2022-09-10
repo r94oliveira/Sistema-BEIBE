@@ -70,7 +70,7 @@ public class FuncionarioServlet extends HttpServlet {
                 CategoriaFacade.verificaExisteCategoria(cat);
                 if(CategoriaFacade.verificaExisteCategoria(cat) == 1){
                 request.setAttribute("msgServlet","A categoria que você tentou adicionar já existe! NÃO FOI ADICIONADA");
-                 RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=categoria&CadastroCategoria=true");
+                 RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=categoria");
                  rd.forward(request, response);
                 
                 
@@ -81,7 +81,7 @@ public class FuncionarioServlet extends HttpServlet {
                 request.setAttribute("msgServlet","A categoria "+categoria.getNome()+ " foi adicionada!");
             }      
              
-            RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=categoria&CadastroCategoria=true");
+            RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=categoria");
             rd.forward(request, response);
         }
         
@@ -193,9 +193,9 @@ public class FuncionarioServlet extends HttpServlet {
             List<CategoriaProduto> categorias = new ArrayList<CategoriaProduto>();
             categorias = CategoriaFacade.consultaCategoria();
             request.setAttribute("categorias", categorias);
-           
+            request.setAttribute("msgServlet","Produto Cadastrado com Sucesso");
             
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp?CadastroProduto=true");
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-funcionario/produtos.jsp");
             rd.forward(request, response);    
         }
         

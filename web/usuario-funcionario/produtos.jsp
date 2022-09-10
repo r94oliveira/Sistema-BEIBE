@@ -12,12 +12,6 @@
 
     <body id="home">
 
-
-        <c:set var="CadastroProduto" value="${param.CadastroProduto}" />
-        <c:if test="${CadastroProduto}">
-            <script>alert("Produto Cadastrado com Sucesso");</script>
-        </c:if>
-
         <!-- Página da home -->
         <div class="container-fluid display-table">
             <div class="row display-table-row">
@@ -88,7 +82,7 @@
                             <div id="modal-project" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
-                                    <form action="FuncionarioServlet?action=cadastroProduto" method="post">
+                                    <form action="${pageContext.request.contextPath}/FuncionarioServlet?action=cadastroProduto" method="post">
                                         <div class="modal-content">
                                             <div class="modal-header login-header">
                                                 <h4 class="modal-title">Adicionar novo produto</h4>

@@ -11,12 +11,6 @@
 
         <!-- Página da home -->
 
-        <c:set var="CadastroCategoria" value="${param.CadastroCategoria}" />
-        <c:if test="${CadastroCategoria}">
-            <script>alert("Categoria Cadastrada com Sucesso");</script>
-        </c:if>
-
-
         <div class="container-fluid display-table">
             <div class="row display-table-row">
 
@@ -88,7 +82,7 @@
                                             <div class="modal-header login-header">
                                                 <h4 class="modal-title">Informações Atendimento</h4>
                                             </div>
-                                            <form action="FuncionarioServlet?action=resolver&idAtendimento=${atendimentos.idAtendimento}" method="post">
+                                            <form action="${pageContext.request.contextPath}/FuncionarioServlet?action=resolver&idAtendimento=${atendimentos.idAtendimento}" method="post">
                                             <div class="modal-body">
                                                 
                                                 

@@ -32,7 +32,7 @@
 
                             <div class="form d-flex flex-row w-100">
 
-                                <form action="ClienteServlet?action=novoAtendimento" method="post" class="col-12 p-0 m-0">
+                                <form action="${pageContext.request.contextPath}/ClienteServlet?action=novoAtendimento" method="post" class="col-12 p-0 m-0">
 
                                     <select name="tipoAtendimento" class="form-control col-10 mb-3 p-2" class="form-select" aria-label="Default select example" required="true">
                                         <option selected value="">Selecione o tipo de atendimento</option>

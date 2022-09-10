@@ -75,66 +75,66 @@
 
 
                             <!-- Modal project -->
-                            
-                           <div id="modal-project" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header login-header">
-                <h4 class="modal-title">Novo Funcionário</h4>
-            </div>
-           
-                <div class="form d-flex flex-row w-100">
 
-                    <form action="GerenteServlet?action=cadastrarFuncionario" class="custom-control custom-checkbox mb-3" method="post">
-                        <div class="modal-body">
-                        
-                        <input required type="text" name="nome" class="form-control col-10" placeholder="Nome" />
+                            <div id="modal-project" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header login-header">
+                                            <h4 class="modal-title">Novo Funcionário</h4>
+                                        </div>
 
-                        <input required type="text" name="sobrenome" class="form-control col-10" placeholder="Sobrenome" />
+                                        <div class="form d-flex flex-row w-100">
 
-                        <input required type="text" name="cpf" class="form-control col-10" placeholder="CPF"  />
+                                            <form action="${pageContext.request.contextPath}/GerenteServlet?action=cadastrarFuncionario" class="custom-control custom-checkbox mb-3" method="post">
+                                                <div class="modal-body">
 
-                        <input required type="email" name="email" class="form-control col-5" placeholder="E-mail" />
+                                                    <input required type="text" name="nome" class="form-control col-10" placeholder="Nome" />
 
-                        <input required type="password" name="senha" class="form-control col-5" placeholder="Senha" />
+                                                    <input required type="text" name="sobrenome" class="form-control col-10" placeholder="Sobrenome" />
 
-                        <input required type="tel" name="telefone" class="form-control col-5" placeholder="Telefone" />
+                                                    <input required type="text" name="cpf" class="form-control col-10" placeholder="CPF"  />
 
-                        <input required type="text" name="rua" class="form-control col-5" placeholder="Rua" />
+                                                    <input required type="email" name="email" class="form-control col-5" placeholder="E-mail" />
 
-                        <input required type="number" name="numero" class="form-control col-5" placeholder="Numero" />
+                                                    <input required type="password" name="senha" class="form-control col-5" placeholder="Senha" />
 
-                        <input required type="text" name="complemento" class="form-control col-5" placeholder="Complemento" />
+                                                    <input required type="tel" name="telefone" class="form-control col-5" placeholder="Telefone" />
 
-                        <input required type="text" name="cep" class="form-control col-5" placeholder="CEP" />
+                                                    <input required type="text" name="rua" class="form-control col-5" placeholder="Rua" />
 
-                        <input required type="text" name="bairro" class="form-control col-5" placeholder="Bairro" />
+                                                    <input required type="number" name="numero" class="form-control col-5" placeholder="Numero" />
 
-                        <input required type="text" name="estado" class="form-control col-5" placeholder="Estado" />
+                                                    <input required type="text" name="complemento" class="form-control col-5" placeholder="Complemento" />
 
-                        <input required type="text" name="cidade" class="form-control col-5" placeholder="Cidade" />
+                                                    <input required type="text" name="cep" class="form-control col-5" placeholder="CEP" />
 
-                        <input required type="text" name="cargo" class="form-control col-5" placeholder="Func = 1 Gerente = 2" />
+                                                    <input required type="text" name="bairro" class="form-control col-5" placeholder="Bairro" />
 
-                        </div>
+                                                    <input required type="text" name="estado" class="form-control col-5" placeholder="Estado" />
 
-                        <div class="modal-footer">
-                            <button type="button" class="cancel" data-dismiss="modal" >
-                                Fechar
-                            </button>
-                            <input type="submit" value="Salvar" class="btn btn-success btn-block"/>
+                                                    <input required type="text" name="cidade" class="form-control col-5" placeholder="Cidade" />
 
-                        </div>
-                      
-                    </form>
-                       </div>
-        </div>
-    </div>
-</div>        
-                            
-                            
-                           
+                                                    <input required type="text" name="cargo" class="form-control col-5" placeholder="Func = 1 Gerente = 2" />
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="cancel" data-dismiss="modal" >
+                                                        Fechar
+                                                    </button>
+                                                    <input type="submit" value="Salvar" class="btn btn-success btn-block"/>
+
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>        
+
+
+
 
 
 
@@ -149,7 +149,7 @@
                                         <div class="modal-body">
                                             <div class="form d-flex flex-row w-100">
 
-                                                <form action="index.html" class="custom-control custom-checkbox mb-3">
+                                                <form action="${pageContext.request.contextPath}/index.html" class="custom-control custom-checkbox mb-3">
                                                     <input required type="text" name="Nome" class="form-control col-10" placeholder="Nome Completo" />
 
                                                     <input required type="text" name="Cpf" class="form-control col-10" placeholder="CPF"  />

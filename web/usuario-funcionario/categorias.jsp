@@ -75,7 +75,7 @@
 
                                        
 
-                                        <form action="FuncionarioServlet?action=cadastroCategoria" method="post">
+                                        <form action="${pageContext.request.contextPath}/FuncionarioServlet?action=cadastroCategoria" method="post">
                                             <div class="modal-header login-header">
                                                 <h4 class="modal-title">Adicionar nova categoria</h4>
                                             </div>

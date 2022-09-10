@@ -81,7 +81,7 @@
               <h3 class="text-center">BEIBE</h3>
 
               <p class="text-center">Digite seu email e senha para entrar</p>
-              <form action="LoginServlet" method="post">
+              <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
                 <input
                   required
                   type="email"
@@ -106,7 +106,8 @@
                 
                 <c:set var="falha" value="${param.falha}" />
                 <c:if test="${falha}">
-                    <h2>Usuário ou Senha Inválidos</h2>
+                    <h5>Usuário ou Senha Inválidos</h5>
+                    <br>
                 </c:if>
 
                 
@@ -128,7 +129,7 @@
               <p class="text-center">
                 Digite as informações para criar sua conta
               </p>
-              <form action="CadastroClienteServlet" method="post">
+              <form action="${pageContext.request.contextPath}/CadastroClienteServlet" method="post">
                 <input
                   required
                   type="text"
@@ -272,15 +273,7 @@
                   class="btn btn-success btn-block"
                 />
                 <!-- ENVIA PARA CadastroClienteServlet -->
-                
-                <c:set var="CadastroCliente" value="${param.CadastroCliente}" />
-                <c:if test="${CadastroCliente}">
-                    <script>alert("Cliente cadastrado com sucesso. Faça o login!");</script>
-                </c:if>
-                <c:set var="falhaCadastroCliente" value="${param.falhaCadastroCliente}" />
-                <c:if test="${falhaCadastroCliente}">
-                    <script>alert("Cliente não cadastrado! Refaça o cadastro");</script>
-                </c:if>
+
               </form>
             </div>
           </div>
@@ -288,23 +281,7 @@
       </div>
     </div>
 
-    <!-- JS only -->
-
-    <script src="js/main.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+  <%@include file="footer.jsp" %>
+  
   </body>
 </html>
