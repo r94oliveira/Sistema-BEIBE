@@ -38,37 +38,34 @@
                                     <thead class="bg-light">
                                         <tr>
                                             <th>Cargo</th>
-                                            <th>Nome Completo</th>
-                                            <th></th>
+                                            <th>Nome</th>
+                                            <th>Sobrenome</th>
+                                            <th>Editar</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:forEach var="funcionario" items ="${requestScope.listarFuncionarios}">
                                         <tr>
                                             <td>
-                                                <p class="fw-normal mb-1">Gerente</p>
+                                                ${funcionario.cargoFuncionario == 1 ? '<p class="fw-normal mb-1">Funcionario</p>' : '<p class="fw-normal mb-1">Gerente</p>'}
+                                            </td>
+                                            
+                                            
+                                            <td>
+                                                <p class="fw-normal mb-1"><c:out value="${funcionario.nomeFuncionario}"/></p>
                                             </td>
                                             <td>
-                                                <p class="fw-normal mb-1">John Doe</p>
-                                            </td>               
+                                                <p class="fw-normal mb-1"><c:out value="${funcionario.sobrenomeFuncionario}"/></p>
+                                            </td>
+                                                        
                                             <td>
                                                 <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
                                                         Abrir
                                                     </button></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="fw-normal mb-1">Atendente</p>
-                                            </td>
-                                            <td>
-                                                <p class="fw-normal mb-1">John Galt</p>
-                                            </td>               
-                                            <td>
-                                                <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                        Abrir
-                                                    </button></a>
-                                            </td>
-                                        </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

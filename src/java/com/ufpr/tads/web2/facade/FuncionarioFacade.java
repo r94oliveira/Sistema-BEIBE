@@ -4,8 +4,11 @@
  */
 package com.ufpr.tads.web2.facade;
 
+import com.ufpr.tads.web2.beans.Funcionario;
 import com.ufpr.tads.web2.beans.Produto;
+import com.ufpr.tads.web2.dao.GerenteDAO;
 import com.ufpr.tads.web2.dao.ProdutoDAO;
+import java.util.List;
 
 /**
  *
@@ -15,6 +18,10 @@ public class FuncionarioFacade {
 
     public static Produto cadastrarProduto(Produto p) {
         return ProdutoDAO.inserir(p);
+    }
+
+    public static List<Funcionario> listarTodosFuncionarios() {
+        return GerenteDAO.listarTodosFuncionarios();
     }
     
 }

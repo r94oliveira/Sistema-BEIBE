@@ -81,7 +81,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("logado", loginBean);
             session.setAttribute("id",loginBean.getId());
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/home.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("GerenteServlet?action=listarAtendimentosEmAberto");
             rd.forward(request, response); 
         }
         else{

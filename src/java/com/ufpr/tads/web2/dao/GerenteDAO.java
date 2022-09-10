@@ -9,6 +9,8 @@ import com.ufpr.tads.web2.beans.Funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -56,5 +58,46 @@ public class GerenteDAO {
    
 
       
+    }
+
+    public static List<Funcionario> listarTodosFuncionarios() {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        List<Funcionario> funcionarios = new ArrayList<Funcionario>();
+         
+            try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT * FROM funcionario";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    Funcionario funcionario = new Funcionario();
+                    funcionario.setNomeFuncionario(rs.getString("nomeFuncionario"));
+                    funcionario.setSobrenomeFuncionario(rs.getString("sobrenomeFuncionario"));
+                    funcionario.setEmailFuncionario(rs.getString("emailFuncionario"));
+                    funcionario.setCpfFuncionario(rs.getString("cpfFuncionario"));
+                    funcionario.setRuaEnderecoFuncionario(rs.getString("ruaEnderecoFuncionario"));
+                    funcionario.setNumeroEndercoFuncionario(rs.getInt("numeroEndercoFuncionario"));
+                    funcionario.setComplementoEnderecoFuncionario(rs.getString("complementoEnderecoFuncionario"));
+                    funcionario.setBairroEnderecoFuncionario(rs.getString("bairroEnderecoFuncionario"));
+                    funcionario.setCidadeEnderecoFuncionario(rs.getString("cidadeEnderecoFuncionario"));
+                    funcionario.setCepEnderecoFuncionario(rs.getString("cepEnderecoFuncionario"));
+                    funcionario.setEstadoEnderecoFuncionario(rs.getString("estadoEnderecoFuncionario"));
+                    funcionario.setTelefoneFuncionario(rs.getString("telefoneFuncionario"));
+                    funcionario.setSenhaFuncionario(rs.getString("senhaFuncionario"));
+                    funcionario.setCargoFuncionario(rs.getInt("cargo"));
+                    
+                    System.out.println("TEM QUE SOLTAR o nome do funcionario AQUI EM BAIXO");
+                    System.out.println(funcionario.getNomeFuncionario());
+                    funcionarios.add(funcionario);
+                }
+                return funcionarios;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return null; 
+           }
     }
 }
