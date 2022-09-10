@@ -4,7 +4,9 @@
 package com.ufpr.tads.web2.servlet;
 
 import com.ufpr.tads.web2.beans.Cliente;
+import com.ufpr.tads.web2.beans.ValidaCPF;
 import com.ufpr.tads.web2.facade.ClienteFacade;
+
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -48,7 +50,15 @@ public class CadastroClienteServlet extends HttpServlet {
             String estado = request.getParameter("Estado");
             String telefone = request.getParameter("Telefone");
             String senha = request.getParameter("Senha");
-
+            
+            boolean cpfb = ValidaCPF.isCPF(cpf);
+            
+            if (!cpfb){
+                request.setAttribute("msgServlet","CPF inválido");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);
+            }
+            
             Cliente c = new Cliente();
 
             c.setNomecliente(nome);

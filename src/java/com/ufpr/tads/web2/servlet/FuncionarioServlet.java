@@ -61,6 +61,7 @@ public class FuncionarioServlet extends HttpServlet {
         if("cadastroCategoria".equals(action)){
             CategoriaProduto categoria = new CategoriaProduto();
             String cat = request.getParameter("Categoria");
+            System.out.println(cat);
             
             
             if("".equals(cat)){
