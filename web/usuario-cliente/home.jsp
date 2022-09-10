@@ -63,7 +63,7 @@
                                                 </td>
                                                 
                                                 <td>
-                                                    <a href="#" data-toggle="modal" data-target="#confirm-delete" data-title="Delete" data-delete ="${atendimentos.idAtendimento} "> ${atendimentos.situacao == 0 ? '<button type="button" class="btn btn-link btn-sm btn-rounded">Excluir</button></a>':''}
+                                                    <a href="#" data-toggle="modal" data-target="#confirm-deleteAtendimento" data-title="Delete" data-delete ="${atendimentos.idAtendimento} "> ${atendimentos.situacao == 0 ? '<button type="button" class="btn btn-link btn-sm btn-rounded">Excluir</button></a>':''}
                                                 </td>
                                                 
                                                

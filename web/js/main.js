@@ -6,6 +6,15 @@ $('#confirm-delete').on('show.bs.modal', function(e) {
   $('#delBtn').attr('onClick', "location.href='FuncionarioServlet?action=excluirCategoria&id="+deleteid+"'");
 });
 
+$('#confirm-deleteAtendimento').on('show.bs.modal', function(e) {
+  var deleteid = $(e.relatedTarget).data('delete');
+  $('#delBtn').attr('onClick', "location.href='ClienteServlet?action=excluirAtendimentoe&id="+deleteid+"'");
+});
+
+
+
+
+
 const btn = document.getElementById('closeX');
 const modal = document.getElementById('MyModal');
 
