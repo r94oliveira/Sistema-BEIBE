@@ -9,7 +9,7 @@
               <li>
                <a href="${pageContext.request.contextPath}/GerenteServlet?action=listarAtendimentosEmAberto" method="post"
                  ><i class="fa fa-tasks" aria-hidden="true"></i
-                  ><span class="hidden-xs hidden-sm">Atendimentos em Abeto</span></a>
+                  ><span class="hidden-xs hidden-sm">Atendimentos em Aberto</span></a>
             </li>
               
              <li>

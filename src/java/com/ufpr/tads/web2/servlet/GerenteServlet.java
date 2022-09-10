@@ -73,7 +73,7 @@ public class GerenteServlet extends HttpServlet {
             funcionario.setCpfFuncionario(cpf);
             funcionario.setEmailFuncionario(email);
             funcionario.setSenhaFuncionario(senha);
-            funcionario.setTelefone(telefone);
+            funcionario.setTelefoneFuncionario(telefone);
             funcionario.setRuaEnderecoFuncionario(rua);
             funcionario.setNumeroEndercoFuncionario(numero);
             funcionario.setComplementoEnderecoFuncionario(complemento);

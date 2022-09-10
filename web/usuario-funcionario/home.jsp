@@ -95,7 +95,7 @@
                                                      <label>Descrição</label>
                                                <input type="text" name="descricao" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
                                                   <label>Solução</label>
-                                                  <input name="solucao" type="text" placeholder="Descrição" required="true" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
+                                                  <input name="solucao" type="text" placeholder="Solução" readonly="readonly" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
                                                   
                                                 
                                             
@@ -104,14 +104,10 @@
                                               
                                             <div class="modal-footer">
                                                 <button type="button" class="cancel" data-dismiss="modal">
-                                                    Cancelar
+                                                   Fechar
                                                 </button>
                                                 
-                                                     <input
-                                                        type="submit"
-                                                        value="Encerrar"
-                                                        
-                                                      />
+                                                     
                                                 
                                                 
                                             </div>

@@ -39,7 +39,7 @@
                                             <th>Produto</th>
                                             <th>Abertura</th>
                                             <th>Status</th>
-                                            <th>Resolver</th>
+                                            <th>Detalhes</th>
                                          
 
                                         </tr>
@@ -62,7 +62,7 @@
 
                                                 <td>
                                                     <a href="#" data-toggle="modal" data-target="#modalAtendimento<c:out value="${atendimentos.idAtendimento}"/>"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                           Resolver
+                                                            Abrir
                                                         </button></a>
                                                 </td>
                                             </tr>
@@ -95,7 +95,7 @@
                                                      <label>Descrição</label>
                                                <input type="text" name="descricao" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
                                                   <label>Solução</label>
-                                                  <input name="solucao" type="text" placeholder="Descrição" required="true" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
+                                                  <input name="solucao" type="text" placeholder="Descrição"  readonly="readonly" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
                                             
                                             
                                             </div>
@@ -103,16 +103,9 @@
                                               
                                             <div class="modal-footer">
                                                 <button type="button" class="cancel" data-dismiss="modal">
-                                                    Cancelar
+                                                    Fechar
                                                 </button>
-                                                
-                                                     <input
-                                                        type="submit"
-                                                        value="Encerrar"
-                                                        
-                                                      />
-                                                
-                                                
+                                               
                                             </div>
                                             </form>
                                         </div>
