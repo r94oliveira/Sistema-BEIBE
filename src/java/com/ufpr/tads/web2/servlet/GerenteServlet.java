@@ -100,6 +100,80 @@ public class GerenteServlet extends HttpServlet {
             rd.forward(request, response); 
             
         }
+        
+         if("alterarFuncionario".equals(action)){
+            
+            String idFuncionario = request.getParameter("idFuncionario");
+            String nome = request.getParameter("nome");
+            String sobrenome = request.getParameter("sobrenomeFuncionario");
+            String cpf = request.getParameter("cpf");
+            String email = request.getParameter("email");
+            String senha = request.getParameter("senha");
+            String telefone = request.getParameter("telefone");
+            String rua = request.getParameter("rua");
+            String numeroAux = request.getParameter("numero");
+            int numero = Integer.parseInt(numeroAux);
+            String complemento = request.getParameter("complemento");
+            String bairro = request.getParameter("bairro");
+            String cep = request.getParameter("cep");
+            String estado = request.getParameter("estado");
+            String cidade = request.getParameter("cidade");
+            String cargoAux = request.getParameter("cargo");
+            
+            int cargo = Integer.parseInt(cargoAux);
+            
+            boolean cpfb = ValidaCPF.isCPF(cpf);
+            
+            if (!cpfb){
+                request.setAttribute("msgServlet","CPF inválido");
+                RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
+                rd.forward(request, response);
+            }
+            
+            
+            
+            Funcionario funcionario = new Funcionario();
+            
+            funcionario.setNomeFuncionario(nome);
+            funcionario.setSobrenomeFuncionario(sobrenome);
+            funcionario.setCpfFuncionario(cpf);
+            funcionario.setEmailFuncionario(email);
+            funcionario.setSenhaFuncionario(senha);
+            funcionario.setTelefoneFuncionario(telefone);
+            funcionario.setRuaEnderecoFuncionario(rua);
+            funcionario.setNumeroEndercoFuncionario(numero);
+            funcionario.setComplementoEnderecoFuncionario(complemento);
+            funcionario.setBairroEnderecoFuncionario(bairro);
+            funcionario.setCepEnderecoFuncionario(cep);
+            funcionario.setEstadoEnderecoFuncionario(estado);
+            funcionario.setCidadeEnderecoFuncionario(cidade);
+            funcionario.setCargoFuncionario(cargo);
+            
+            GerenteFacade.cadastrarFuncionario(funcionario);
+            request.setAttribute("msgServlet","Funcionario adicionado!");
+            RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
+            rd.forward(request, response); 
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if ("listarTodosAtendimentos".equals(action)){
         
             HttpSession session = request.getSession();

@@ -93,7 +93,7 @@ public class ClienteServlet extends HttpServlet {
             
             if (!cpfb){
                 request.setAttribute("msgServlet","CPF inválido");
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("ClienteServlet?action=consultaCadastro");
                 rd.forward(request, response);
             }
             

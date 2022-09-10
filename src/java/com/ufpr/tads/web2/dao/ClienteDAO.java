@@ -82,8 +82,8 @@ public class ClienteDAO {
                 emailCliente = rs2.getString("emailCliente");
             
             }
-            
-            if (cpfCliente!=null && emailCliente!=null){
+            // se cpf cliente DIFERENTE DE NULL e email diferente de null quer dizer que tem o dado no banco então retorna 1
+            if (cpfCliente!=null || emailCliente!=null){
             return 1;
             }
         }

@@ -59,6 +59,10 @@ public class CadastroClienteServlet extends HttpServlet {
                 rd.forward(request, response);
             }
             
+            
+            
+            
+            
             Cliente c = new Cliente();
 
             c.setNomecliente(nome);
@@ -74,6 +78,17 @@ public class CadastroClienteServlet extends HttpServlet {
             c.setEstadoEnderecoCliente(estado);
             c.setTelefoneCliente(telefone);
             c.setSenhaCliente(senha);
+            
+            
+            if(ClienteFacade.verificaCliente(c)== 1){
+            
+                request.setAttribute("msgServlet","Cliente não cadastrado! Email ou CPF Já Existem Em Outro Cadastro");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);
+            }
+            
+            
+            
         
             if(ClienteFacade.adicionaCliente(c) == null){
                 //falha em add o cliente
