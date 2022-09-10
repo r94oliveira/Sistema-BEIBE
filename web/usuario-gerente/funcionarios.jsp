@@ -88,7 +88,7 @@
 
                                                     <input required type="text" name="nome" class="form-control col-10" placeholder="Nome" />
 
-                                                    <input required type="text" name="sobrenome" class="form-control col-10" placeholder="Sobrenome" />
+                                                    <input required type="text" name="sobrenomeFuncionario" class="form-control col-10" placeholder="Sobrenome" />
 
                                                     <input required type="text" name="cpf" class="form-control col-10" placeholder="CPF"  />
 

@@ -49,7 +49,7 @@ public class GerenteServlet extends HttpServlet {
         if("cadastrarFuncionario".equals(action)){
             
             String nome = request.getParameter("nome");
-            String sobrenome = request.getParameter("sobrenome");
+            String sobrenome = request.getParameter("sobrenomeFuncionario");
             String cpf = request.getParameter("cpf");
             String email = request.getParameter("email");
             String senha = request.getParameter("senha");
@@ -69,7 +69,7 @@ public class GerenteServlet extends HttpServlet {
             Funcionario funcionario = new Funcionario();
             
             funcionario.setNomeFuncionario(nome);
-            funcionario.setSobreNome(sobrenome);
+            funcionario.setSobrenomeFuncionario(sobrenome);
             funcionario.setCpfFuncionario(cpf);
             funcionario.setEmailFuncionario(email);
             funcionario.setSenhaFuncionario(senha);
@@ -84,8 +84,8 @@ public class GerenteServlet extends HttpServlet {
             funcionario.setCargoFuncionario(cargo);
             
             GerenteFacade.cadastrarFuncionario(funcionario);
-            
-            RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/funcionarios.jsp?cadastrarFuncionario=true");
+            request.setAttribute("msgServlet","Funcionario adicionado!");
+            RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
             rd.forward(request, response); 
             
         }

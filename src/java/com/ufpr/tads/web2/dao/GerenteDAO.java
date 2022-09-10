@@ -29,6 +29,7 @@ public class GerenteDAO {
             String query = "INSERT INTO funcionario(nomeFuncionario,sobrenomeFuncionario,emailFuncionario,cpfFuncionario,ruaEnderecoFuncionario,numeroEndercoFuncionario,complementoEnderecoFuncionario,bairroEnderecoFuncionario,cidadeEnderecoFuncionario,cepEnderecoFuncionario,estadoEnderecoFuncionario,telefoneFuncionario,senhaFuncionario,cargo) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,aes_encrypt(?,'beibe'),?);";
             st = conn.prepareStatement(query);
             st.setString(1,funcionario.getNomeFuncionario());
+            System.out.print(funcionario.getSobrenomeFuncionario());
             st.setString(2,funcionario.getSobrenomeFuncionario());
             st.setString(3,funcionario.getEmailFuncionario());
             st.setString(4,funcionario.getCpfFuncionario());
@@ -86,10 +87,7 @@ public class GerenteDAO {
                     funcionario.setEstadoEnderecoFuncionario(rs.getString("estadoEnderecoFuncionario"));
                     funcionario.setTelefoneFuncionario(rs.getString("telefoneFuncionario"));
                     funcionario.setSenhaFuncionario(rs.getString("senhaFuncionario"));
-                    funcionario.setCargoFuncionario(rs.getInt("cargo"));
-                    
-                    System.out.println("TEM QUE SOLTAR o nome do funcionario AQUI EM BAIXO");
-                    System.out.println(funcionario.getNomeFuncionario());
+                    funcionario.setCargoFuncionario(rs.getInt("cargo"));               
                     funcionarios.add(funcionario);
                 }
                 return funcionarios;
