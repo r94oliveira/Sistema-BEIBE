@@ -61,8 +61,8 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="#" data-toggle="modal" data-target="#modalAtendimento<c:out value="${atendimentos.idAtendimento}"/>"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                            Abrir
+                                                    <a href="#" data-toggle="modal" data-target="#modalAtendimento${atendimentos.situacao == 0 ? 'Resolver' : 'Abrir'}<c:out value="${atendimentos.idAtendimento}"/>"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                                                           ${atendimentos.situacao == 0 ? 'Resolver' : 'Abrir'}
                                                         </button></a>
                                                 </td>
                                             </tr>
@@ -75,7 +75,7 @@
                                 <!-- Modal form -->
                                 
                                
-                                <div id="modalAtendimento<c:out value="${atendimentos.idAtendimento}"/>" class="modal fade" role="dialog">
+                                <div id="modalAtendimento${atendimentos.situacao == 0 ? 'Resolver' : 'Abrir'}<c:out value="${atendimentos.idAtendimento}"/>" class="modal fade" role="dialog">
                                     <div class="modal-dialog">
                                         <!-- Modal content-->
                                         <div class="modal-content">
@@ -95,16 +95,16 @@
                                                      <label>Descrição</label>
                                                <input type="text" name="descricao" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
                                                   <label>Solução</label>
-                                                  <input name="solucao" type="text" placeholder="Descrição"  readonly="readonly" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
+                                                  <input name="solucao" type="text" placeholder="Descrição"  ${atendimentos.situacao == 0 ? '' : 'readonly="readonly"'} maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
                                             
                                             
                                             </div>
                                                    
                                               
                                             <div class="modal-footer">
-                                                <button type="button" class="cancel" data-dismiss="modal">
-                                                    Fechar
-                                                </button>
+                                                
+                                                    ${atendimentos.situacao == 0 ? '<button type="button" class="cancel" data-dismiss="modal">Fechar</button><button type="submit" class="btn btn-success">Resolver</button>' : '<button type="button" class="cancel" data-dismiss="modal">Fechar</button>'}
+                                                
                                                
                                             </div>
                                             </form>

@@ -95,7 +95,7 @@
                                                      <label>Descrição</label>
                                                <input type="text" name="descricao" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
                                                   <label>Solução</label>
-                                                  <input name="solucao" type="text" placeholder="Solução" readonly="readonly" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
+                                                  <input name="solucao" type="text" placeholder="Solução" maxlength="255" />
                                                   
                                                 
                                             
@@ -106,6 +106,7 @@
                                                 <button type="button" class="cancel" data-dismiss="modal">
                                                    Fechar
                                                 </button>
+                                                <button type="submit" class="btn btn-success">Resolver</button>
                                                 
                                                      
                                                 
