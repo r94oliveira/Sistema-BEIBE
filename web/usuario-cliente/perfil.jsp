@@ -34,9 +34,9 @@
 
 
 
-                                <form action="${pageContext.request.contextPath}/ClienteServlet?action=alteraCadastro" method="post" class="col-12 p-0 m-0">
+                                <form action="${pageContext.request.contextPath}/ClienteServlet?action=alteraCadastro&idCliente=${cliente.idCliente}" method="post" class="col-12 p-0 m-0">
 
-                                    <label class="col-2"></label> <input required type="text" class="form-control" col-9" name="idCliente" value="${cliente.idCliente}" readonly="readonly"/>
+                                    
                                     
                                     
                                     <label class="col-2">Nome:</label> <input required type="text" name="Nome" class="form-control col-9" value="${cliente.nomecliente}" maxlength="255" />

@@ -8,7 +8,7 @@ $('#confirm-delete').on('show.bs.modal', function(e) {
 
 $('#confirm-deleteAtendimento').on('show.bs.modal', function(e) {
   var deleteid = $(e.relatedTarget).data('delete');
-  $('#delBtn').attr('onClick', "location.href='ClienteServlet?action=excluirAtendimentoe&id="+deleteid+"'");
+  $('#delBtn').attr('onClick', "location.href='ClienteServlet?action=excluirAtendimento&id="+deleteid+"'");
 });
 
 
