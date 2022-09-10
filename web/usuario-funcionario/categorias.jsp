@@ -73,9 +73,7 @@
                                     <!-- Modal content-->
                                     <div class="modal-content">
 
-                                        <form  action="ClientesServlet?action=NOME DA ACAO" method="post" class="form-horizontal">
-
-                                        </form>
+                                       
 
                                         <form action="FuncionarioServlet?action=cadastroCategoria" method="post">
                                             <div class="modal-header login-header">

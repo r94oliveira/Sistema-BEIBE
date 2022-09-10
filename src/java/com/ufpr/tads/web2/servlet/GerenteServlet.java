@@ -74,7 +74,7 @@ public class GerenteServlet extends HttpServlet {
             funcionario.setCidadeEnderecoFuncionario(cidade);
             funcionario.setCargoFuncionario(cargo);
             
-            GerenteFacade.cadastraFuncionario(funcionario);
+            GerenteFacade.cadastrarFuncionario(funcionario);
             
             
             

@@ -13,9 +13,9 @@ import com.ufpr.tads.web2.dao.GerenteDAO;
  */
 public class GerenteFacade {
 
-    public static void cadastraFuncionario(Funcionario funcionario) {
+    public static void cadastrarFuncionario(Funcionario funcionario) {
         
-        GerenteDAO.cadastraFuncionario(funcionario);
+        GerenteDAO.cadastrarFuncionario(funcionario);
         
     }
     

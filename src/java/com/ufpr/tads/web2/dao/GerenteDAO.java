@@ -16,7 +16,7 @@ import java.sql.ResultSet;
  */
 public class GerenteDAO {
 
-    public static void cadastraFuncionario(Funcionario funcionario) {
+    public static void cadastrarFuncionario(Funcionario funcionario) {
         Connection conn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
