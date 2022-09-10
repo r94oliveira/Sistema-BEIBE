@@ -29,7 +29,6 @@ public class Funcionario extends Pessoa implements Serializable{
     }
 
     public Funcionario(int idFuncionario, String nomeFuncionario, String sobrenomeFuncionario, String emailFuncionario, String cpfFuncionario, String ruaEnderecoFuncionario, int numeroEndercoFuncionario, String complementoEnderecoFuncionario, String bairroEnderecoFuncionario, String cidadeEnderecoFuncionario, String cepEnderecoFuncionario, String estadoEnderecoFuncionario, String telefoneFuncionario, String senhaFuncionario, int cargoFuncionario, String primeiroNome, String sobreNome, long cpf, Endereco endereco, String telefone) {
-        super(primeiroNome, sobreNome, cpf, endereco, telefone);
         this.idFuncionario = idFuncionario;
         this.nomeFuncionario = nomeFuncionario;
         this.sobrenomeFuncionario = sobrenomeFuncionario;

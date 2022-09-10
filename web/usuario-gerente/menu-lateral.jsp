@@ -6,18 +6,27 @@
         </div>
         <div>
           <ul class="navi">
+              <li>
+               <a href="${pageContext.request.contextPath}/GerenteServlet?action=listarAtendimentosEmAberto" method="post"
+                 ><i class="fa fa-tasks" aria-hidden="true"></i
+                  ><span class="hidden-xs hidden-sm">Atendimentos em Abeto</span></a>
+            </li>
+              
+             <li>
+               <a href="${pageContext.request.contextPath}/GerenteServlet?action=listarTodosAtendimentos" method="post"
+                 ><i class="fa fa-tasks" aria-hidden="true"></i
+                  ><span class="hidden-xs hidden-sm">Todos os Atendimentos</span></a>
+            </li>
+            
+            
             <li>
-               <a href="${pageContext.request.contextPath}/usuario-gerente/home.jsp" method="post"
+               <a href="${pageContext.request.contextPath}/usuario-gerente/relatorios.jsp" method="post"
                  ><i class="fa fa-tasks" aria-hidden="true"></i
                   ><span class="hidden-xs hidden-sm">Relatórios</span></a>
             </li>
+           
             <li>
-               <a href="${pageContext.request.contextPath}/usuario-gerente/atendimentos.jsp" method="post"
-                 ><i class="fa fa-tasks" aria-hidden="true"></i
-                  ><span class="hidden-xs hidden-sm">Atendimentos</span></a>
-            </li>
-            <li>
-               <a href="${pageContext.request.contextPath}/usuario-gerente/funcionarios.jsp" method="post"
+               <a href="${pageContext.request.contextPath}/GerenteServlet?action=listarFuncionarios" method="post"
                  ><i class="fa fa-tasks" aria-hidden="true"></i
                   ><span class="hidden-xs hidden-sm">Funcionários</span></a>
             </li>

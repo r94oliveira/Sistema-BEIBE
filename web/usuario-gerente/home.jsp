@@ -98,187 +98,117 @@
               </div>
             </div>
             
-            <!-- tabela -->
-            <div class="table-responsive-sm w-100 py-2">
-              <table class="table align-middle mb-0 bg-white">
-                <thead class="bg-light">
-                  <tr>
-                    <th>Tipo do Relatório</th>
-                    <th>Especificações para Emissão</th>
-                    <th>Emitir relatório</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">Cadastro de Funcionários</p>
-                    </td>
-                    <td></td>
-                    <td>
-                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Emitir
-                      </button></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">Produtos Mais Reclamados</p>
-                    </td>
-                    <td></td>
-                    <td>
-                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Emitir
-                      </button></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">Atendimentos em Aberto</p>
-                    </td>
-                    <td>
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-sm">
-                            <div class="input-group mb-3">
-                              <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Dia</option>
-                                <option value="1">01</option>
-                                <option value="2">02</option>                      
-                              </select>
+
+                                     <!-- Texto Título -->
+                            <div class="w-100">
+                                <h2 class="text-center">Atendimentos em Aberto</h2>
                             </div>
-                          </div>
-                          <div class="col-sm">
-                            <div class="input-group mb-3">
-                              <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Mês</option>
-                                <option value="1">Janeiro</option>
-                                <option value="2">Fevereiro</option>                      
-                              </select>
+
+                            <!-- tabela -->
+                            <div class="table-responsive-sm w-100 py-2">
+                                <table class="table align-middle mb-0 bg-white">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Produto</th>
+                                            <th>Abertura</th>
+                                            <th>Status</th>
+                                            <th>Resolver</th>
+                                         
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="atendimentos" items="${requestScope.atendimentos}">
+                                            <tr> 
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.idAtendimento}"/> </p>                            
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.nomeProduto}"/> </p>
+                                                </td>
+                                                <td>
+                                                    <p class="fw-normal mb-1"> <c:out value="${atendimentos.dataHoraAtendimento}"/> </p>
+                                                </td>
+                                                <td>
+                                                    <p> ${atendimentos.situacao == 0 ? '<span class="badge badge-success rounded-pill d-inline">Aberto</span>' : '<span class="badge badge-secondary rounded-pill d-inline">Encerrado</span>'} </p>
+                                                </td>
+
+                                                <td>
+                                                    <a href="#" data-toggle="modal" data-target="#modalAtendimento<c:out value="${atendimentos.idAtendimento}"/>"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                                                           Resolver
+                                                        </button></a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>                    
+                                    </tbody>
+                                </table>
                             </div>
-                          </div>
-                          <div class="col-sm">
-                            <div class="input-group mb-3">
-                              <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Ano</option>
-                                <option value="1">2022</option>
-                                <option value="2">2021</option>                      
-                              </select>
-                            </div>
-                          </div>
-                  </td>
-                    <td>
-                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Emitir
-                      </button></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p class="fw-normal mb-1">Reclamações</p>
-                    </td>
-                    <td>
-                      <div class="input-group mb-3">
-                        
-                        <select class="custom-select" id="inputGroupSelect01">
-                          <option selected>Tipo</option>
-                          <option value="1">Todas</option>
-                          <option value="2">Em Aberto</option>                      
-                        </select>
-                        <span id="reclamation-span"></span>
-                      </div>
-                    
-                    <td>
-                    <a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Emitir
-                      </button></a>
-                    </td>
-                  </tr>
 
-                </tbody>
-              </table>
-            </div>
-
-
-
-
-
-
-
-
-
-
+                             <c:forEach var="atendimentos" items="${requestScope.atendimentos}">
+                                <!-- Modal form -->
+                                
+                               
+                                <div id="modalAtendimento<c:out value="${atendimentos.idAtendimento}"/>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header login-header">
+                                                <h4 class="modal-title">Informações Atendimento</h4>
+                                            </div>
+                                            <form action="FuncionarioServlet?action=resolver&idAtendimento=${atendimentos.idAtendimento}" method="post" required="true">
+                                            <div class="modal-body">
+                                                
+                                               
+                                                <label>Tipo de Atendimento</label>
+                                                <input type="text" name="nomeTipoAtendimento" value="<c:out value="${atendimentos.nomeTipoAtendimento}"/>" readonly="readonly" />
+                                                <label>Categoria</label>
+                                                <input type="text" name="nomeAtendimento" value="<c:out value="${atendimentos.nomeCategoria}"/> " readonly="readonly" />
+                                                     <label>Produto</label>
+                                                <input type="text" name="nomeProduto" value="<c:out value="${atendimentos.nomeProduto}"/> " readonly="readonly" />
+                                                     <label>Descrição</label>
+                                               <input type="text" name="descricao" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
+                                                  <label>Solução</label>
+                                                  <input name="solucao" type="text" placeholder="Descrição" required="true" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
+                                                  
+                                                
+                                            
+                                            </div>
+                                                   
+                                              
+                                            <div class="modal-footer">
+                                                <button type="button" class="cancel" data-dismiss="modal">
+                                                    Cancelar
+                                                </button>
+                                                
+                                                     <input
+                                                        type="submit"
+                                                        value="Encerrar"
+                                                        
+                                                      />
+                                                
+                                                
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach> 
 
 
 
 
-            <!-- Modal project -->
-            <div id="modal-project" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header login-header">
-                    <h4 class="modal-title">Relatório</h4>
-                  </div>
-                  <div class="modal-body">
-                    Relatório...
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="cancel" data-dismiss="modal">
-                      Close
-                    </button>
-                    <button type="button" class="add-modal" data-dismiss="modal">
-                      Download
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Modal form -->
-            <div id="modal-form" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header login-header">
-                    <h4 class="modal-title">Add Project</h4>
-                  </div>
-                  <div class="modal-body">
-                    <input type="text" placeholder="Project Title" name="name" />
-                    <input type="text" placeholder="Post of Post" name="mail" />
-                    <input type="text" placeholder="Author" name="passsword" />
-                    <textarea placeholder="Description"></textarea>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="cancel" data-dismiss="modal">
-                      Close
-                    </button>
-                    <button type="button" class="add-modal" data-dismiss="modal">
-                      Save
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Modal confirm -->
-            <div id="modal-confirm" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header login-header">
-                    <h4 class="modal-title">Deseja realizar essa ação?</h4>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="add-modal" data-dismiss="modal">
-                      Sim
-                    </button>
-                    <button type="button" class="cancel" data-dismiss="modal">
-                      Não
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+
+
+
+
+
+
+
+
 
 
             <!-- FIM DE CONTEÚDO  -->
