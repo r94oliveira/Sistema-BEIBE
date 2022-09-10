@@ -110,7 +110,7 @@
                             </c:forEach>  
                             
  <!-- Modal confirm -->
-                            <div id="confirm-delete" class="modal fade" role="dialog">
+                            <div id="confirm-deleteAtendimento" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                     <!-- Modal content-->
                                     <div class="modal-content">
