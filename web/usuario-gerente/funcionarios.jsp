@@ -84,39 +84,43 @@
                                             <div class="modal-header login-header">
                                                 <h4 class="modal-title">Atualizar funcionário</h4>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body modal-height">
                                                 <div class="form d-flex flex-row">
 
                                                     <form action="${pageContext.request.contextPath}/GerenteServlet?action=alterarFuncionario&idFuncionario=${funcionario.idFuncionario}" method="post" class="custom-control custom-checkbox mb-3">
 
-                                                        <label class="col-2">Nome:</label>  <input required type="text" name="nome" class="form-control col-5" placeholder="Nome" value="${funcionario.nomeFuncionario}" />
+                                                        <label class="col-4">Nome:</label>  <input required type="text" name="nome" class="form-control col-11" placeholder="Nome" value="${funcionario.nomeFuncionario}" />
 
-                                                        <label class="col-2">Sobrenome:</label><input required type="text" name="sobrenomeFuncionario" class="form-control col-5" placeholder="sobrenome" value="${funcionario.sobrenomeFuncionario}" />
+                                                        <label class="col-4">Sobrenome:</label><input required type="text" name="sobrenomeFuncionario" class="form-control col-11" placeholder="sobrenome" value="${funcionario.sobrenomeFuncionario}" />
 
-                                                        <label class="col-2">CPF:</label> <input required type="text" name="cpf" class="form-control col-5" placeholder="CPF"  value="${funcionario.cpfFuncionario}"  />
+                                                        <label class="col-4">CPF:</label> <input required type="text" name="cpf" class="form-control col-11" placeholder="CPF"  value="${funcionario.cpfFuncionario}"  />
 
-                                                        <label class="col-2">E-mail:</label> <input required type="email" name="email" class="form-control col-5" placeholder="E-mail" value="${funcionario.emailFuncionario}"/>
+                                                        <label class="col-4">E-mail:</label> <input required type="email" name="email" class="form-control col-11" placeholder="E-mail" value="${funcionario.emailFuncionario}"/>
 
-                                                        <label class="col-2">Senha:</label> <input required type="password" name="senha" class="form-control col-5" placeholder="Senha" value="" />
+                                                        <label class="col-4">Senha:</label> <input required type="password" name="senha" class="form-control col-11" placeholder="Senha" value="" />
 
-                                                        <label class="col-2">Telefone:</label><input required type="tel" name="telefone" class="form-control col-5" placeholder="Telefone" value="${funcionario.telefoneFuncionario}"/>
+                                                        <label class="col-4">Telefone:</label><input required type="tel" name="telefone" class="form-control col-11" placeholder="Telefone" value="${funcionario.telefoneFuncionario}"/>
 
-                                                        <label class="col-2">Rua:</label> <input required type="text" name="rua" class="form-control col-5" placeholder="Rua" value="${funcionario.ruaEnderecoFuncionario}" />
+                                                        <label class="col-4">Rua:</label> <input required type="text" name="rua" class="form-control col-11" placeholder="Rua" value="${funcionario.ruaEnderecoFuncionario}" />
 
-                                                        <label class="col-2">Numero:</label> <input required type="number" name="numero" class="form-control col-5" placeholder="Numero" value="${funcionario.numeroEndercoFuncionario}"/>
+                                                        <label class="col-4">Numero:</label> <input required type="number" name="numero" class="form-control col-11" placeholder="Numero" value="${funcionario.numeroEndercoFuncionario}"/>
 
-                                                        <label class="col-2">Complemento:</label> <input required type="text" name="complemento" class="form-control col-5" placeholder="Complemento" value="${funcionario.complementoEnderecoFuncionario}"/>
+                                                        <label class="col-4">Complemento:</label> <input required type="text" name="complemento" class="form-control col-11" placeholder="Complemento" value="${funcionario.complementoEnderecoFuncionario}"/>
 
-                                                        <label class="col-2">Cep:</label> <input required type="text" name="cep" class="form-control col-5" placeholder="CEP" value="${funcionario.cepEnderecoFuncionario}" />
+                                                        <label class="col-4">Cep:</label> <input required type="text" name="cep" class="form-control col-11" placeholder="CEP" value="${funcionario.cepEnderecoFuncionario}" />
 
-                                                        <label class="col-2">Bairro:</label> <input required type="text" name="bairro" class="form-control col-5" placeholder="Bairro" value="${funcionario.bairroEnderecoFuncionario}"/>
+                                                        <label class="col-4">Bairro:</label> <input required type="text" name="bairro" class="form-control col-11" placeholder="Bairro" value="${funcionario.bairroEnderecoFuncionario}"/>
 
-                                                        <label class="col-2">Cidade:</label> <input required type="text" name="cidade" class="form-control col-5" placeholder="Cidade" value="${funcionario.cidadeEnderecoFuncionario}"/> 
+                                                        <label class="col-4">Cidade:</label> <input required type="text" name="cidade" class="form-control col-11" placeholder="Cidade" value="${funcionario.cidadeEnderecoFuncionario}"/> 
 
-                                                        <label class="col-2">Estado:</label> <input required type="text" name="estado" class="form-control col-5" placeholder="Estado" value="${funcionario.estadoEnderecoFuncionario}" />
+                                                        <label class="col-4">Estado:</label> <input required type="text" name="estado" class="form-control col-11" placeholder="Estado" value="${funcionario.estadoEnderecoFuncionario}" />
 
-                                                        <label class="col-2">Cargo:</label><input required type="text" name="cargo" class="form-control col-5" placeholder="Func = 1 Gerente = 2" value="${funcionario.cargoFuncionario}" /> 
+                                                        <label class="col-4">Cargo:</label>
+                                                        <select class="form-control col-11" id="Selectcargo" name="cargo" required>
 
+                                                            <option ${funcionario.cargoFuncionario==1 ? 'selected' : '' }value="1">Funcionário</option>
+                                                            <option ${funcionario.cargoFuncionario==2 ? 'selected' : '' } value="2">Gerente</option>
+                                                        </select>
 
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -162,19 +166,23 @@
 
                                                     <input required type="text" name="cpf" class="form-control col-10" placeholder="CPF"  />
 
+
+
                                                     <input required type="email" name="email" class="form-control col-5" placeholder="E-mail" />
 
                                                     <input required type="password" name="senha" class="form-control col-5" placeholder="Senha" />
 
                                                     <input required type="tel" name="telefone" class="form-control col-5" placeholder="Telefone" />
 
+
+                                                    <input required type="text" name="cep" class="form-control col-5" placeholder="CEP" />
                                                     <input required type="text" name="rua" class="form-control col-5" placeholder="Rua" />
 
                                                     <input required type="number" name="numero" class="form-control col-5" placeholder="Numero" />
 
                                                     <input required type="text" name="complemento" class="form-control col-5" placeholder="Complemento" />
 
-                                                    <input required type="text" name="cep" class="form-control col-5" placeholder="CEP" />
+
 
                                                     <input required type="text" name="bairro" class="form-control col-5" placeholder="Bairro" />
 
@@ -183,7 +191,7 @@
                                                     <input required type="text" name="cidade" class="form-control col-5" placeholder="Cidade" />
 
 
-                                                    <select class="custom-select" id="Selectcargo" name="cargo" required>
+                                                    <select class="form-control col-10" id="Selectcargo" name="cargo" required>
 
                                                         <option value="1">Funcionário</option>
                                                         <option value="2">Gerente</option>
@@ -192,10 +200,8 @@
                                                 </div>
 
                                                 <div class="modal-footer">
-                                                    <button type="button" class="cancel" data-dismiss="modal" >
-                                                        Fechar
-                                                    </button>
-                                                    <input type="submit" value="Salvar" class="btn btn-success btn-block"/>
+                                                    <input value="Fechar" type="button" class="cancel col-3" data-dismiss="modal" />
+                                                    <input type="submit" value="Salvar" class="btn btn-success btn-block col-3"/>
 
                                                 </div>
 
