@@ -133,18 +133,20 @@
                                             </td>
                                             <td></td>
                                             <td>
-                                                <a href="${pageContext.request.contextPath}/GerenteServlet?action=teste"><button type="button" class="btn btn-link btn-sm btn-rounded">
+                                                <a href="${pageContext.request.contextPath}/GeradorRelatorioServlet?action=listarTopReclamacao"><button type="button" class="btn btn-link btn-sm btn-rounded">
                                                         Emitir
                                                     </button></a>
                                             </td>
                                         </tr>
                                         <tr>
-                                    <form action="${pageContext.request.contextPath}/GerenteServlet?action=teste" method="post">
+                                    <form action="${pageContext.request.contextPath}/GeradorRelatorioServlet?action=atendimentoData" method="post">
                                         <td>
                                             <p class="fw-normal mb-1">Atendimentos em Aberto</p>
                                         </td>
                                         <td>
-                                            <input type="date" id="data-atendimento" name="dataAtendimento">
+                                            <label>Inicial</label> <input type="date" id="data-atendimento1" name="dataAtendimento1">
+                                        
+                                            <label>Final</label> <input type="date" id="data-atendimento2" name="dataAtendimento2">
                                         </td>
                                         <td>
                                             <button type="submit" class="btn btn-link btn-sm btn-rounded">
@@ -154,17 +156,18 @@
                                     </form>
                                     </tr>
                                     <tr>
-                                    <form action="${pageContext.request.contextPath}/GerenteServlet?action=teste" method="post">
+                                    <form action="${pageContext.request.contextPath}/GeradorRelatorioServlet?action=reclamacaoSelect" method="post">
                                         <td>
                                             <p class="fw-normal mb-1">Reclamações</p>
                                         </td>
                                         <td>
                                             <div class="input-group mb-3">
 
-                                                <select class="custom-select" id="ReclamacaoSelect" name="ReclamacaoSelect">
-                                                    <option selected>Tipo</option>
+                                                <select class="custom-select" id="ReclamacaoSelect" name="ReclamacaoSelect" required>
+                                                    
                                                     <option value="1">Todas</option>
-                                                    <option value="2">Em Aberto</option>                      
+                                                    <option value="2">Em Aberto</option>
+                                                    <option value="3">Fechados</option>
                                                 </select>
                                             </div>
                                         </td>
@@ -173,6 +176,7 @@
                                                 Emitir
                                             </button>
                                         </td>
+                                        
                                     </form>
                                     </tr>
 

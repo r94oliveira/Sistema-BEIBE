@@ -5,6 +5,7 @@
 package com.ufpr.tads.web2.servlet;
 
 import com.ufpr.tads.web2.dao.ConnectionFactory;
+import jakarta.servlet.RequestDispatcher;
 import java.sql.Connection;
 import jakarta.servlet.ServletContext;
 import java.io.IOException;
@@ -17,6 +18,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
 import java.net.URL;
 import java.util.HashMap;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperRunManager;
 
@@ -37,10 +45,9 @@ public class GeradorRelatorioServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-           
+        
 
 
 
@@ -49,6 +56,40 @@ public class GeradorRelatorioServlet extends HttpServlet {
             String action = request.getParameter("action");
             ServletContext sc = request.getServletContext();
         
+       if ("reclamacaoSelect".equals(action)){
+       
+           String ReclamacaoSelect = request.getParameter("ReclamacaoSelect");
+           
+           switch(ReclamacaoSelect){
+               
+               case "1":
+                   RequestDispatcher rd = request.getRequestDispatcher("/GeradorRelatorioServlet?action=listarTodasReclamacoes"); 
+                   rd.forward(request, response);
+               break;
+               
+                case "2":
+                   RequestDispatcher rd2 = request.getRequestDispatcher("/GeradorRelatorioServlet?action=listarTodasReclamacoesEmAberto"); 
+                   rd2.forward(request, response);
+               break;
+               
+                case "3":
+                   RequestDispatcher rd3 = request.getRequestDispatcher("/GeradorRelatorioServlet?action=listarTodasReclamacoesFechadas"); 
+                   rd3.forward(request, response);
+               break;
+               
+           }
+       
+       
+       
+       
+       }     
+            
+            
+            
+            
+            
+            
+            
             
         if("listarTopReclamacao".equals(action)){    
             try {
@@ -119,7 +160,7 @@ public class GeradorRelatorioServlet extends HttpServlet {
             try {
                 conn = new ConnectionFactory().getConnection();
                 // Caminho contextualizado do relatório compilado
-                String jasper = request.getContextPath() + "/todasReclamacoes.jasper";
+                String jasper = request.getContextPath() + "/todasReclamacoes1.jasper";
                 // Host onde o servlet esta executando 
                 String host = "http://" + request.getServerName() + ":" + request.getServerPort(); 
                 System.out.println(host+jasper);
@@ -215,6 +256,61 @@ public class GeradorRelatorioServlet extends HttpServlet {
         }
      
      
+     if("atendimentoData".equals(action)){    
+            try {
+                conn = new ConnectionFactory().getConnection();
+                // Caminho contextualizado do relatório compilado
+                String jasper = request.getContextPath() + "/atendimentoData.jasper";
+                // Host onde o servlet esta executando 
+                String host = "http://" + request.getServerName() + ":" + request.getServerPort(); 
+                System.out.println(host+jasper);
+                // URL para acesso ao relatório
+                URL jasperURL = new URL(host + jasper);
+
+                // Parâmetros do relatório
+                HashMap params = new HashMap();
+                
+                //String dataIni = request.getParameter("dataAtendimento1");
+                
+                //String dataFin = request.getParameter("dataAtendimento2");
+                
+                
+                
+            
+                
+
+                
+                
+             Timestamp dataInicial = Timestamp.valueOf("2022-08-09 00:00:00");
+             System.out.print(dataInicial);
+             Timestamp dataFinal = Timestamp.valueOf("2022-09-16 23:00:00");
+         
+               
+               // Timestamp dataFinal = Timestamp.valueOf(dataFin);
+                
+                
+                
+                params.put("DATAINICIAL", dataInicial);
+                params.put("DATAFINAL", dataFinal);
+                
+                // Geração do relatório
+
+                byte[] bytes = JasperRunManager.runReportToPdf(jasperURL.openStream(), params, conn);
+                if (bytes != null) { 
+                   // A página será mostrada em PDF
+                   response.setContentType("application/pdf");
+                   // Envia o PDF para o Cliente
+                   OutputStream ops = response.getOutputStream();  
+                   ops.write(bytes);  
+                } 
+            } // Fechamento do try
+
+            catch(JRException e) {
+               request.setAttribute("mensagem", "Erro no Jasper : " + e.getMessage());
+               request.getRequestDispatcher("erro.jsp").forward(request, response);
+            } 
+        
+        }
      
      
      
@@ -224,7 +320,7 @@ public class GeradorRelatorioServlet extends HttpServlet {
      
      
     }
-    }
+    
     
     
     
@@ -245,7 +341,11 @@ public class GeradorRelatorioServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(GeradorRelatorioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -259,7 +359,11 @@ public class GeradorRelatorioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(GeradorRelatorioServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

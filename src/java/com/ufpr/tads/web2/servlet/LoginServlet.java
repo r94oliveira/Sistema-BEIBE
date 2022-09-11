@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
         try {
             response.setContentType("text/html;charset=UTF-8");
             String email = request.getParameter ("Email");
-            String senha = request.getParameter("Senha");
+                String senha = request.getParameter("Senha");
             
             Login log = new Login ();
             log.setEmail(email);
