@@ -295,7 +295,7 @@ public class GerenteDAO {
                 rs = st.executeQuery();
                 while (rs.next()){
                     countInformacoesEmAberto = rs.getInt("COUNT(*)");
-                    System.out.println("Reclamacoes em aberto");
+                    System.out.println("Informacoes em aberto");
                     System.out.println(countInformacoesEmAberto);
                     
                 }
@@ -323,7 +323,7 @@ public class GerenteDAO {
                 rs = st.executeQuery();
                 while (rs.next()){
                     countElogio = rs.getInt("COUNT(*)");
-                    System.out.println("INFORMACAO total");
+                    System.out.println("Elogio total");
                     System.out.println(countElogio);
                     
                 }
@@ -351,7 +351,7 @@ public class GerenteDAO {
                 rs = st.executeQuery();
                 while (rs.next()){
                     countElogioEmAberto = rs.getInt("COUNT(*)");
-                    System.out.println("Reclamacoes em aberto");
+                    System.out.println("Elogio em aberto");
                     System.out.println(countElogioEmAberto);
                     
                 }
@@ -364,22 +364,60 @@ public class GerenteDAO {
            }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public static int countSugestao() {
+      
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countSugestao = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento WHERE fk_Tipo_Atendimento_idTipoAtendimento = 4";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countSugestao = rs.getInt("COUNT(*)");
+                    System.out.println("Sugestao total");
+                    System.out.println(countSugestao);
+                    
+                }
+                return countSugestao ;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+      
+     
+    }
+
+    public static int countSugestaoEmAberto() {
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countSugestaoEmAberto = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento WHERE fk_Tipo_Atendimento_idTipoAtendimento = 4 AND situacaoAtendimento = 0";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countSugestaoEmAberto = rs.getInt("COUNT(*)");
+                    System.out.println("Sugestoes em aberto");
+                    System.out.println(countSugestaoEmAberto);
+                    
+                }
+                return countSugestaoEmAberto;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+    }
     
     
 }

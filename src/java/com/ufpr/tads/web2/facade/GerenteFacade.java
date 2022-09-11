@@ -40,5 +40,21 @@ public class GerenteFacade {
     public static int countReclamacoesEmAberto() {
         return GerenteDAO.countReclamacoesEmAberto();
     }
+
+    public static int countInformacoes() {
+        return GerenteDAO.countInformacao();
+    }
+
+    public static int countInformacoesEmAberto() {
+         return GerenteDAO.countInformacoesEmAberto();
+    }
+
+    public static int countElogio() {
+        return GerenteDAO.countElogio();
+    }
+
+    public static int countElogioEmAberto() {
+         return GerenteDAO.countElogioEmAberto();
+    }
     
 }

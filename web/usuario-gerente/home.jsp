@@ -30,7 +30,7 @@
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                   </h3>
                   <h4 class="list-group-item-heading count">
-                    1000</h4>
+                      ${requestScope.todosAtendimentos}</h4>
                   <p class="list-group-item-text">
                     Atendimentos efetuados até o momento</p>
                 </div>
@@ -45,7 +45,7 @@
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                   </h3>
                   <h4 class="list-group-item-heading count">
-                    100 | 10% </h4>
+                    ${requestScope.todosAtendimentosEmAberto} | ${requestScope.percentual} %</h4>
                   <p class="list-group-item-text">
                     Atendimentos em aberto </p>
                 </div>
@@ -59,7 +59,7 @@
                   <p class="list-group-item-text">
                     Tipo de atedimento: Reclamação</p>
                   <h4 class="list-group-item-heading count">
-                    15/100</h4>
+                    ${requestScope.todasReclamacoesEmAberto}/${requestScope.todasReclamacoes}</h4>
                 </div>
               </div>
 
@@ -69,9 +69,9 @@
               <div class="list-group">
                 <div class="list-group-item">
                   <p class="list-group-item-text">
-                    Tipo de atedimento: Reclamação</p>
+                    Tipo de atedimento: Informação</p>
                   <h4 class="list-group-item-heading count">
-                    15/100</h4>
+                     ${requestScope.todasInformacoesEmAberto}/${requestScope.todasInformacoes}</h4>
                 </div>
               </div>
             </div>
@@ -80,23 +80,14 @@
               <div class="list-group">
                 <div class="list-group-item">
                   <p class="list-group-item-text">
-                    Tipo de atedimento: Reclamação</p>
+                    Tipo de atedimento: Elogio</p>
                   <h4 class="list-group-item-heading count">
-                    15/100</h4>
+                     ${requestScope.todasElogioEmAberto}/${requestScope.todosElogio}</h4>
                 </div>
               </div>
             </div>
             
-                        <div class="col-md-3 p-2">
-              <div class="list-group">
-                <div class="list-group-item">
-                  <p class="list-group-item-text">
-                    Tipo de atedimento: Reclamação</p>
-                  <h4 class="list-group-item-heading count">
-                    15/100</h4>
-                </div>
-              </div>
-            </div>
+               
             
 
                                      <!-- Texto Título -->

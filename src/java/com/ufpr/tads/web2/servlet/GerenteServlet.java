@@ -20,6 +20,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -184,6 +185,25 @@ public class GerenteServlet extends HttpServlet {
             int todosAtendimentosEmAberto = GerenteFacade.countTodosAtendimentosEmAberto();
             int todasReclamacoes = GerenteFacade.countReclamacoes();
             int todasReclamacoesEmAberto = GerenteFacade.countReclamacoesEmAberto();
+            int todasInformacoes = GerenteFacade.countInformacoes();
+            int todasInformacoesEmAberto = GerenteFacade.countInformacoesEmAberto();
+            int todosElogio = GerenteFacade.countElogio();
+            int todasElogioEmAberto = GerenteFacade.countElogioEmAberto();
+            
+            int percentual = 0;
+            percentual =((todosAtendimentosEmAberto*100)/todosAtendimentos);
+            System.out.println(percentual);
+          
+            
+            request.setAttribute("todosAtendimentos",todosAtendimentos);
+            request.setAttribute("todosAtendimentosEmAberto",todosAtendimentosEmAberto);
+            request.setAttribute("todasReclamacoes",todasReclamacoes);
+            request.setAttribute("todasReclamacoesEmAberto",todasReclamacoesEmAberto);
+            request.setAttribute("todasInformacoes",todasInformacoes);
+            request.setAttribute("todasInformacoesEmAberto",todasInformacoesEmAberto);
+            request.setAttribute("todosElogio",todosElogio);
+            request.setAttribute("todasElogioEmAberto",todasElogioEmAberto);
+            request.setAttribute("percentual", percentual);
             
             
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/home.jsp");
