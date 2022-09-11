@@ -56,5 +56,9 @@ public class GerenteFacade {
     public static int countElogioEmAberto() {
          return GerenteDAO.countElogioEmAberto();
     }
+
+    public static void alterarFuncionario(Funcionario funcionario) {
+        GerenteDAO.alterarFuncionario(funcionario);
+    }
     
 }

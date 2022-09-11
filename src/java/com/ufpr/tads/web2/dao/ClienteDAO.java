@@ -148,7 +148,7 @@ public class ClienteDAO {
         System.out.println(c.getCepEnderecoCliente());
         try {
             conn = new ConnectionFactory().getConnection();
-            String query = "UPDATE cliente SET nomeCliente = ?, sobrenomeCliente= ?, emailCliente= ?, cpfCliente= ?,ruaEnderecoCliente= ?,numeroEndercoCliente = ?,complementoEnderecoCliente = ?,bairroEnderecoCliente = ?, cidadeEnderecoCliente = ?, cepEnderecoCliente = ?, estadoEnderecoCliente = ?, telefoneCliente = ? WHERE idPessoa = ?";
+            String query = "UPDATE cliente SET nomeCliente = ?, sobrenomeCliente= ?, emailCliente= ?, cpfCliente= ?,ruaEnderecoCliente= ?,numeroEndercoCliente = ?,complementoEnderecoCliente = ?,bairroEnderecoCliente = ?, cidadeEnderecoCliente = ?, cepEnderecoCliente = ?, estadoEnderecoCliente = ?, telefoneCliente = ? , senhaCliente = aes_encrypt(?,'beibe') WHERE idPessoa = ?";
             //
             st = conn.prepareStatement(query);
             st.setString(1,c.getNomecliente());
@@ -163,7 +163,8 @@ public class ClienteDAO {
             st.setString(10,c.getCepEnderecoCliente());
             st.setString(11,c.getEstadoEnderecoCliente());
             st.setString(12,c.getTelefoneCliente());
-            st.setInt(13, c.getIdCliente());
+            st.setString(13,c.getSenhaCliente());
+            st.setInt(14, c.getIdCliente());
             System.out.println(st);
             st.executeUpdate();
             st.close();

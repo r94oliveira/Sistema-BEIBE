@@ -85,70 +85,44 @@
                                                 <h4 class="modal-title">Atualizar funcionário</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="form d-flex flex-row w-100">
+                                                <div class="form d-flex flex-row">
 
-                                                    <form action="${pageContext.request.contextPath}/GerenteServlet?action=atualizarFuncionario" method="post" class="custom-control custom-checkbox mb-3">
-                                                        <input required type="text" name="nome" class="form-control col-10" placeholder="Nome" value="${funcionario.nomeFuncionario}" />
-                                                            <input required type="text" name="sobrenomeFuncionario" class="form-control col-10" placeholder="sobrenome" value="${funcionario.sobrenomeFuncionario}" />
-
-                                                        <input required type="text" name="Cpf" class="form-control col-10" placeholder="CPF"  value="${funcionario.cpfFuncionario}"  />
-
-                                                        <input required type="email" name="Email" class="form-control col-5" placeholder="E-mail" value="${funcionario.emailFuncionario}"/>
-
-                                                        <input required type="password" name="Senha" class="form-control col-5" placeholder="Senha" value="${funcionario.senhaFuncionario}" />
-
-                                                        <input required type="tel" name="Telefone" class="form-control col-5" placeholder="Telefone" value="${funcionario.telefoneFuncionario}"/>
-
-                                                        <input required type="text" name="Rua" class="form-control col-5" placeholder="Rua" value="${funcionario.ruaEnderecoFuncionario}" />
-
-                                                        <input required type="number" name="Numero" class="form-control col-5" placeholder="Numero" value="${funcionario.numeroEndercoFuncionario}"/>
-
-                                                        <input required type="text" name="Complemento" class="form-control col-5" placeholder="Complemento" value="${funcionario.complementoEnderecoFuncionario}"/>
-
-                                                        <input required type="text" name="Cep" class="form-control col-5" placeholder="CEP" value="${funcionario.cepEnderecoFuncionario}" />
-
-                                                        <input required type="text" name="Bairro" class="form-control col-5" placeholder="Bairro" value="${funcionario.bairroEnderecoFuncionario}"/>
-                                                        <input required type="text" name="Cidade" class="form-control col-5" placeholder="Cidade" value="${funcionario.cidadeEnderecoFuncionario}"/> 
-
-                                                        <select required placeholder="Estado" class="form-control col-5 mb-3" name="Estado">
-                                                            <option value="AC">Estado</option>
-                                                            <option value="AC">Acre</option>
-                                                            <option value="AL">Alagoas</option>
-                                                            <option value="AP">Amapá</option>
-                                                            <option value="AM">Amazonas</option>
-                                                            <option value="BA">Bahia</option>
-                                                            <option value="CE">Ceará</option>
-                                                            <option value="DF">Distrito Federal</option>
-                                                            <option value="ES">Espírito Santo</option>
-                                                            <option value="GO">Goiás</option>
-                                                            <option value="MA">Maranhão</option>
-                                                            <option value="MT">Mato Grosso</option>
-                                                            <option value="MS">Mato Grosso do Sul</option>
-                                                            <option value="MG">Minas Gerais</option>
-                                                            <option value="PA">Pará</option>
-                                                            <option value="PB">Paraíba</option>
-                                                            <option value="PR">Paraná</option>
-                                                            <option value="PE">Pernambuco</option>
-                                                            <option value="PI">Piauí</option>
-                                                            <option value="RJ">Rio de Janeiro</option>
-                                                            <option value="RN">Rio Grande do Norte</option>
-                                                            <option value="RS">Rio Grande do Sul</option>
-                                                            <option value="RO">Rondônia</option>
-                                                            <option value="RR">Roraima</option>
-                                                            <option value="SC">Santa Catarina</option>
-                                                            <option value="SP">São Paulo</option>
-                                                            <option value="SE">Sergipe</option>
-                                                            <option value="TO">Tocantins</option>
-                                                            <option value="EX">Estrangeiro</option>
-                                                        </select>        
-                                                                               
-
+                                                    <form action="${pageContext.request.contextPath}/GerenteServlet?action=alterarFuncionario&idFuncionario=${funcionario.idFuncionario}" method="post" class="custom-control custom-checkbox mb-3">
                                                         
-                                                                                                    <div class="modal-footer">
+                                                       <label class="col-2">Nome:</label>  <input required type="text" name="nome" class="form-control col-5" placeholder="Nome" value="${funcionario.nomeFuncionario}" />
+                                                            
+                                                       <label class="col-2">Sobrenome:</label><input required type="text" name="sobrenomeFuncionario" class="form-control col-5" placeholder="sobrenome" value="${funcionario.sobrenomeFuncionario}" />
+
+                                                       <label class="col-2">CPF:</label> <input required type="text" name="cpf" class="form-control col-5" placeholder="CPF"  value="${funcionario.cpfFuncionario}"  />
+
+                                                        <label class="col-2">E-mail:</label> <input required type="email" name="email" class="form-control col-5" placeholder="E-mail" value="${funcionario.emailFuncionario}"/>
+
+                                                        <label class="col-2">Senha:</label> <input required type="password" name="senha" class="form-control col-5" placeholder="Senha" value="" />
+
+                                                        <label class="col-2">Telefone:</label><input required type="tel" name="telefone" class="form-control col-5" placeholder="Telefone" value="${funcionario.telefoneFuncionario}"/>
+
+                                                         <label class="col-2">Rua:</label> <input required type="text" name="rua" class="form-control col-5" placeholder="Rua" value="${funcionario.ruaEnderecoFuncionario}" />
+
+                                                        <label class="col-2">Numero:</label> <input required type="number" name="numero" class="form-control col-5" placeholder="Numero" value="${funcionario.numeroEndercoFuncionario}"/>
+
+                                                        <label class="col-2">Complemento:</label> <input required type="text" name="complemento" class="form-control col-5" placeholder="Complemento" value="${funcionario.complementoEnderecoFuncionario}"/>
+
+                                                        <label class="col-2">Cep:</label> <input required type="text" name="cep" class="form-control col-5" placeholder="CEP" value="${funcionario.cepEnderecoFuncionario}" />
+
+                                                        <label class="col-2">Bairro:</label> <input required type="text" name="bairro" class="form-control col-5" placeholder="Bairro" value="${funcionario.bairroEnderecoFuncionario}"/>
+                                                        
+                                                        <label class="col-2">Cidade:</label> <input required type="text" name="cidade" class="form-control col-5" placeholder="Cidade" value="${funcionario.cidadeEnderecoFuncionario}"/> 
+                                                        
+                                                        <label class="col-2">Estado:</label> <input required type="text" name="estado" class="form-control col-5" placeholder="Estado" value="${funcionario.estadoEnderecoFuncionario}" />
+
+                                                    <label class="col-2">Cargo:</label><input required type="text" name="cargo" class="form-control col-5" placeholder="Func = 1 Gerente = 2" value="${funcionario.cargoFuncionario}" /> 
+                                                        
+                                                        
+                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                     Fechar
                                                 </button>
-                                                                                                                                                        <button type="submit" class="btn btn-success">
+                                                <button type="submit" class="btn btn-success">
                                                     Atualizar
                                                 </button>
                                             </div>

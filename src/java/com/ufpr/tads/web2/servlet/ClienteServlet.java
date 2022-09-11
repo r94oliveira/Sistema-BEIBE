@@ -86,7 +86,7 @@ public class ClienteServlet extends HttpServlet {
             String cep = request.getParameter("Cep");
             String estado = request.getParameter("Estado");
             String telefone = request.getParameter("Telefone");
-            String senha = request.getParameter("Senha");
+            String senha = request.getParameter("senha");
 
              
             boolean cpfb = ValidaCPF.isCPF(cpf);
@@ -124,6 +124,7 @@ public class ClienteServlet extends HttpServlet {
             int id = (int)session.getAttribute("id");        
             atendimentos = AtendimentoFacade.consultaAtendimento(id);
             request.setAttribute("atendimentos", atendimentos);
+            request.setAttribute("msgServlet","Dados Atualizados");
             RequestDispatcher rd = request.getRequestDispatcher("ClienteServlet?action=login");
             rd.forward(request, response);
             

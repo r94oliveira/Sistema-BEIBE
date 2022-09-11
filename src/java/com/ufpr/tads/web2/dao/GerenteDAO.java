@@ -418,6 +418,45 @@ public class GerenteDAO {
                 return 0; 
            }
     }
+
+    public static void alterarFuncionario(Funcionario funcionario) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        
+        
+        try {
+            conn = new ConnectionFactory().getConnection();
+            String query = "UPDATE funcionario SET nomeFuncionario = ? ,sobrenomeFuncionario =?,ruaEnderecoFuncionario= ?,numeroEndercoFuncionario=? ,complementoEnderecoFuncionario=?,bairroEnderecoFuncionario=? ,cidadeEnderecoFuncionario =? ,cepEnderecoFuncionario= ? ,estadoEnderecoFuncionario = ? ,telefoneFuncionario = ? ,senhaFuncionario = ? ,cargo = ? WHERE idFuncionario = ?";
+            st = conn.prepareStatement(query);
+            st.setString(1,funcionario.getNomeFuncionario());
+            System.out.print(funcionario.getSobrenomeFuncionario());
+            st.setString(2,funcionario.getSobrenomeFuncionario());
+            st.setString(3,funcionario.getRuaEnderecoFuncionario());
+            st.setInt(4, funcionario.getNumeroEndercoFuncionario());
+            st.setString(5,funcionario.getComplementoEnderecoFuncionario());
+            st.setString(6,funcionario.getBairroEnderecoFuncionario());
+            st.setString(7,funcionario.getCidadeEnderecoFuncionario());
+            st.setString(8,funcionario.getCepEnderecoFuncionario());
+            st.setString(9,funcionario.getEstadoEnderecoFuncionario());
+            st.setString(10,funcionario.getTelefoneFuncionario());
+            st.setString(11,funcionario.getSenhaFuncionario());
+            st.setInt(12, funcionario.getCargoFuncionario());
+            st.setInt(13, funcionario.getIdFuncionario());
+            System.out.println(st);
+            st.executeUpdate();
+            st.close();
+            conn.close();
+            System.out.println("inseriu");
+           
+        }
+        catch (Exception e){
+            System.out.println("nao inseriu");
+            e.printStackTrace();
+            
+          
+        }
+    }
     
     
 }

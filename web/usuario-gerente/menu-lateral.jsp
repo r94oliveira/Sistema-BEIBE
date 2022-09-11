@@ -20,7 +20,7 @@
             
             
             <li>
-               <a href="${pageContext.request.contextPath}/usuario-gerente/relatorios.jsp" method="post"
+               <a href="${pageContext.request.contextPath}/GerenteServlet?action=relatorios" method="post"
                  ><i class="fa fa-tasks" aria-hidden="true"></i
                   ><span class="hidden-xs hidden-sm">Relatórios</span></a>
             </li>

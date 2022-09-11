@@ -43,7 +43,7 @@
 
                                     <label class="col-2">Sobrenome:</label> <input required type="text" name="Sobrenome" class="form-control col-9" value="${cliente.sobrenomeCliente}" maxlength="255" />
 
-                                    <label class="col-2">Cpf:</label> <input required type="text" name="Cpf" class="form-control col-9" value="${cliente.cpfCliente}" readonly="readonly" />
+                                    <label class="col-2">CPF:</label> <input required type="text" name="Cpf" class="form-control col-9" value="${cliente.cpfCliente}" readonly="readonly" />
 
                                     <label class="col-2">Email:</label> <input required type="text" name="Email" class="form-control col-9" value="${cliente.emailCliente}" readonly="readonly" />
 
@@ -62,10 +62,11 @@
                                     <label class="col-2">Estado:</label> <input required type="text" name="Estado" class="form-control col-9" value="${cliente.estadoEnderecoCliente}" maxlength="255" />
 
                                     <label class="col-2">Telefone:</label> <input required type="text" name="Telefone" class="form-control col-9" value="${cliente.telefoneCliente}" maxlength="255"/>
-
+                                    
+                                    <label class="col-2">Senha:</label> <input required type="text" name="senha" class="form-control col-9" maxlength="255"/>
 
                                     <div class="col-12 p-0  pt-2">
-                                        <input type="submit" value="Cancelar" class="btn btn-secondary col-3" />
+                                        
                                         <input type="submit" value="Salvar" class="btn btn-success col-3" />
                                     </div>
                                 </form>

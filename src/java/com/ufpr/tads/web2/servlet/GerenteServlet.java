@@ -111,6 +111,7 @@ public class GerenteServlet extends HttpServlet {
          if("alterarFuncionario".equals(action)){
             
             String idFuncionario = request.getParameter("idFuncionario");
+            
             String nome = request.getParameter("nome");
             String sobrenome = request.getParameter("sobrenomeFuncionario");
             String cpf = request.getParameter("cpf");
@@ -137,6 +138,7 @@ public class GerenteServlet extends HttpServlet {
                 rd.forward(request, response);
             }
             Funcionario funcionario = new Funcionario();
+            funcionario.setIdFuncionario(Integer.parseInt(idFuncionario));
             funcionario.setNomeFuncionario(nome);
             funcionario.setSobrenomeFuncionario(sobrenome);
             funcionario.setCpfFuncionario(cpf);
@@ -152,7 +154,7 @@ public class GerenteServlet extends HttpServlet {
             funcionario.setCidadeEnderecoFuncionario(cidade);
             funcionario.setCargoFuncionario(cargo);
             
-            GerenteFacade.cadastrarFuncionario(funcionario);
+            GerenteFacade.alterarFuncionario(funcionario);
             request.setAttribute("msgServlet","Funcionario adicionado!");
             RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
             rd.forward(request, response); 
@@ -223,6 +225,47 @@ public class GerenteServlet extends HttpServlet {
         
         }
         
+        if("relatorios".equals(action)){
+        
+            int todosAtendimentos = GerenteFacade.countTodosAtendimentos();
+            int todosAtendimentosEmAberto = GerenteFacade.countTodosAtendimentosEmAberto();
+            int todasReclamacoes = GerenteFacade.countReclamacoes();
+            int todasReclamacoesEmAberto = GerenteFacade.countReclamacoesEmAberto();
+            int todasInformacoes = GerenteFacade.countInformacoes();
+            int todasInformacoesEmAberto = GerenteFacade.countInformacoesEmAberto();
+            int todosElogio = GerenteFacade.countElogio();
+            int todasElogioEmAberto = GerenteFacade.countElogioEmAberto();
+            
+            int percentual = 0;
+            percentual =((todosAtendimentosEmAberto*100)/todosAtendimentos);
+            System.out.println(percentual);
+          
+            
+            request.setAttribute("todosAtendimentos",todosAtendimentos);
+            request.setAttribute("todosAtendimentosEmAberto",todosAtendimentosEmAberto);
+            request.setAttribute("todasReclamacoes",todasReclamacoes);
+            request.setAttribute("todasReclamacoesEmAberto",todasReclamacoesEmAberto);
+            request.setAttribute("todasInformacoes",todasInformacoes);
+            request.setAttribute("todasInformacoesEmAberto",todasInformacoesEmAberto);
+            request.setAttribute("todosElogio",todosElogio);
+            request.setAttribute("todasElogioEmAberto",todasElogioEmAberto);
+            request.setAttribute("percentual", percentual);
+        
+            RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/relatorios.jsp");
+            rd.forward(request, response); 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        }
         
         
     }
