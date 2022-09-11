@@ -9,6 +9,7 @@ import com.ufpr.tads.web2.beans.Cliente;
 import com.ufpr.tads.web2.beans.Funcionario;
 import com.ufpr.tads.web2.beans.Login;
 import com.ufpr.tads.web2.beans.LoginBean;
+import com.ufpr.tads.web2.exceptions.LoginException;
 import com.ufpr.tads.web2.facade.AtendimentoFacade;
 import com.ufpr.tads.web2.facade.LoginFacade;
 import jakarta.servlet.RequestDispatcher;
@@ -22,6 +23,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,53 +44,57 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String email = request.getParameter ("Email");
-        String senha = request.getParameter("Senha");
-        
-        Login log = new Login ();
-        log.setEmail(email);
-        log.setSenha(senha);
-
-        Cliente cliente = LoginFacade.logarCliente(log);
-      
-        if (0 != cliente.getIdCliente()){
+        try {
+            response.setContentType("text/html;charset=UTF-8");
+            String email = request.getParameter ("Email");
+            String senha = request.getParameter("Senha");
             
-            LoginBean loginBean = new LoginBean(cliente.getIdCliente(),cliente.getNomecliente());
-            HttpSession session = request.getSession();
-            session.setAttribute("logado", loginBean);
-            session.setAttribute("id",loginBean.getId());
-            //List<Atendimento> atendimentos = new ArrayList<Atendimento>();
-            //atendimentos = AtendimentoFacade.consultaAtendimento(cliente.getIdCliente());
-           // request.setAttribute("atendimentos", atendimentos);            
-            RequestDispatcher rd = request.getRequestDispatcher("ClienteServlet?action=login");
-            rd.forward(request, response); 
-        } 
-        
-        Funcionario func = LoginFacade.logarFuncionario(log);
-
-        if(1 == func.getCargoFuncionario()){
-           
-            LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
-            HttpSession session = request.getSession();
-            session.setAttribute("logado", loginBean);
-            session.setAttribute("id",loginBean.getId());
-            RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=login");
-            rd.forward(request, response); 
-        }   
-   
-        if(2 == func.getCargoFuncionario()){
-            LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
-            HttpSession session = request.getSession();
-            session.setAttribute("logado", loginBean);
-            session.setAttribute("id",loginBean.getId());
-            RequestDispatcher rd = request.getRequestDispatcher("GerenteServlet?action=listarAtendimentosEmAberto");
-            rd.forward(request, response); 
-        }
-        else{
+            Login log = new Login ();
+            log.setEmail(email);
+            log.setSenha(senha);
             
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?falha=true");
-            rd.forward(request, response);
+            Cliente cliente = LoginFacade.logarCliente(log);
+            
+            if (0 != cliente.getIdCliente()){
+                
+                LoginBean loginBean = new LoginBean(cliente.getIdCliente(),cliente.getNomecliente());
+                HttpSession session = request.getSession();
+                session.setAttribute("logado", loginBean);
+                session.setAttribute("id",loginBean.getId());
+                //List<Atendimento> atendimentos = new ArrayList<Atendimento>();
+                //atendimentos = AtendimentoFacade.consultaAtendimento(cliente.getIdCliente());
+                // request.setAttribute("atendimentos", atendimentos);
+                RequestDispatcher rd = request.getRequestDispatcher("ClienteServlet?action=login");
+                rd.forward(request, response);
+            }
+            
+            Funcionario func = LoginFacade.logarFuncionario(log);
+            
+            if(1 == func.getCargoFuncionario()){
+                
+                LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
+                HttpSession session = request.getSession();
+                session.setAttribute("logado", loginBean);
+                session.setAttribute("id",loginBean.getId());
+                RequestDispatcher rd = request.getRequestDispatcher("FuncionarioServlet?action=login");
+                rd.forward(request, response);
+            }
+            
+            if(2 == func.getCargoFuncionario()){
+                LoginBean loginBean = new LoginBean (func.getIdFuncionario(),func.getNomeFuncionario());
+                HttpSession session = request.getSession();
+                session.setAttribute("logado", loginBean);
+                session.setAttribute("id",loginBean.getId());
+                RequestDispatcher rd = request.getRequestDispatcher("GerenteServlet?action=listarAtendimentosEmAberto");
+                rd.forward(request, response);
+            }
+            else{
+                
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp?falha=true");
+                rd.forward(request, response);
+            }
+        } catch (LoginException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -5,6 +5,7 @@ package com.ufpr.tads.web2.servlet;
 
 import com.ufpr.tads.web2.beans.Cliente;
 import com.ufpr.tads.web2.beans.ValidaCPF;
+import com.ufpr.tads.web2.exceptions.ClienteException;
 import com.ufpr.tads.web2.facade.ClienteFacade;
 
 import jakarta.servlet.RequestDispatcher;
@@ -15,6 +16,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -34,8 +37,9 @@ public class CadastroClienteServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
+        try {
+            response.setContentType("text/html;charset=UTF-8");
+            
             String nome = request.getParameter("Nome");
             String sobrenome = request.getParameter("Sobrenome");
             String email = request.getParameter("Email");
@@ -100,6 +104,9 @@ public class CadastroClienteServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                 rd.forward(request, response); 
             }
+        } catch (ClienteException ex) {
+            Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
             
     }
 
