@@ -268,8 +268,7 @@ public class FuncionarioServlet extends HttpServlet {
 
             try {
                 String idProduto = request.getParameter("idProduto");
-                System.out.println("TEM QUE SOLTAR O ID AQUI no topo da pagina ");
-                System.out.println(idProduto);
+                
                 ProdutosFacade.excluirProduto(idProduto);
                 request.setAttribute("msgServlet","O produto foi excluído com sucesso!");
                 

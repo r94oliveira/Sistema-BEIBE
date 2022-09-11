@@ -117,7 +117,11 @@
                                     <!-- Modal content-->
                                     <div class="modal-content">
                                         <div class="modal-header login-header">
-                                            <h4 class="modal-title">Realmente deseja excluir esse chamado?</h4>
+                                            <h4 class="modal-title">Realmente deseja excluir esse Produto? </h4>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>TODOS OS ATENDIMENTOS RELACIONADOS A ELE SERÃO EXCLUÍDOS TAMBÉM!<p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="add-modal" id="delBtn">

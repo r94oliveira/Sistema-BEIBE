@@ -103,6 +103,11 @@
                                         <div class="modal-header login-header">
                                             <h4 class="modal-title">Realmente deseja excluir essa categoria?</h4>
                                         </div>
+                                        
+                                          <div class="modal-body">
+                                            <p>TODOS OS ATENDIMENTOS RELACIONADOS A ESTA CATEGORIA SERÃO EXCLUÍDOS TAMBÉM!<p>
+                                        </div>
+                                        
                                         <div class="modal-footer">
                                             <button type="button" class="add-modal" id="delBtn">
                                                 Sim
