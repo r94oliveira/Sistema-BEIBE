@@ -13,6 +13,8 @@ import com.ufpr.tads.web2.dao.GerenteDAO;
  */
 public class GerenteFacade {
 
+    
+
     public static void cadastrarFuncionario(Funcionario funcionario) {
         
         GerenteDAO.cadastrarFuncionario(funcionario);
@@ -21,6 +23,22 @@ public class GerenteFacade {
 
     public static int verificaFuncionario(Funcionario funcionario) {
         return GerenteDAO.verificaFuncionario(funcionario);
+    }
+
+    public static int countTodosAtendimentos() {
+        return GerenteDAO.countTodosAtendimentos();
+    }
+
+    public static int countTodosAtendimentosEmAberto() {
+        return GerenteDAO.countTodosAtendimentosEmAberto();
+    }
+
+    public static int countReclamacoes() {
+         return GerenteDAO.countReclamacoes();
+    }
+
+    public static int countReclamacoesEmAberto() {
+        return GerenteDAO.countReclamacoesEmAberto();
     }
     
 }

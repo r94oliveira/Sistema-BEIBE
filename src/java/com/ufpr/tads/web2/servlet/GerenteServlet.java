@@ -179,6 +179,13 @@ public class GerenteServlet extends HttpServlet {
             atendimentos = AtendimentoFacade.listarTodosAtendimentosEmAberto();
             request.setAttribute("atendimentos", atendimentos);
             //fazer para atulizar os relatorios(facade)
+            
+            int todosAtendimentos = GerenteFacade.countTodosAtendimentos();
+            int todosAtendimentosEmAberto = GerenteFacade.countTodosAtendimentosEmAberto();
+            int todasReclamacoes = GerenteFacade.countReclamacoes();
+            int todasReclamacoesEmAberto = GerenteFacade.countReclamacoesEmAberto();
+            
+            
             RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/home.jsp");
             rd.forward(request, response); 
             

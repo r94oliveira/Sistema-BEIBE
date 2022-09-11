@@ -138,4 +138,247 @@ public class GerenteDAO {
        }
         return 0;
     }
+
+    public static int countTodosAtendimentos() {
+      
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countTodosAtendimentos = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countTodosAtendimentos = rs.getInt("COUNT(*)");
+                    System.out.println("TODOS ATENDIMENTOS");
+                    System.out.println(countTodosAtendimentos);
+                    
+                }
+                return countTodosAtendimentos ;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+      
+     
+    }
+    
+    public static int countTodosAtendimentosEmAberto() {
+      
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countTodosAtendimentosEmAberto = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento WHERE situacaoAtendimento = 0";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countTodosAtendimentosEmAberto = rs.getInt("COUNT(*)");
+                    System.out.println("TODOS ATENDIMENTOS EM ABERTO");
+                    System.out.println(countTodosAtendimentosEmAberto);
+                    
+                }
+                return countTodosAtendimentosEmAberto ;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+      
+     
+    }
+    
+    public static int countReclamacoes() {
+      
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countReclamacoes = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento WHERE fk_Tipo_Atendimento_idTipoAtendimento = 1";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countReclamacoes = rs.getInt("COUNT(*)");
+                    System.out.println("Reclamacoes total");
+                    System.out.println(countReclamacoes);
+                    
+                }
+                return countReclamacoes ;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+      
+     
+    }
+
+    public static int countReclamacoesEmAberto() {
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countReclamacoesEmAberto = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento WHERE fk_Tipo_Atendimento_idTipoAtendimento = 1 AND situacaoAtendimento = 0";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countReclamacoesEmAberto = rs.getInt("COUNT(*)");
+                    System.out.println("Reclamacoes em aberto");
+                    System.out.println(countReclamacoesEmAberto);
+                    
+                }
+                return countReclamacoesEmAberto ;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+    }
+    
+     public static int countInformacao() {
+      
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countInformacao = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento WHERE fk_Tipo_Atendimento_idTipoAtendimento = 3";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countInformacao = rs.getInt("COUNT(*)");
+                    System.out.println("INFORMACAO total");
+                    System.out.println(countInformacao);
+                    
+                }
+                return countInformacao ;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+      
+     
+    }
+
+    public static int countInformacoesEmAberto() {
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countInformacoesEmAberto = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento WHERE fk_Tipo_Atendimento_idTipoAtendimento = 3 AND situacaoAtendimento = 0";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countInformacoesEmAberto = rs.getInt("COUNT(*)");
+                    System.out.println("Reclamacoes em aberto");
+                    System.out.println(countInformacoesEmAberto);
+                    
+                }
+                return countInformacoesEmAberto ;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+    }
+    
+    
+    public static int countElogio() {
+      
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countElogio = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento WHERE fk_Tipo_Atendimento_idTipoAtendimento = 2";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countElogio = rs.getInt("COUNT(*)");
+                    System.out.println("INFORMACAO total");
+                    System.out.println(countElogio);
+                    
+                }
+                return countElogio ;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+      
+     
+    }
+
+    public static int countElogioEmAberto() {
+        Connection conn = null;
+         PreparedStatement st = null;
+         ResultSet rs = null;
+         int countElogioEmAberto = 0;
+         
+         try{
+                conn = new ConnectionFactory().getConnection();
+                String queryc = "SELECT COUNT(*) FROM atendimento WHERE fk_Tipo_Atendimento_idTipoAtendimento = 2 AND situacaoAtendimento = 0";
+                st = conn.prepareStatement(queryc);
+                rs = st.executeQuery();
+                while (rs.next()){
+                    countElogioEmAberto = rs.getInt("COUNT(*)");
+                    System.out.println("Reclamacoes em aberto");
+                    System.out.println(countElogioEmAberto);
+                    
+                }
+                return countElogioEmAberto ;
+            }
+            catch (Exception e){
+                System.out.println("nao consultou");
+                e.printStackTrace();
+                return 0; 
+           }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
