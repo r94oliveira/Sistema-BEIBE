@@ -74,6 +74,7 @@ public class GerenteDAO {
                 rs = st.executeQuery();
                 while (rs.next()){
                     Funcionario funcionario = new Funcionario();
+                    funcionario.setIdFuncionario(rs.getInt("idFuncionario"));
                     funcionario.setNomeFuncionario(rs.getString("nomeFuncionario"));
                     funcionario.setSobrenomeFuncionario(rs.getString("sobrenomeFuncionario"));
                     funcionario.setEmailFuncionario(rs.getString("emailFuncionario"));
