@@ -61,5 +61,14 @@ public class GerenteFacade {
     public static void alterarFuncionario(Funcionario funcionario) throws GerenteException {
         GerenteDAO.alterarFuncionario(funcionario);
     }
+
+    public static int countSugestao() {
+       return GerenteDAO.countSugestao();
+    }
+
+    public static int countSugestaoEmAberto() {
+        return GerenteDAO.countSugestaoEmAberto();
+    }
+
     
 }

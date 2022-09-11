@@ -80,12 +80,26 @@
               <div class="list-group">
                 <div class="list-group-item">
                   <p class="list-group-item-text">
+                    Tipo de atedimento: Sugestão</p>
+                  <h4 class="list-group-item-heading count">
+                     ${requestScope.todasSugestoesEmAberto}/${requestScope.todasSugestoes}</h4>
+                </div>
+              </div>
+            </div>
+                
+                
+                 <div class="col-md-3 p-2">
+              <div class="list-group">
+                <div class="list-group-item">
+                  <p class="list-group-item-text">
                     Tipo de atedimento: Elogio</p>
                   <h4 class="list-group-item-heading count">
                      ${requestScope.todasElogioEmAberto}/${requestScope.todosElogio}</h4>
                 </div>
               </div>
             </div>
+                
+                
             
                
             
