@@ -8,6 +8,7 @@ import com.ufpr.tads.web2.beans.Funcionario;
 import com.ufpr.tads.web2.beans.Produto;
 import com.ufpr.tads.web2.dao.GerenteDAO;
 import com.ufpr.tads.web2.dao.ProdutoDAO;
+import com.ufpr.tads.web2.exceptions.FuncionarioException;
 import java.util.List;
 
 /**
@@ -16,11 +17,11 @@ import java.util.List;
  */
 public class FuncionarioFacade {
 
-    public static Produto cadastrarProduto(Produto p) {
+    public static Produto cadastrarProduto(Produto p) throws FuncionarioException {
         return ProdutoDAO.inserir(p);
     }
 
-    public static List<Funcionario> listarTodosFuncionarios() {
+    public static List<Funcionario> listarTodosFuncionarios() throws FuncionarioException {
         return GerenteDAO.listarTodosFuncionarios();
     }
     

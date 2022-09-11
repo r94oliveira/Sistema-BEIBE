@@ -5,6 +5,7 @@
 package com.ufpr.tads.web2.facade;
 
 import com.ufpr.tads.web2.dao.CategoriaDAO;
+import com.ufpr.tads.web2.exceptions.BuscaCategoriaException;
 
 /**
  *
@@ -12,7 +13,7 @@ import com.ufpr.tads.web2.dao.CategoriaDAO;
  */
 public class BuscaCategoriaFacade {
     
-    public static int buscaCategoria(String Categoria){
+    public static int buscaCategoria(String Categoria) throws BuscaCategoriaException {
         
     return CategoriaDAO.buscaCategoria(Categoria);
     }

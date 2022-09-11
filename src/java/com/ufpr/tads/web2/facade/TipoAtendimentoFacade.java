@@ -6,6 +6,7 @@ package com.ufpr.tads.web2.facade;
 
 import com.ufpr.tads.web2.beans.TipoAtendimento;
 import com.ufpr.tads.web2.dao.AtendimentoDAO;
+import com.ufpr.tads.web2.exceptions.TipoAtendimentoException;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public class TipoAtendimentoFacade {
 
-    public static List<TipoAtendimento> consultaTipoAtendimento() {
+    public static List<TipoAtendimento> consultaTipoAtendimento() throws TipoAtendimentoException {
          return AtendimentoDAO.consultaTipoAtendimento();
     }
     

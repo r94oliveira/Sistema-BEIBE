@@ -8,6 +8,7 @@ import com.ufpr.tads.web2.beans.Cliente;
 import com.ufpr.tads.web2.beans.Funcionario;
 import com.ufpr.tads.web2.beans.Login;
 import com.ufpr.tads.web2.dao.LoginDAO;
+import com.ufpr.tads.web2.exceptions.LoginException;
 
 /**
  *
@@ -17,11 +18,11 @@ public class LoginFacade {
 
     LoginDAO log = new LoginDAO();
     
-    public static Cliente logarCliente (Login login){
+    public static Cliente logarCliente (Login login) throws LoginException {
         return LoginDAO.logarCliente(login); 
     }
     
-    public static Funcionario logarFuncionario(Login login) {
+    public static Funcionario logarFuncionario(Login login) throws LoginException {
         return LoginDAO.logarFuncionario(login);
        
     }

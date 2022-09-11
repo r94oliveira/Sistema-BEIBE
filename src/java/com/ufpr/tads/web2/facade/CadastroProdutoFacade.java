@@ -6,6 +6,8 @@ package com.ufpr.tads.web2.facade;
 
 import com.ufpr.tads.web2.beans.Produto;
 import com.ufpr.tads.web2.dao.ProdutoDAO;
+import com.ufpr.tads.web2.exceptions.CadastroProdutoException;
+
 
 /**
  *
@@ -13,7 +15,7 @@ import com.ufpr.tads.web2.dao.ProdutoDAO;
  */
 public class CadastroProdutoFacade {
     
-    public static Produto adicionaProduto(Produto produto){
+    public static Produto adicionaProduto(Produto produto) throws CadastroProdutoException {
             return ProdutoDAO.inserir(produto);
     }
     
