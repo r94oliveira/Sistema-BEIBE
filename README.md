@@ -1,9 +1,11 @@
 # BEIBE
 
-Projeto final desenvolvido na disciplina de Desenvolvimento Web II da UFPR. O sistema envolve o registro e solução de reclamações, sugestões, críticas e problemas através de três perfis distintos: cliente, funcionário e gerente. Além disso, há a emissão de relatórios gerenciais.
+Projeto final desenvolvido na disciplina de Desenvolvimento Web II da UFPR.
+
+O sistema envolve o registro e solução de reclamações, sugestões, críticas e problemas através de três perfis distintos: cliente, funcionário e gerente. Além de informatizar o atendimento ao cliente e rastrear os problemas, o sistema permite ainda emitir relatórios gerenciais em PDF.
 
 ## Tecnologias:
-- O projeto foi desenvolvido com base em MVC, DAO e Façade
+- O projeto foi desenvolvido com base em MVC, DAO e Facade
 - Java: Servlet, JSP, JSTL e EL
 - JavaScript (Jquerry)
 - HTML e CSS (BootStrap)
@@ -11,8 +13,9 @@ Projeto final desenvolvido na disciplina de Desenvolvimento Web II da UFPR. O si
 
 ## Para rodar o projeto:
 - Crie no NetBeans um novo projeto com os arquivos já existentes
+- Através do MySQL(XAMPP) crie as tabelas usando o arquivo "Lógico_vFinal.sql"
 - Importe as bibliotecas em "libs-import"
-- Use o XAMPP para criar as tabelas em "Lógico_vFinal.sql" e realize a conexão do BD no NetBeans
+- Realize a conexão do BD no NetBeans alterando o arquivo ConnectionFactory.java se necessário
 
 ## Imagens do sistema
 
