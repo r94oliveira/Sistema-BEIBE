@@ -57,7 +57,7 @@
                                 <div class="list-group">
                                     <div class="list-group-item">
                                         <p class="list-group-item-text">
-                                            Tipo de atedimento: Reclamação</p>
+                                            Tipo de atedimento: <br>Reclamação</p>
                                         <h4 class="list-group-item-heading count">
                                             ${requestScope.todasReclamacoesEmAberto}/${requestScope.todasReclamacoes}</h4>
                                     </div>
@@ -69,7 +69,7 @@
                                 <div class="list-group">
                                     <div class="list-group-item">
                                         <p class="list-group-item-text">
-                                            Tipo de atedimento: Informação</p>
+                                            Tipo de atedimento: <br>Informação</p>
                                         <h4 class="list-group-item-heading count">
                                             ${requestScope.todasInformacoesEmAberto}/${requestScope.todasInformacoes}</h4>
                                     </div>
@@ -79,7 +79,7 @@
                                 <div class="list-group">
                                     <div class="list-group-item">
                                         <p class="list-group-item-text">
-                                            Tipo de atedimento: Sugestão</p>
+                                            Tipo de atedimento: <br>Sugestão</p>
                                         <h4 class="list-group-item-heading count">
                                             ${requestScope.todasSugestoesEmAberto}/${requestScope.todasSugestoes}</h4>
                                     </div>
@@ -96,7 +96,7 @@
                                 <div class="list-group">
                                     <div class="list-group-item">
                                         <p class="list-group-item-text">
-                                            Tipo de atedimento: Elogio</p>
+                                            Tipo de atedimento: <br>Elogio</p>
                                         <h4 class="list-group-item-heading count">
                                             ${requestScope.todasElogioEmAberto}/${requestScope.todosElogio}</h4>
                                     </div>
@@ -145,7 +145,7 @@
                                         </td>
                                         <td>
                                             <label>Inicial</label> <input type="date" id="data-atendimento1" name="dataAtendimento1">
-                                        
+
                                             <label>Final</label> <input type="date" id="data-atendimento2" name="dataAtendimento2">
                                         </td>
                                         <td>
@@ -164,7 +164,7 @@
                                             <div class="input-group mb-3">
 
                                                 <select class="custom-select" id="ReclamacaoSelect" name="ReclamacaoSelect" required>
-                                                    
+
                                                     <option value="1">Todas</option>
                                                     <option value="2">Em Aberto</option>
                                                     <option value="3">Fechados</option>
@@ -176,7 +176,7 @@
                                                 Emitir
                                             </button>
                                         </td>
-                                        
+
                                     </form>
                                     </tr>
 
