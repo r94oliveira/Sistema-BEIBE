@@ -22,7 +22,7 @@
 *.zip
 *.tar.gz
 *.rar
-
+!libs/*.jar
 
 # JetBrains IDEs
 .idea/
