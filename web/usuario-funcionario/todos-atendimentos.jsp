@@ -1,15 +1,14 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
 
-        <title>Home - FuncionÃ¡rio</title>
-        <meta charset="UTF-8">
-        <%@include file="../header.jsp" %>
+        <title>Home - Funcionário</title>
+        <%@include file="../head.jsp" %>
     </head>
     <body id="home">
 
-        <!-- PÃ¡gina da home -->
+        <!-- Página da home -->
 
         <div class="container-fluid display-table">
             <div class="row display-table-row">
@@ -21,11 +20,11 @@
 
                     <div class="user-dashboard">
                         <div class="row">
-                            <!-- INICIO DE CONTEÃšDO  -->
+                            <!-- INICIO DE CONTEÚDO  -->
 
 
 
-                            <!-- Texto TÃ­tulo -->
+                            <!-- Texto Título -->
                             <div class="w-100">
                                 <h2 class="text-center">Todos os Atendimentos</h2>
                             </div>
@@ -80,7 +79,7 @@
                                         <!-- Modal content-->
                                         <div class="modal-content">
                                             <div class="modal-header login-header">
-                                                <h4 class="modal-title">InformaÃ§Ãµes Atendimento</h4>
+                                                <h4 class="modal-title">Informações Atendimento</h4>
                                             </div>
                                             <form action="${pageContext.request.contextPath}/FuncionarioServlet?action=resolver&idAtendimento=${atendimentos.idAtendimento}" method="post">
                                             <div class="modal-body">
@@ -92,10 +91,10 @@
                                                 <input type="text" name="nomeAtendimento" value="<c:out value="${atendimentos.nomeCategoria}"/> " readonly="readonly" />
                                                      <label>Produto</label>
                                                 <input type="text" name="nomeProduto" value="<c:out value="${atendimentos.nomeProduto}"/> " readonly="readonly" />
-                                                     <label>DescriÃ§Ã£o</label>
+                                                     <label>Descrição</label>
                                                <input type="text" name="descricao" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
-                                                  <label>SoluÃ§Ã£o</label>
-                                                  <input name="solucao" type="text" placeholder="DescriÃ§Ã£o"  ${atendimentos.situacao == 0 ? '' : 'readonly="readonly"'} maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
+                                                  <label>Solução</label>
+                                                  <input name="solucao" type="text" placeholder="Descrição"  ${atendimentos.situacao == 0 ? '' : 'readonly="readonly"'} maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
                                             
                                             
                                             </div>
@@ -152,14 +151,14 @@
                                                 Sim
                                             </button>
                                             <button type="button" class="cancel" data-dismiss="modal">
-                                                NÃ£o
+                                                Não
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- FIM DE CONTEÃšDO  -->
+                            <!-- FIM DE CONTEÚDO  -->
                         </div>
                     </div>
                 </div>

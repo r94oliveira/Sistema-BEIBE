@@ -1,15 +1,13 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>  
         <title>Meus Dados - Cliente</title> 
-        <meta charset="UTF-8">
-        <%@include file="../header.jsp" %>
+        <%@include file="../head.jsp" %>
     </head>
     <body id="home">
 
-        <!-- PÃ¡gina da home -->
+        <!-- Página da home -->
         <div class="container-fluid display-table">
             <div class="row display-table-row">
 
@@ -21,12 +19,12 @@
 
                     <div class="user-dashboard">
                         <div class="row">
-                            <!-- INICIO DE CONTEÃšDO  -->
-                            <!-- Texto TÃ­tulo -->
+                            <!-- INICIO DE CONTEÚDO  -->
+                            <!-- Texto Título -->
                             <div class="w-100 py-4">
                                 <h2 class="text-center">Meu Cadastro</h2>
                             </div>
-                            <!-- FormulÃ¡rio  -->
+                            <!-- Formulário  -->
 
                             <div class="form d-flex flex-row w-100">
 
@@ -73,7 +71,7 @@
                             </div>
 
 
-                            <!-- FIM DE CONTEÃšDO  -->
+                            <!-- FIM DE CONTEÚDO  -->
                         </div>
                     </div>
                 </div>

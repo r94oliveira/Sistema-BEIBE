@@ -1,15 +1,15 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
-        <title>FuncionÃ¡rios - Gerente</title>
-        <%@include file="../header.jsp" %>
+        <title>Funcionários - Gerente</title>
+        <%@include file="../head.jsp" %>
     </head>
 
     <body id="home">
 
-        <!-- PÃ¡gina da home -->
+        <!-- Página da home -->
         <div class="container-fluid display-table">
             <div class="row display-table-row">
                 <%@include file="menu-lateral.jsp" %>
@@ -18,18 +18,18 @@
 
                     <div class="user-dashboard">
                         <div class="row">
-                            <!-- INICIO DE CONTEÃšDO  -->
+                            <!-- INICIO DE CONTEÚDO  -->
 
 
-                            <!-- BotÃ£o para abrir modal  -->
+                            <!-- Botão para abrir modal  -->
 
                             <li class="pt-4">
-                                <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Novo FuncionÃ¡rio</a>
+                                <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Novo Funcionário</a>
                             </li>
 
-                            <!-- Texto TÃ­tulo -->
+                            <!-- Texto Título -->
                             <div class="w-100">
-                                <h2 class="text-center">Lista de FuncionÃ¡rios</h2>
+                                <h2 class="text-center">Lista de Funcionários</h2>
                             </div>
 
                             <!-- tabela -->
@@ -82,7 +82,7 @@
                                         <!-- Modal content-->
                                         <div class="modal-content">
                                             <div class="modal-header login-header">
-                                                <h4 class="modal-title">Atualizar funcionÃ¡rio</h4>
+                                                <h4 class="modal-title">Atualizar funcionário</h4>
                                             </div>
                                             <div class="modal-body modal-height">
                                                 <div class="form d-flex flex-row">
@@ -118,7 +118,7 @@
                                                         <label class="col-4">Cargo:</label>
                                                         <select class="form-control col-11" id="Selectcargo" name="cargo" required>
 
-                                                            <option ${funcionario.cargoFuncionario==1 ? 'selected' : '' }value="1">FuncionÃ¡rio</option>
+                                                            <option ${funcionario.cargoFuncionario==1 ? 'selected' : '' }value="1">Funcionário</option>
                                                             <option ${funcionario.cargoFuncionario==2 ? 'selected' : '' } value="2">Gerente</option>
                                                         </select>
 
@@ -152,7 +152,7 @@
                                     <!-- Modal content-->
                                     <div class="modal-content">
                                         <div class="modal-header login-header">
-                                            <h4 class="modal-title">Novo FuncionÃ¡rio</h4>
+                                            <h4 class="modal-title">Novo Funcionário</h4>
                                         </div>
 
                                         <div class="form d-flex flex-row w-100">
@@ -193,7 +193,7 @@
 
                                                     <select class="form-control col-10" id="Selectcargo" name="cargo" required>
 
-                                                        <option value="1">FuncionÃ¡rio</option>
+                                                        <option value="1">Funcionário</option>
                                                         <option value="2">Gerente</option>
                                                     </select>
 
@@ -212,7 +212,7 @@
                             </div>        
 
 
-                            <!-- FIM DE CONTEÃšDO  -->
+                            <!-- FIM DE CONTEÚDO  -->
                         </div>
                     </div>
                 </div>

@@ -1,16 +1,16 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
 
         <title>Home - Gerente</title>
-        <%@include file="../header.jsp" %>
+        <%@include file="../head.jsp" %>
     </head>
 
     <body id="home">
 
-        <!-- P√°gina da home -->
+        <!-- P·gina da home -->
         <div class="container-fluid display-table">
             <div class="row display-table-row">
                 <%@include file="menu-lateral.jsp" %>
@@ -19,7 +19,7 @@
 
                     <div class="user-dashboard">
                         <div class="row">
-                            <!-- INICIO DE CONTE√öDO  -->
+                            <!-- INICIO DE CONTE⁄DO  -->
 
                             <!-- quadros com quantidades -->
 
@@ -32,7 +32,7 @@
                                         <h4 class="list-group-item-heading count">
                                             ${requestScope.todosAtendimentos}</h4>
                                         <p class="list-group-item-text">
-                                            Atendimentos efetuados at√© o momento</p>
+                                            Atendimentos efetuados atÈ o momento</p>
                                     </div>
                                 </div>
 
@@ -57,7 +57,7 @@
                                 <div class="list-group">
                                     <div class="list-group-item">
                                         <p class="list-group-item-text">
-                                            Tipo de atedimento: <br>Reclama√ß√£o</p>
+                                            Tipo de atedimento: <br>ReclamaÁ„o</p>
                                         <h4 class="list-group-item-heading count">
                                             ${requestScope.todasReclamacoesEmAberto}/${requestScope.todasReclamacoes}</h4>
                                     </div>
@@ -69,7 +69,7 @@
                                 <div class="list-group">
                                     <div class="list-group-item">
                                         <p class="list-group-item-text">
-                                            Tipo de atedimento: <br>Informa√ß√£o</p>
+                                            Tipo de atedimento: <br>InformaÁ„o</p>
                                         <h4 class="list-group-item-heading count">
                                             ${requestScope.todasInformacoesEmAberto}/${requestScope.todasInformacoes}</h4>
                                     </div>
@@ -79,7 +79,7 @@
                                 <div class="list-group">
                                     <div class="list-group-item">
                                         <p class="list-group-item-text">
-                                            Tipo de atedimento: <br>Sugest√£o</p>
+                                            Tipo de atedimento: <br>Sugest„o</p>
                                         <h4 class="list-group-item-heading count">
                                             ${requestScope.todasSugestoesEmAberto}/${requestScope.todasSugestoes}</h4>
                                     </div>
@@ -108,15 +108,15 @@
                                 <table class="table align-middle mb-0 bg-white">
                                     <thead class="bg-light">
                                         <tr>
-                                            <th>Tipo do Relat√≥rio</th>
-                                            <th>Especifica√ß√µes para Emiss√£o</th>
-                                            <th>Emitir relat√≥rio</th>
+                                            <th>Tipo do RelatÛrio</th>
+                                            <th>EspecificaÁıes para Emiss„o</th>
+                                            <th>Emitir relatÛrio</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <p class="fw-normal mb-1">Cadastro de Funcion√°rios</p>
+                                                <p class="fw-normal mb-1">Cadastro de Funcion·rios</p>
                                             </td>
                                             <td>
 
@@ -158,7 +158,7 @@
                                     <tr>
                                     <form action="${pageContext.request.contextPath}/GeradorRelatorioServlet?action=reclamacaoSelect" method="post">
                                         <td>
-                                            <p class="fw-normal mb-1">Reclama√ß√µes</p>
+                                            <p class="fw-normal mb-1">ReclamaÁıes</p>
                                         </td>
                                         <td>
                                             <div class="input-group mb-3">
@@ -203,10 +203,10 @@
                                     <!-- Modal content-->
                                     <div class="modal-content">
                                         <div class="modal-header login-header">
-                                            <h4 class="modal-title">Relat√≥rio</h4>
+                                            <h4 class="modal-title">RelatÛrio</h4>
                                         </div>
                                         <div class="modal-body">
-                                            Relat√≥rio...
+                                            RelatÛrio...
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="cancel" data-dismiss="modal">
@@ -252,14 +252,14 @@
                                     <!-- Modal content-->
                                     <div class="modal-content">
                                         <div class="modal-header login-header">
-                                            <h4 class="modal-title">Deseja realizar essa a√ß√£o?</h4>
+                                            <h4 class="modal-title">Deseja realizar essa aÁ„o?</h4>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="add-modal" data-dismiss="modal">
                                                 Sim
                                             </button>
                                             <button type="button" class="cancel" data-dismiss="modal">
-                                                N√£o
+                                                N„o
                                             </button>
                                         </div>
                                     </div>
@@ -267,7 +267,7 @@
                             </div>
 
 
-                            <!-- FIM DE CONTE√öDO  -->
+                            <!-- FIM DE CONTE⁄DO  -->
                         </div>
                     </div>
                 </div>

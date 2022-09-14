@@ -1,10 +1,9 @@
-<!-- Footer contendo javascript -->
+<!-- Footer contendo js externo e do projeto, além do modal padrão de mensagem -->
 
-
+<!-- JS externo - jquerry, mask, bootstrap, etc -->
 
 <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
-    
 ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script
@@ -17,11 +16,15 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"
 ></script>
+ 
+<!-- JS do projeto -->
 
 <script src="${pageContext.request.contextPath}/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/js/cep.js"></script>
 <script src="${pageContext.request.contextPath}/js/mask.js"></script>
 
+
+<!-- Modal padrão para mensagens vindas da servlet -->
 
 <c:if test="${!empty msgServlet}">        
 

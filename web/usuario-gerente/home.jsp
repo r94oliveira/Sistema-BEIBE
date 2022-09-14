@@ -1,16 +1,16 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
   <title>Home - Gerente</title>
-        <%@include file="../header.jsp" %>
+        <%@include file="../head.jsp" %>
 </head>
 
 <body id="home">
 
-  <!-- PÃ¡gina da home -->
+  <!-- Página da home -->
   <div class="container-fluid display-table">
     <div class="row display-table-row">
     <%@include file="menu-lateral.jsp" %>
@@ -19,7 +19,7 @@
 
         <div class="user-dashboard">
           <div class="row">
-            <!-- INICIO DE CONTEÃšDO  -->
+            <!-- INICIO DE CONTEÚDO  -->
 
             <!-- quadros com quantidades -->
 
@@ -32,7 +32,7 @@
                   <h4 class="list-group-item-heading count">
                       ${requestScope.todosAtendimentos}</h4>
                   <p class="list-group-item-text">
-                    Atendimentos efetuados atÃ© o momento</p>
+                    Atendimentos efetuados até o momento</p>
                 </div>
               </div>
 
@@ -57,7 +57,7 @@
               <div class="list-group">
                 <div class="list-group-item">
                   <p class="list-group-item-text">
-                    Tipo de atedimento: ReclamaÃ§Ã£o</p>
+                    Tipo de atedimento: Reclamação</p>
                   <h4 class="list-group-item-heading count">
                     ${requestScope.todasReclamacoesEmAberto}/${requestScope.todasReclamacoes}</h4>
                 </div>
@@ -69,7 +69,7 @@
               <div class="list-group">
                 <div class="list-group-item">
                   <p class="list-group-item-text">
-                    Tipo de atedimento: InformaÃ§Ã£o</p>
+                    Tipo de atedimento: Informação</p>
                   <h4 class="list-group-item-heading count">
                      ${requestScope.todasInformacoesEmAberto}/${requestScope.todasInformacoes}</h4>
                 </div>
@@ -80,7 +80,7 @@
               <div class="list-group">
                 <div class="list-group-item">
                   <p class="list-group-item-text">
-                    Tipo de atedimento: SugestÃ£o</p>
+                    Tipo de atedimento: Sugestão</p>
                   <h4 class="list-group-item-heading count">
                      ${requestScope.todasSugestoesEmAberto}/${requestScope.todasSugestoes}</h4>
                 </div>
@@ -104,7 +104,7 @@
                
             
 
-                                     <!-- Texto TÃ­tulo -->
+                                     <!-- Texto Título -->
                             <div class="w-100">
                                 <h2 class="text-center">Atendimentos em Aberto</h2>
                             </div>
@@ -159,7 +159,7 @@
                                         <!-- Modal content-->
                                         <div class="modal-content">
                                             <div class="modal-header login-header">
-                                                <h4 class="modal-title">InformaÃ§Ãµes Atendimento</h4>
+                                                <h4 class="modal-title">Informações Atendimento</h4>
                                             </div>
                                             <form action="FuncionarioServlet?action=resolver&idAtendimento=${atendimentos.idAtendimento}" method="post" required="true">
                                             <div class="modal-body">
@@ -171,10 +171,10 @@
                                                 <input type="text" name="nomeAtendimento" value="<c:out value="${atendimentos.nomeCategoria}"/> " readonly="readonly" />
                                                      <label>Produto</label>
                                                 <input type="text" name="nomeProduto" value="<c:out value="${atendimentos.nomeProduto}"/> " readonly="readonly" />
-                                                     <label>DescriÃ§Ã£o</label>
+                                                     <label>Descrição</label>
                                                <input type="text" name="descricao" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
-                                                  <label>SoluÃ§Ã£o</label>
-                                                  <input name="solucao" type="text" placeholder="SoluÃ§Ã£o" readonly="readonly" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
+                                                  <label>Solução</label>
+                                                  <input name="solucao" type="text" placeholder="Solução" readonly="readonly" maxlength="255" value="<c:out value="${atendimentos.solucao}"/>"/>
                                                   
                                                 
                                             
@@ -212,7 +212,7 @@
 
 
 
-            <!-- FIM DE CONTEÃšDO  -->
+            <!-- FIM DE CONTEÚDO  -->
           </div>
         </div>
       </div>

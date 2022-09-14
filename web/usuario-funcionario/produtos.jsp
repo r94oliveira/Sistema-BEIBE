@@ -1,18 +1,16 @@
-<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 
     <head>
-        <title>Produtos  - Funcion√°rio</title>
-        <meta charset="UTF-8">
-        <%@include file="../header.jsp" %>
+        <title>Produtos  - Funcion·rio</title>
+        <%@include file="../head.jsp" %>
 
     </head>
 
     <body id="home">
 
-        <!-- P√°gina da home -->
+        <!-- P·gina da home -->
         <div class="container-fluid display-table">
             <div class="row display-table-row">
 
@@ -22,15 +20,15 @@
 
                     <div class="user-dashboard">
                         <div class="row">
-                            <!-- INICIO DE CONTE√öDO  -->
+                            <!-- INICIO DE CONTE⁄DO  -->
 
-                            <!-- Bot√£o para abrir modal  -->
+                            <!-- Bot„o para abrir modal  -->
 
                             <li class="pt-4">
                                 <a href="#" class="add-modal" data-toggle="modal" data-target="#modal-project">Cadastrar produto</a>
                             </li>
 
-                            <!-- Texto T√≠tulo -->
+                            <!-- Texto TÌtulo -->
                             <div class="w-100">
                                 <h2 class="text-center">Produtos</h2>
                             </div>
@@ -44,7 +42,7 @@
                                             <th>Nome do Produto</th>
                                             <th>Categoria</th>
                                             <th>Peso</th>
-                                            <th>Descri√ß√£o</th>
+                                            <th>DescriÁ„o</th>
                                             <th>Remover produto</th>
 
                                         </tr>
@@ -98,7 +96,7 @@
 
                                                 <input name="nome" type="text" placeholder="Nome" required="true" maxlength="255" />
                                                 <input name="peso" type="number" placeholder="Peso" class="form-control" required="true"/>
-                                                <input name="descricao" type="text" placeholder="Descri√ß√£o" required="true" maxlength="255" />
+                                                <input name="descricao" type="text" placeholder="DescriÁ„o" required="true" maxlength="255" />
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="cancel" data-dismiss="modal">
@@ -121,14 +119,14 @@
                                             
                                         </div>
                                         <div class="modal-body">
-                                            <p>TODOS OS ATENDIMENTOS RELACIONADOS A ELE SER√ÉO EXCLU√çDOS TAMB√âM!<p>
+                                            <p>TODOS OS ATENDIMENTOS RELACIONADOS A ELE SER√O EXCLUÕDOS TAMB…M!<p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="add-modal" id="delBtn">
                                                 Sim
                                             </button>
                                             <button type="button" class="cancel" data-dismiss="modal">
-                                                N√£o
+                                                N„o
                                             </button>
                                         </div>
                                     </div>
@@ -136,7 +134,7 @@
                             </div>
 
 
-                            <!-- FIM DE CONTE√öDO  -->
+                            <!-- FIM DE CONTE⁄DO  -->
                         </div>
                     </div>
                 </div>

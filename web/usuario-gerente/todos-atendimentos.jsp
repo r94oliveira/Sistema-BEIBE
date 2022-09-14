@@ -1,17 +1,16 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../header.jsp" %>
 <!DOCTYPE html>
 <html>
 
 <head>
 
   <title>Atendimentos - Gerente</title>
-   <meta charset="UTF-8">
-          <%@include file="../header.jsp" %>
+          <%@include file="../head.jsp" %>
 </head>
 
 <body id="home">
     
-  <!-- PÃ¡gina da home -->
+  <!-- Página da home -->
   <div class="container-fluid display-table">
     <div class="row display-table-row">
     <%@include file="menu-lateral.jsp" %>
@@ -20,8 +19,8 @@
 
         <div class="user-dashboard">
           <div class="row">
-            <!-- INICIO DE CONTEÃšDO  -->
-            <!-- Texto TÃ­tulo -->
+            <!-- INICIO DE CONTEÚDO  -->
+            <!-- Texto Título -->
             <div class="w-100">
                                 <h2 class="text-center">Todos os Atendimentos</h2>
                             </div>
@@ -80,7 +79,7 @@
                                         <!-- Modal content-->
                                         <div class="modal-content">
                                             <div class="modal-header login-header">
-                                                <h4 class="modal-title">InformaÃ§Ãµes Atendimento</h4>
+                                                <h4 class="modal-title">Informações Atendimento</h4>
                                             </div>
                                             <div class="modal-body">
                                                 <label>Tipo de Atendimento</label>
@@ -89,9 +88,9 @@
                                                 <input type="text" name="categoriaAtendimento" value="<c:out value="${atendimentos.nomeCategoria}"/> " readonly="readonly" />
                                                      <label>Produto</label>
                                                 <input type="text" name="produto" value="<c:out value="${atendimentos.nomeProduto}"/> " readonly="readonly" />
-                                                     <label>DescriÃ§Ã£o</label>
+                                                     <label>Descrição</label>
                                                <input type="text" name="produto" value="<c:out value="${atendimentos.descricao}"/> " readonly="readonly" />
-                                                  <label>SoluÃ§Ã£o</label>
+                                                  <label>Solução</label>
                                                    <input type="text" name="produto" value="<c:out value="${atendimentos.solucao}"/> " readonly="readonly" />
                                             
                                             
@@ -107,7 +106,7 @@
                             </c:forEach>  
 
           
-            <!-- FIM DE CONTEÃšDO  -->
+            <!-- FIM DE CONTEÚDO  -->
           </div>
         </div>
       </div>
