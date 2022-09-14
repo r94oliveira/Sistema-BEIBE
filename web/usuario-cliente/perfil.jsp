@@ -34,7 +34,7 @@
 
 
 
-                                <form action="${pageContext.request.contextPath}/ClienteServlet?action=alteraCadastro&idCliente=${cliente.idCliente}" method="post" class="col-12 p-0 m-0">
+                                <form action="${pageContext.request.contextPath}/ClienteServlet?action=alteraCadastro&idCliente=${cliente.idCliente}" method="post" class="col-12 p-0 m-0 submit-jsp">
 
                                     
                                     
@@ -51,7 +51,7 @@
 
                                     <label class="col-2">Numero:</label> <input required type="number" name="Numero" class="form-control col-9" value="${cliente.numeroEndercoCliente}" maxlength="255" />
 
-                                    <label class="col-2">Complemento:</label> <input required type="text" name="Complemento" class="form-control col-9" value="${cliente.complementoEnderecoCliente}" maxlength="255"/>
+                                    <label class="col-2">Complemento:</label> <input type="text" name="Complemento" class="form-control col-9" value="${cliente.complementoEnderecoCliente}" maxlength="255"/>
 
                                     <label class="col-2">Bairro:</label> <input required type="text" name="Bairro" class="form-control col-9" value="${cliente.bairroEnderecoCliente}" maxlength="255"/>
 

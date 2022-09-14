@@ -129,7 +129,7 @@
               <p class="text-center">
                 Digite as informações para criar sua conta
               </p>
-              <form action="${pageContext.request.contextPath}/CadastroClienteServlet" method="post">
+              <form action="${pageContext.request.contextPath}/CadastroClienteServlet" class="submit-jsp" method="post">
                 <input
                   required
                   type="text"
@@ -184,7 +184,7 @@
                 />
 
                 <input
-                  required
+                  
                   type="text"
                   name="Complemento"
                   class="form-control"

@@ -13,9 +13,9 @@ O sistema envolve o registro e solução de reclamações, sugestões, críticas
 
 ## Para rodar o projeto:
 - Crie no NetBeans um novo projeto com os arquivos já existentes
+- Importe as bibliotecas em "libs"
 - Através do MySQL(XAMPP) crie as tabelas usando o arquivo "Lógico_vFinal.sql"
-- Importe as bibliotecas em "libs-import"
-- Realize a conexão do BD no NetBeans alterando o arquivo ConnectionFactory.java se necessário
+- Realize a conexão do BD no NetBeans alterando o arquivo "ConnectionFactory.java" se necessário
 
 ## Imagens do sistema
 

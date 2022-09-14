@@ -6,7 +6,7 @@
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     
 ></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 <script
     src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -20,6 +20,7 @@
 
 <script src="${pageContext.request.contextPath}/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/js/cep.js"></script>
+<script src="${pageContext.request.contextPath}/js/mask.js"></script>
 
 
 <c:if test="${!empty msgServlet}">        

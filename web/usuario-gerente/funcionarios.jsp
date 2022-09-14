@@ -87,7 +87,7 @@
                                             <div class="modal-body modal-height">
                                                 <div class="form d-flex flex-row">
 
-                                                    <form action="${pageContext.request.contextPath}/GerenteServlet?action=alterarFuncionario&idFuncionario=${funcionario.idFuncionario}" method="post" class="custom-control custom-checkbox mb-3">
+                                                    <form action="${pageContext.request.contextPath}/GerenteServlet?action=alterarFuncionario&idFuncionario=${funcionario.idFuncionario}" method="post" class="custom-control custom-checkbox mb-3 submit-jsp">
 
                                                         <label class="col-4">Nome:</label>  <input required type="text" name="nome" class="form-control col-11" placeholder="Nome" value="${funcionario.nomeFuncionario}" />
 
@@ -105,7 +105,7 @@
 
                                                         <label class="col-4">Numero:</label> <input required type="number" name="numero" class="form-control col-11" placeholder="Numero" value="${funcionario.numeroEndercoFuncionario}"/>
 
-                                                        <label class="col-4">Complemento:</label> <input required type="text" name="complemento" class="form-control col-11" placeholder="Complemento" value="${funcionario.complementoEnderecoFuncionario}"/>
+                                                        <label class="col-4">Complemento:</label> <input type="text" name="complemento" class="form-control col-11" placeholder="Complemento" value="${funcionario.complementoEnderecoFuncionario}"/>
 
                                                         <label class="col-4">Cep:</label> <input required type="text" name="cep" class="form-control col-11" placeholder="CEP" value="${funcionario.cepEnderecoFuncionario}" />
 
@@ -157,7 +157,7 @@
 
                                         <div class="form d-flex flex-row w-100">
 
-                                            <form action="${pageContext.request.contextPath}/GerenteServlet?action=cadastrarFuncionario" class="custom-control custom-checkbox mb-3" method="post">
+                                            <form action="${pageContext.request.contextPath}/GerenteServlet?action=cadastrarFuncionario" class="custom-control custom-checkbox mb-3 submit-jsp" method="post">
                                                 <div class="modal-body">
 
                                                     <input required type="text" name="nome" class="form-control col-10" placeholder="Nome" />
@@ -180,7 +180,7 @@
 
                                                     <input required type="number" name="numero" class="form-control col-5" placeholder="Numero" />
 
-                                                    <input required type="text" name="complemento" class="form-control col-5" placeholder="Complemento" />
+                                                    <input type="text" name="complemento" class="form-control col-5" placeholder="Complemento" />
 
 
 
