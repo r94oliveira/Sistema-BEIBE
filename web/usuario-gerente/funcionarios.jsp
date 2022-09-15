@@ -59,11 +59,12 @@
                                                     <p class="fw-normal mb-1"><c:out value="${funcionario.sobrenomeFuncionario}"/></p>
                                                 </td>
 
-                                                <td>
-                                                    <a href="#" data-toggle="modal" data-target="#modal-form-${funcionario.idFuncionario}"><button type="button" class="btn btn-link btn-sm btn-rounded">
-                                                            Abrir
-                                                        </button></a>
-                                                </td>
+
+
+                                                <td><a href="#" data-toggle="modal" data-target="#${sessionScope.logado.id == funcionario.idFuncionario ? '' : 'modal'}-form-${funcionario.idFuncionario}"><button type="button" class="btn btn-link btn-sm btn-rounded"> ${sessionScope.logado.id == funcionario.idFuncionario ? '' : 'Abrir'} </button></a></td>
+
+
+
                                             </tr>
                                         </c:forEach>
                                     </tbody>

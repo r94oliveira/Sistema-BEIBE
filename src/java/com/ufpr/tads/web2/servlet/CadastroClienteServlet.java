@@ -61,7 +61,11 @@ public class CadastroClienteServlet extends HttpServlet {
                 request.setAttribute("msgServlet","CPF inválido");
                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                 rd.forward(request, response);
-            }
+            } else {  
+            
+            
+            
+            
             
             
             
@@ -104,9 +108,14 @@ public class CadastroClienteServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                 rd.forward(request, response); 
             }
+            
+            
+        }
         } catch (ClienteException ex) {
             Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
+            
             
     }
 

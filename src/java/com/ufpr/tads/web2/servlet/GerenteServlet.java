@@ -78,9 +78,9 @@ public class GerenteServlet extends HttpServlet {
                 
                 if (!cpfb){
                     request.setAttribute("msgServlet","CPF inválido");
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
                     rd.forward(request, response);
-                }
+                } else { 
                 
                 Funcionario funcionario = new Funcionario();
                 funcionario.setNomeFuncionario(nome);
@@ -115,6 +115,7 @@ public class GerenteServlet extends HttpServlet {
                 request.setAttribute("msgServlet","Funcionario adicionado!");
                 RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
                 rd.forward(request, response);
+                }
             } catch (GerenteException ex) {
                 Logger.getLogger(GerenteServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
