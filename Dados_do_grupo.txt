@@ -2,9 +2,9 @@ GRR:
 Nome Completo: Jana
 E-mail: 
 
-GRR: 
-Nome Completo: Katiana
-E-mail: 
+GRR: 20204471
+Nome Completo: Katiana Mara Zeitz
+E-mail: katiana.zeitz@ufpr.br
 
 GRR: 
 Nome Completo: Rafael
