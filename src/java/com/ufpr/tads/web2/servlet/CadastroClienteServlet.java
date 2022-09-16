@@ -39,7 +39,7 @@ public class CadastroClienteServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             response.setContentType("text/html;charset=UTF-8");
-            
+            request.setCharacterEncoding("UTF-8");
             String nome = request.getParameter("Nome");
             String sobrenome = request.getParameter("Sobrenome");
             String email = request.getParameter("Email");
@@ -95,7 +95,7 @@ public class CadastroClienteServlet extends HttpServlet {
                 rd.forward(request, response);
             }
             
-            
+            else{
             
         
             if(ClienteFacade.adicionaCliente(c) == null){
@@ -109,10 +109,14 @@ public class CadastroClienteServlet extends HttpServlet {
                 rd.forward(request, response); 
             }
             
-            
+            }
         }
         } catch (ClienteException ex) {
             Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response); 
+            
         }
       
             

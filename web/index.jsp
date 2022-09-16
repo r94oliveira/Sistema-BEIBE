@@ -1,13 +1,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page errorPage = "${pageContext.request.contextPath}/erro.jsp" %>
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>P√°gina de Login</title>
+    <title>P·gina de Login</title>
 
     <!-- CSS only -->
     <link rel="stylesheet" href="css/style.css" />
@@ -26,7 +26,7 @@
   </head>
   
   <body id="login">
-    <!-- P√°gina de login -->
+    <!-- P·gina de login -->
 
     <div class="d-flex justify-content-center align-items-center mt-5 mb-5">
       <div class="card">
@@ -59,7 +59,7 @@
           </li>
         </ul>
 
-        <!--Conte√∫do de login e cadastro -->
+        <!--Conte˙do de login e cadastro -->
 
         <div class="tab-content" id="pills-tabContent">
           <!-- Login -->
@@ -106,7 +106,7 @@
                 
                 <c:set var="falha" value="${param.falha}" />
                 <c:if test="${falha}">
-                    <h5>Usu√°rio ou Senha Inv√°lidos</h5>
+                    <h5>Usu·rio ou Senha Inv·lidos</h5>
                     <br>
                 </c:if>
 
@@ -127,7 +127,7 @@
             <div class="form px-4 h-auto">
               <h3 class="text-center">BEIBE</h3>
               <p class="text-center">
-                Digite as informa√ß√µes para criar sua conta
+                Digite as informaÁıes para criar sua conta
               </p>
               <form action="${pageContext.request.contextPath}/CadastroClienteServlet" class="submit-jsp" method="post">
                 <input
@@ -180,7 +180,7 @@
                   type="number"
                   name="Numero"
                   class="form-control"
-                  placeholder="N√∫mero"
+                  placeholder="N˙mero"
                 />
 
                 <input

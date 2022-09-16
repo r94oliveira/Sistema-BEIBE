@@ -63,6 +63,9 @@ public class ClienteServlet extends HttpServlet {
                rd.forward(request, response);
            } catch (AtendimentoException ex) {
                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+               request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response); 
            }
         }
        
@@ -157,6 +160,9 @@ public class ClienteServlet extends HttpServlet {
                }
            } catch (ClienteException ex) {
                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+               request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response); 
            }
         }
         
@@ -191,6 +197,9 @@ public class ClienteServlet extends HttpServlet {
                rd.forward(request, response);
            } catch (TipoAtendimentoException ex) {
                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+               request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response); 
            }
         }
         
@@ -222,6 +231,9 @@ public class ClienteServlet extends HttpServlet {
                rd.forward(request, response);
            } catch (AtendimentoException ex) {
                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+               request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response); 
            }
         }
         
@@ -239,6 +251,9 @@ public class ClienteServlet extends HttpServlet {
                rd.forward(request, response);
            } catch (AtendimentoException ex) {
                Logger.getLogger(ClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+               request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response); 
            }
         }
         

@@ -94,9 +94,9 @@
 
                                                         <label class="col-4">Sobrenome:</label><input required type="text" name="sobrenomeFuncionario" class="form-control col-11" placeholder="sobrenome" value="${funcionario.sobrenomeFuncionario}" />
 
-                                                        <label class="col-4">CPF:</label> <input required type="text" name="cpf" class="form-control col-11" placeholder="CPF"  value="${funcionario.cpfFuncionario}"  />
+                                                        <label class="col-4">CPF:</label> <input required type="text" name="cpf" class="form-control col-11" placeholder="CPF"  value="${funcionario.cpfFuncionario}" readonly="readonly"  />
 
-                                                        <label class="col-4">E-mail:</label> <input required type="email" name="email" class="form-control col-11" placeholder="E-mail" value="${funcionario.emailFuncionario}"/>
+                                                        <label class="col-4">E-mail:</label> <input required type="email" name="email" class="form-control col-11" placeholder="E-mail" value="${funcionario.emailFuncionario}" readonly="readonly" />
 
                                                         <label class="col-4">Senha:</label> <input required type="password" name="senha" class="form-control col-11" placeholder="Senha" value="" />
 
@@ -119,7 +119,7 @@
                                                         <label class="col-4">Cargo:</label>
                                                         <select class="form-control col-11" id="Selectcargo" name="cargo" required>
 
-                                                            <option ${funcionario.cargoFuncionario==1 ? 'selected' : '' }value="1">Funcionário</option>
+                                                            <option ${funcionario.cargoFuncionario==1 ? 'selected' : '' } value="1">Funcionário</option>
                                                             <option ${funcionario.cargoFuncionario==2 ? 'selected' : '' } value="2">Gerente</option>
                                                         </select>
 

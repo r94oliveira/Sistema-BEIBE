@@ -1,6 +1,7 @@
 package com.ufpr.tads.web2.beans;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -18,6 +19,31 @@ public class Atendimento implements Serializable{
     private int idTipoAtendimento;
     private String nomeProduto;
     private String nomeCategoria;
+    private Timestamp horaBanco;
+
+    public Atendimento(int idAtendimento, String dataHoraAtendimento, String descricao, String solucao, int situacao, int idCliente, int idProduto, int idTipoAtendimento, String nomeProduto, String nomeCategoria, Timestamp horaBanco, String nomeTipoAtendimento, int idFuncionario) {
+        this.idAtendimento = idAtendimento;
+        this.dataHoraAtendimento = dataHoraAtendimento;
+        this.descricao = descricao;
+        this.solucao = solucao;
+        this.situacao = situacao;
+        this.idCliente = idCliente;
+        this.idProduto = idProduto;
+        this.idTipoAtendimento = idTipoAtendimento;
+        this.nomeProduto = nomeProduto;
+        this.nomeCategoria = nomeCategoria;
+        this.horaBanco = horaBanco;
+        this.nomeTipoAtendimento = nomeTipoAtendimento;
+        this.idFuncionario = idFuncionario;
+    }
+
+    public Timestamp getHoraBanco() {
+        return horaBanco;
+    }
+
+    public void setHoraBanco(Timestamp horaBanco) {
+        this.horaBanco = horaBanco;
+    }
 
     public String getNomeProduto() {
         return nomeProduto;
@@ -86,22 +112,7 @@ public class Atendimento implements Serializable{
     
     }
     
-    public Atendimento(int idAtendimento, String dataHoraAtendimento, String descricao, String solucao, int situacao, int idCliente, int idProduto, int idTipoAtendimento, String nomeProduto, String nomeCategoria, String nomeTipoAtendimento, int idFuncionario) {
-        this.idAtendimento = idAtendimento;
-        this.dataHoraAtendimento = dataHoraAtendimento;
-        this.descricao = descricao;
-        this.solucao = solucao;
-        this.situacao = situacao;
-        this.idCliente = idCliente;
-        this.idProduto = idProduto;
-        this.idTipoAtendimento = idTipoAtendimento;
-        this.nomeProduto = nomeProduto;
-        this.nomeCategoria = nomeCategoria;
-        this.nomeTipoAtendimento = nomeTipoAtendimento;
-        this.idFuncionario = idFuncionario;
-    }
-
-    public int getIdAtendimento() {
+        public int getIdAtendimento() {
         return idAtendimento;
     }
 

@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
             Login log = new Login ();
             log.setEmail(email);
             log.setSenha(senha);
-            
+            request.setCharacterEncoding("UTF-8");
             Cliente cliente = LoginFacade.logarCliente(log);
             
             if (0 != cliente.getIdCliente()){
@@ -94,7 +94,10 @@ public class LoginServlet extends HttpServlet {
                 rd.forward(request, response);
             }
         } catch (LoginException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                            rd.forward(request, response);
         }
     }
 

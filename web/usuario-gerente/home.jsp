@@ -118,7 +118,7 @@
                                             <th>Produto</th>
                                             <th>Abertura</th>
                                             <th>Status</th>
-                                            <th>Resolver</th>
+                                            <th>Detalhes</th>
                                          
 
                                         </tr>

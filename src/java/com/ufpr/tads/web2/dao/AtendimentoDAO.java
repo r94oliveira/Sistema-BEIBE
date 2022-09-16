@@ -207,7 +207,9 @@ public class AtendimentoDAO {
                 atendimento.setNomeCategoria(rs.getString("nomeCategoria"));
                 atendimento.setNomeTipoAtendimento(rs.getString("nomeTipoAtendimento"));
                 System.out.print(atendimento.getIdAtendimento());
+                atendimento.setHoraBanco(rs.getTimestamp("dataHoraAtendimento"));
                 atendimentos.add(atendimento);
+                
                 //comentario
             }
             st.close();

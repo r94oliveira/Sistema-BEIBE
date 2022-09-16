@@ -39,8 +39,8 @@
 </body>
    <div class="footer">
         Em caso de problemas contactar o administrador:
-        <a href="mailto:${configuracao.email}">
-        <c:out value="${configuracao.email}" /> </a>
+        <a href="mailto:janainaercole@ufpr.br">
+        janainaercole@ufpr.br </a>
         </div><br>
 </html>
 

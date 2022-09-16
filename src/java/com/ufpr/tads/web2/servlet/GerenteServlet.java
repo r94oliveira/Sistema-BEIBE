@@ -23,7 +23,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.sql.Timestamp;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -48,7 +52,7 @@ public class GerenteServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         String action = request.getParameter("action");
         ServletContext sc = request.getServletContext();
@@ -105,19 +109,25 @@ public class GerenteServlet extends HttpServlet {
                     } catch (FuncionarioException ex) {
                         Logger.getLogger(GerenteServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                
                     request.setAttribute("listarFuncionarios", funcionarios);
                     request.setAttribute("msgServlet","Funcionario não cadastrado! Email ou CPF Já Existem Em Outro Cadastro");
                     RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/funcionarios.jsp");
                     rd.forward(request, response);
-                }
+                    }
+                else{
                 
                 GerenteFacade.cadastrarFuncionario(funcionario);
                 request.setAttribute("msgServlet","Funcionario adicionado!");
                 RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
                 rd.forward(request, response);
                 }
+                }
             } catch (GerenteException ex) {
-                Logger.getLogger(GerenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                            rd.forward(request, response);
             }
             
         }
@@ -174,7 +184,10 @@ public class GerenteServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/GerenteServlet?action=listarFuncionarios");
                 rd.forward(request, response);
             } catch (GerenteException ex) {
-                Logger.getLogger(GerenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                            rd.forward(request, response);
             }
             
         }
@@ -186,6 +199,26 @@ public class GerenteServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 List<Atendimento> atendimentos = new ArrayList<Atendimento>();
                 atendimentos = AtendimentoFacade.listarTodosAtendimentos();
+                
+                // MUDAR A COR
+               // Long datetime = System.currentTimeMillis();
+                //Timestamp timestamp = new Timestamp(datetime);
+                
+                //for(Atendimento atendimento:atendimentos){
+                
+                //Timestamp tsBanco = atendimento.getHoraBanco();
+                
+                //int x = timestamp.compareTo(tsBanco);
+                
+            
+                //System.out.print("RESULTADO DO X AQUI");
+                //System.out.print(x);
+               // System.out.print(tsBanco);
+                
+                //System.out.print(timestamp);
+                
+                //}        
+                
                 request.setAttribute("atendimentos", atendimentos);
                 for(Atendimento atendimento:atendimentos){
                     System.out.println(atendimento.getIdAtendimento());
@@ -193,7 +226,10 @@ public class GerenteServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/todos-atendimentos.jsp");
                 rd.forward(request, response);
             } catch (AtendimentoException ex) {
-                Logger.getLogger(GerenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                            rd.forward(request, response);
             }
         
         }
@@ -205,7 +241,10 @@ public class GerenteServlet extends HttpServlet {
                 try {
                     atendimentos = AtendimentoFacade.listarTodosAtendimentosEmAberto();
                 } catch (AtendimentoException ex) {
-                    Logger.getLogger(GerenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                            rd.forward(request, response);
                 }
                 request.setAttribute("atendimentos", atendimentos);
                 //fazer para atulizar os relatorios(facade)
@@ -250,7 +289,10 @@ public class GerenteServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/home.jsp"); 
                 rd.forward(request, response);
             } catch (GerenteException ex) {
-                Logger.getLogger(GerenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                            rd.forward(request, response);
             }
             
         }
@@ -266,7 +308,10 @@ public class GerenteServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/funcionarios.jsp"); 
                 rd.forward(request, response);
             } catch (FuncionarioException ex) {
-                Logger.getLogger(GerenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                            rd.forward(request, response);
             }
         
         }
@@ -315,7 +360,10 @@ public class GerenteServlet extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("/usuario-gerente/relatorios.jsp"); 
                 rd.forward(request, response);
             } catch (GerenteException ex) {
-                Logger.getLogger(GerenteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroClienteServlet.class.getName()).log(Level.SEVERE, null, ex);
+                        request.setAttribute("msgServlet","Parece que tivemos um erro, por favor faça o login novamente");
+                            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                            rd.forward(request, response);
             }
         
         
