@@ -4,7 +4,7 @@ Projeto final desenvolvido na disciplina de Desenvolvimento Web II da UFPR.
 
 O sistema envolve o registro e solução de reclamações, sugestões, críticas e problemas através de três perfis distintos: cliente, funcionário e gerente. Além de informatizar o atendimento ao cliente e rastrear os problemas, o sistema permite ainda emitir relatórios gerenciais em PDF.
 
-Projeto de Java Web utilizando JDK 11, Jakarta EE 9 e GlassFish 6.1.
+Esse projeto de Java Web utilizou JDK 11, Jakarta EE 9 e GlassFish 6.1.
 
 ## Tecnologias:
 - O projeto foi desenvolvido com base em MVC, DAO e Facade
