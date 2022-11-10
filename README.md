@@ -1,4 +1,4 @@
-# BEIBE
+# Sistema BEIBE
 
 Projeto final desenvolvido na disciplina de Desenvolvimento Web II da UFPR.
 
